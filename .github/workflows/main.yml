@@ -18,12 +18,10 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install AWS CLI
+      - name: Use Locally Installed AWS CLI
         run: |
-          curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-          aws --version
+          npm run aws --version  # Use 'npm run' to execute AWS CLI installed in your project
+          aws --version  # Optionally, also check the global AWS CLI version if it's installed
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
