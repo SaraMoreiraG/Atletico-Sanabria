@@ -1,40 +1,75 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&family=Roboto+Condensed:wght@200;300;400;500;600;900&display=swap');
+
+.app {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-margin {
+  margin: 0 5em;
+  padding: 5em;
+}
+.p-10{
+  margin: 0 5em;
+  padding: 0 5em;
+}
+.border-rounded {
+  border-radius: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  height: 85px;
+  color: #1c233b;
+  text-transform: uppercase;
+}
+.navbar a{
+  color: #1a2138;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
+.slider1,
+.slider2,
+.slider3 {
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 85vh;
+  position: relative;
+}
+.slider1{
+  background-image: url("./assets/images/slider1.jpg");
+}
+.slider2{
+  background-image: url("./assets/images/slider2.jpg");
+}
+.slider3{
+  background-image: url("./assets/images/slider3.jpg");
+}
+/* .text-slider{
+  display: inline;
+} */
+.bg-white {
+  background-color: #fff;
+  color: #0d0d0d;
+  padding: 10px 15px;
+  font-size: 31px;
+  font-weight: 500;
+  display: inline;
+
+
 }
 
-.App-link {
-  color: #61dafb;
+.bg-red {
+  background-color: #ed563b;
+  color: #fff;
+  padding: 10px 15px;
+  display: inline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-grey {
+  background-color: #171e36;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
 }
