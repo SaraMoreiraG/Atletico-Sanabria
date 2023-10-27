@@ -43,7 +43,7 @@ function NextMatch() {
         <div className="match-info col-4">
           <span className="clock">22:00</span>
           <br />
-          <span class="vs-sign">vs</span>
+          <span className="vs-sign">vs</span>
           <div className="time-venue">
             <span className="venue">Brighton City No:5 , Brighton</span>
             <br />

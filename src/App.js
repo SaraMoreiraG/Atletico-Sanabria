@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import SimpleSlider from './Slider';
 import NextMatch from './components/NextMatch/NextMatch';
 import PointTable from './components/PointTable/PointTable';
+import Clasification from './management/Clasification/Clasification';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <NextMatch />
       <PointTable />
       </div>
+      <Clasification />
 
     </div>
   );

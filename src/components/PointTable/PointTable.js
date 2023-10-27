@@ -1,10 +1,49 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import './PointTable.css'
 
 import logo from "../../assets/images/atletico-sanabria-transparent.png";
 
 function PointTable() {
+	const [data, setData] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+	  // Define the URL to fetch data
+	  const apiUrl = 'http://localhost:3001/clasificationdb/onlyfive';
+
+	  // Make a GET request to the API
+	  fetch(apiUrl)
+		.then((response) => {
+		  if (!response.ok) {
+			throw new Error('Network response was not ok');
+		  }
+		  return response.json();
+		})
+		.then((data) => {
+			data.sort((a, b) => b.pts - a.pts);
+		  setData(data);
+		  setLoading(false);
+		})
+		.catch((err) => {
+		  setError(err);
+		  setLoading(false);
+		});
+	}, []);
+
+	if (loading) {
+		return (
+		  <div className="clasification col-4 p-3 my-5">
+			<div>Loading...</div>
+		  </div>
+		);
+	  }
+
+	if (error) {
+	  return <div>Error: {error.message}</div>;
+	}
+	let position = 1;
   return (
     <div className="clasification col-4 p-3 my-5">
       <h3 className="mb-3">Clasificación</h3>
@@ -13,44 +52,28 @@ function PointTable() {
           <tr className="text-center">
             <th className="col-1 p-2">Pos</th>
             <th className="text-start">Equipo</th>
-            <th className="col-1">Pl</th>
+            <th className="col-1">PJ</th>
+            <th className="col-1">PG</th>
+            <th className="col-1">PE</th>
+            <th className="col-1">PP</th>
             <th className="col-1">Pts</th>
-            <th className="col-1">W</th>
-            <th className="col-1">D</th>
-            <th className="col-1">L</th>
           </tr>
         </thead>
         <tbody>
-		<tr className="text-center">
-            <td className="py-2">1.</td>
+		{data.map((item, index ) => (
+		<tr key={index} className="text-center">
+            <td className="py-2">{position++}.</td>
             <td className="text-start">
 				<img src={logo} height="25px" className="me-2"/>
-				Team A
+				{item.name}
 			</td>
-            <td>10</td>
-            <td>30</td>
-            <td>9</td>
-            <td>3</td>
-            <td>1</td>
+            <td>{item.pj}</td>
+            <td>{item.pg}</td>
+            <td>{item.pe}</td>
+            <td>{item.pp}</td>
+            <td>{item.pts}</td>
           </tr>
-          <tr className="text-center">
-            <td className="py-2">2.</td>
-            <td className="text-start">Team B</td>
-            <td>10</td>
-            <td>27</td>
-            <td>8</td>
-            <td>3</td>
-            <td>2</td>
-          </tr>
-          <tr className="text-center">
-            <td className="py-2">3.</td>
-            <td className="text-start">Team C</td>
-            <td>10</td>
-            <td>24</td>
-            <td>7</td>
-            <td>3</td>
-            <td>3</td>
-          </tr>
+        ))}
         </tbody>
       </table>
     </div>
