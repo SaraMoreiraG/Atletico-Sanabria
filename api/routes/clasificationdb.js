@@ -186,55 +186,60 @@ router.delete("/delete/:itemId/:itemName", (req, res) => {
 
 // Create Item
 router.post("/add", async (req, res) => {
-  const newTeam = req.body;
+	const newTeam = req.body;
 
-  if (
-    !newTeam ||
-    !newTeam.name ||
-    !newTeam.pj ||
-    !newTeam.pg ||
-    !newTeam.pe ||
-    !newTeam.pp ||
-    !newTeam.pts
-  ) {
-    return res.status(400).json({ error: "All fields are required" });
-  }
+	if (!newTeam || !newTeam.name) {
+	  return res.status(400).json({ error: "Name is required" });
+	}
 
-  try {
-    // Generate a random unique ID
-    const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
+	try {
+	  // Generate a random unique ID
+	  const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
 
-    const newTeamParams = {
-      TableName: "clasification",
-      Item: {
-        id: { N: "1698524243177" },
-        name: { S: "dsa" },
-        pj: { N: "2" },
-        pg: { N: "2" },
-        pe: { N: "2" },
-        pp: { N: "2" },
-        pts: { N: "2" },
-      },
-    };
+	  const newTeamParams = {
+		TableName: "clasification",
+		Item: {
+		  id: { N: uniqueId.toString() },
+		  name: { S: newTeam.name },
+		},
+	  };
 
-    // Use DynamoDBClient to send the PutItemCommand
-    dynamodbClient
-      .send(new PutItemCommand(newTeamParams))
-      .then(() => {
-        res.status(201).json({
-          message: "New team created successfully",
-        });
-      })
-      .catch((err) => {
-        console.error("Error adding new team:", err);
-        res
-          .status(500)
-          .json({ error: "An error occurred while creating the team" });
-      });
-  } catch (error) {
-    console.error("Error adding item:", error);
-    res.status(500).json({ error: "Adding Error" });
-  }
-});
+	  // Optional attributes
+	  if (newTeam.pj) {
+		newTeamParams.Item.pj = { N: newTeam.pj.toString() };
+	  }
+	  if (newTeam.pg) {
+		newTeamParams.Item.pg = { N: newTeam.pg.toString() };
+	  }
+	  if (newTeam.pe) {
+		newTeamParams.Item.pe = { N: newTeam.pe.toString() };
+	  }
+	  if (newTeam.pp) {
+		newTeamParams.Item.pp = { N: newTeam.pp.toString() };
+	  }
+	  if (newTeam.pts) {
+		newTeamParams.Item.pts = { N: newTeam.pts.toString() };
+	  }
+
+	  // Use DynamoDBClient to send the PutItemCommand
+	  dynamodbClient
+		.send(new PutItemCommand(newTeamParams))
+		.then(() => {
+		  res.status(201).json({
+			message: "New team created successfully",
+		  });
+		})
+		.catch((err) => {
+		  console.error("Error adding new team:", err);
+		  res
+			.status(500)
+			.json({ error: "An error occurred while creating the team" });
+		});
+	} catch (error) {
+	  console.error("Error adding item:", error);
+	  res.status(500).json({ error: "Adding Error" });
+	}
+  });
+
 
 module.exports = router;
