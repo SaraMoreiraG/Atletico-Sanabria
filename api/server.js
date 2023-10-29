@@ -11,6 +11,9 @@ app.use(express.json());
 const clasificationdb = require('./routes/clasificationdb');
 app.use('/clasificationdb', clasificationdb);
 
+const matchesdb = require('./routes/matchesdb');
+app.use('/matchesdb', matchesdb);
+
 // Define the root URL route
 app.get('/', (req, res) => {
   res.send('Welcome to your API');

@@ -54,7 +54,7 @@ function Clasification() {
   }, []);
 
   // Function to handle input changes for a new team
-  const handleInputChangeNewTeam = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewTeam((prevTeam) => ({
       ...prevTeam,
@@ -125,8 +125,17 @@ function Clasification() {
   };
 
   // Function to handle an edit click on a specific row
-  const handleEditClick = (rowIndex) => {
+  const handleEdit = (rowIndex) => {
     setEditState({ rowIndex, columnIndex: null });
+	setAddingTeam(false)
+  setNewTeam({
+    name: "",
+    pj: "",
+    pg: "",
+    pe: "",
+    pp: "",
+    pts: "",
+  });
   };
 
   // Function to check if a row is in edit state based on its rowIndex
@@ -134,24 +143,30 @@ function Clasification() {
     return editState.rowIndex === rowIndex;
   };
 
-  // Function to handle input changes for editting team
-  const handleInputChange = (rowIndex, columnName, value) => {
-    const updatedData = [...data];
-    updatedData[rowIndex][columnName] = value;
-    setData(updatedData);
+  // Function to cancel row edit
+  const handleCancel = () => {
+    setEditState(false);
+    setNewTeam({
+      name: "",
+      pj: "",
+      pg: "",
+      pe: "",
+      pp: "",
+      pts: "",
+    });
   };
 
   // Function to update team
-  const handleSaveClick = (item) => {
+  const handleSave = (item) => {
     setEditState({ rowIndex: null, columnIndex: null });
 
     const updatedFields = {
-      pe: item.pe,
-      pg: item.pg,
-      pj: item.pj,
-      pp: item.pp,
-      pts: item.pts,
-      name: item.name,
+      pe: newTeam.pe !== "" ? parseInt(newTeam.pe, 10) : item.pe,
+      pg: newTeam.pg !== "" ? parseInt(newTeam.pg, 10) : item.pg,
+      pj: newTeam.pj !== "" ? parseInt(newTeam.pj, 10) : item.pj,
+      pp: newTeam.pp !== "" ? parseInt(newTeam.pp, 10) : item.pp,
+      pts: newTeam.pts !== "" ? parseInt(newTeam.pts, 10) : item.pts,
+      name: newTeam.name === "" ? item.name : newTeam.name,
     };
 
     const apiUrl = `http://localhost:3001/clasificationdb/update/${item.id}`;
@@ -169,6 +184,14 @@ function Clasification() {
         // Handle the success response here
         // You may also update the state or refresh the data from the server if needed.
         getDataFromServer();
+        setNewTeam({
+          name: "",
+          pj: "",
+          pg: "",
+          pe: "",
+          pp: "",
+          pts: "",
+        });
       })
       .catch((err) => {
         // Handle the error
@@ -177,7 +200,7 @@ function Clasification() {
   };
 
   // Function to delete a team
-  const handleDeleteClick = (itemId, itemName) => {
+  const handleDelete = (itemId, itemName) => {
     fetch(
       `http://localhost:3001/clasificationdb/delete/${itemId}/${itemName}`,
       {
@@ -248,7 +271,7 @@ function Clasification() {
                   name="name"
                   placeholder="Nombre del equipo"
                   value={newTeam.name}
-                  onChange={handleInputChangeNewTeam}
+                  onChange={handleInputChange}
                   className="col-11"
                 />
               </td>
@@ -258,7 +281,7 @@ function Clasification() {
                   name="pj"
                   placeholder="PJ"
                   value={newTeam.pj}
-                  onChange={handleInputChangeNewTeam}
+                  onChange={handleInputChange}
                   className="col-12"
                 />
               </td>
@@ -268,7 +291,7 @@ function Clasification() {
                   name="pg"
                   placeholder="PG"
                   value={newTeam.pg}
-                  onChange={handleInputChangeNewTeam}
+                  onChange={handleInputChange}
                   className="col-12"
                 />
               </td>
@@ -278,7 +301,7 @@ function Clasification() {
                   name="pe"
                   placeholder="PE"
                   value={newTeam.pe}
-                  onChange={handleInputChangeNewTeam}
+                  onChange={handleInputChange}
                   className="col-12"
                 />
               </td>
@@ -288,7 +311,7 @@ function Clasification() {
                   name="pp"
                   placeholder="PP"
                   value={newTeam.pp}
-                  onChange={handleInputChangeNewTeam}
+                  onChange={handleInputChange}
                   className="col-12"
                 />
               </td>
@@ -298,7 +321,7 @@ function Clasification() {
                   name="pts"
                   placeholder="Pts"
                   value={newTeam.pts}
-                  onChange={handleInputChangeNewTeam}
+                  onChange={handleInputChange}
                   className="col-12"
                 />
               </td>
@@ -331,18 +354,12 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                    type="text"
-                    value={item.pj || ""}
+                    type="number"
+                    value={newTeam.pj}
+                    name="pj"
+                    placeholder={item.pj}
                     className="col-12"
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      if (value === "") {
-                        handleInputChange(rowIndex, "pj", 0);
-                      } else if (/^\d*$/.test(value)) {
-                        handleInputChange(rowIndex, "pj", parseInt(value, 10));
-                      } else {
-                      }
-                    }}
+                    onChange={handleInputChange}
                   />
                 ) : (
                   item.pj
@@ -351,19 +368,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                    type="text"
-                    value={item.pg || ""}
-                    className="col-12"
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      if (value === "") {
-                        handleInputChange(rowIndex, "pg", 0);
-                      } else if (/^\d*$/.test(value)) {
-                        handleInputChange(rowIndex, "pg", parseInt(value, 10));
-                      } else {
-                      }
-                    }}
-                  />
+                  type="number"
+                  value={newTeam.pg}
+                  name="pg"
+                  placeholder={item.pg}
+                  className="col-12"
+                  onChange={handleInputChange}
+                />
                 ) : (
                   item.pg
                 )}
@@ -371,19 +382,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                    type="text"
-                    value={item.pe || ""}
-                    className="col-12"
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      if (value === "") {
-                        handleInputChange(rowIndex, "pe", 0);
-                      } else if (/^\d*$/.test(value)) {
-                        handleInputChange(rowIndex, "pe", parseInt(value, 10));
-                      } else {
-                      }
-                    }}
-                  />
+                  type="number"
+                  value={newTeam.pe}
+                  name="pe"
+                  placeholder={item.pe}
+                  className="col-12"
+                  onChange={handleInputChange}
+                />
                 ) : (
                   item.pe
                 )}
@@ -391,19 +396,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                    type="text"
-                    value={item.pp || ""}
-                    className="col-12"
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      if (value === "") {
-                        handleInputChange(rowIndex, "pp", 0);
-                      } else if (/^\d*$/.test(value)) {
-                        handleInputChange(rowIndex, "pp", parseInt(value, 10));
-                      } else {
-                      }
-                    }}
-                  />
+                  type="number"
+                  value={newTeam.pp}
+                  name="pp"
+                  placeholder={item.pp}
+                  className="col-12"
+                  onChange={handleInputChange}
+                />
                 ) : (
                   item.pp
                 )}
@@ -411,19 +410,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                    type="text"
-                    value={item.pts || ""}
-                    className="col-12"
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      if (value === "") {
-                        handleInputChange(rowIndex, "pts", 0);
-                      } else if (/^\d*$/.test(value)) {
-                        handleInputChange(rowIndex, "pts", parseInt(value, 10));
-                      } else {
-                      }
-                    }}
-                  />
+                  type="number"
+                  value={newTeam.pts}
+                  name="pts"
+                  placeholder={item.pts}
+                  className="col-12"
+                  onChange={handleInputChange}
+                />
                 ) : (
                   item.pts
                 )}
@@ -432,27 +425,36 @@ function Clasification() {
               <td className="">
                 <div className="d-flex justify-content-evenly">
                   {isRowInEditState(rowIndex) ? (
-                    <button
-                      onClick={() => handleSaveClick(item)}
-                      className="btn-grey"
-                    >
-                      Guardar <i className="fa-regular fa-floppy-disk ms-1"></i>
-                    </button>
+                    <>
+                      <button
+                        onClick={() => handleSave(item)}
+                        className="btn-grey"
+                      >
+                        <i className="fa-regular fa-floppy-disk ms-1"></i>
+                      </button>
+                      <button
+                        onClick={() => handleCancel()}
+                        className="btn-grey"
+                      >
+                        <i className="fa-solid fa-x"></i>
+                      </button>
+                    </>
                   ) : (
-                    <button
-                      onClick={() => handleEditClick(rowIndex, item.id)}
-                      className="btn-grey"
-                    >
-                      Editar{" "}
-                      <i className="fa-regular fa-pen-to-square ms-1"></i>
-                    </button>
+                    <>
+                      <button
+                        onClick={() => handleEdit(rowIndex, item.id)}
+                        className="btn-grey"
+                      >
+                        <i className="fa-regular fa-pen-to-square ms-1"></i>
+                      </button>
+                      <button
+                        onClick={() => handleDelete(item.id, item.name)}
+                        className="btn-grey"
+                      >
+                        <i className="fa-regular fa-trash-can ms-1"></i>
+                      </button>
+                    </>
                   )}
-                  <button
-                    onClick={() => handleDeleteClick(item.id, item.name)}
-                    className="btn-grey"
-                  >
-                    Borrar <i className="fa-regular fa-trash-can ms-1"></i>
-                  </button>
                 </div>
               </td>
             </tr>
