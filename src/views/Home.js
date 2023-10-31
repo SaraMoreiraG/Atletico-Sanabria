@@ -5,7 +5,7 @@ import PointTable from "../components/PointTable/PointTable";
 
 function Home() {
   return (
-	<div className='main'>
+	<div className='main bg-primary'>
       <SimpleSlider />
       <div className="main-margin d-flex justify-content-between">
         <NextMatch />
