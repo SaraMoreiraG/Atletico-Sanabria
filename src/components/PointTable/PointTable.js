@@ -64,7 +64,7 @@ function PointTable() {
 		<tr key={index} className="text-center">
             <td className="py-2">{position++}.</td>
             <td className="text-start">
-				<img src={logo} height="25px" className="me-2"/>
+				<img src={logo} height="25px" className="me-2" alt={item.name} />
 				{item.name}
 			</td>
             <td>{item.pj}</td>

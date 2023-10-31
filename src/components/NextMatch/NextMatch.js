@@ -36,25 +36,6 @@ function NextMatch() {
     getDataFromServer();
   }, []);
 
-  function formatDate(dateString) {
-    const dateParts = dateString.split('-');
-    const year = dateParts[0];
-    const month = dateParts[1];
-    const day = dateParts[2];
-
-    // Convert the month number to its corresponding Spanish name
-    const monthNames = [
-      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-    ];
-    const monthName = monthNames[parseInt(month) - 1];
-
-    return `${day} ${monthName} ${year}`;
-  }
-
-
-
-  console.log(data);
   if (loading) {
     return (
       <div className="clasification col-4 p-3 my-5">

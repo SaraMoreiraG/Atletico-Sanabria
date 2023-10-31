@@ -64,9 +64,6 @@ function Clasification() {
 
   // Function to add a new team
   const handleAddTeam = () => {
-    // Generate a random ID using a timestamp and a random number
-    const randomId = Date.now() + Math.floor(Math.random() * 1000);
-
     // Check if all required properties are defined
     if (
       newTeam &&
