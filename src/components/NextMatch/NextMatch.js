@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./NextMatch.css";
 
 import logo from "../../assets/images/atletico-sanabria-transparent-small.png";
-import logo2 from "../../assets/images/logos/originals/depor.png"
+import logo2 from "../../assets/images/logos/originals/venialbo.png"
 function NextMatch() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);

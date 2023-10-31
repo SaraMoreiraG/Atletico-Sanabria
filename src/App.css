@@ -1,23 +1,60 @@
 .main-margin {
   margin: 0 5em;
   padding: 5em 5em 0 5em;
+  background-color: red;
   @media (max-width: 992px) {
+    margin: 0;
+    padding: 5em 5em 0 5em;
+  }
+  @media (max-width: 768px) {
     margin: 0 0;
     padding: 5em 5em 0 5em;
   }
+  @media (max-width: 576px) {
+    margin: 0 0;
+    padding: 0;
+  }
 }
 
-.p-10{
+/* .p-10{
   margin: 0 5em;
   padding: 0 5em;
-}
+} */
 .border-rounded {
   border-radius: 3px;
 }
 
 .navbar {
   height: 10vh;
+  margin: 0 5em;
+  padding: 0 5em;
   background-color: #151f28;
+  @media (max-width: 992px) {
+    margin: 0;
+    padding: 0 3em;
+  }
+  @media (max-width: 768px) {
+    margin: 0m;
+    padding: 0 2em;
+  }
+  /* @media (max-width: 576px) {
+    margin: 0;
+    padding: 0 2em;
+  } */
+}
+.navbar-logo{
+  height: 70px;
+  display: inline-block;
+  text-align: center;
+  @media (max-width: 650px) {
+    height: 60px;
+  }
+  @media (max-width: 582px) {
+    height: 50px;
+  }
+  @media (max-width: 390px) {
+    height: 40px;
+  }
 }
 .navbar a{
   text-decoration: none;
@@ -26,8 +63,15 @@
   color: #fff;
   cursor: pointer;
 }
-.navbar span{
+/* .navbar span{
   color: #666666;
+  font-size: 16px;
+} */
+.user-registered{
+  color: #f26722;
+}
+.fa-user{
+  letter-spacing: 2px;
 }
 .company-name{
   margin: 0;
@@ -36,15 +80,44 @@
   /* color: #040a8d; */
   color: #f26722;
   text-transform: uppercase;
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
+  @media (max-width: 582px) {
+    font-size: 14px;
+  }
+  @media (max-width: 582px) {
+    font-size: 14px;
+  }
+  @media (max-width: 390px) {
+    font-size: 12px;
+  }
 }
 .company-sub-name{
+  font-size: 20px;
+
   color: #fff;
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
+  @media (max-width: 582px) {
+    font-size: 14px;
+  }
+  @media (max-width: 390px) {
+    font-size: 12px;
+  }
 }
 .company-description{
   margin: 0;
   font-size: 16px;
   font-weight: 500;
   color: #c6c6c6;
+  @media (max-width: 650px) {
+    font-size: 14px;
+  }
+  @media (max-width: 582px) {
+    font-size: 12px;
+  }
 }
 .slider1,
 .slider2,
