@@ -45,7 +45,8 @@ function PointTable() {
 	}
 	let position = 1;
   return (
-    <div className="clasification col-4 p-3 my-5">
+    <div className="col-4 px-2 d-flex align-items-start">
+    <div className="clasification p-3">
       <h3 className="mb-3">Clasificación</h3>
       <table className="clasification-table">
         <thead>
@@ -77,6 +78,7 @@ function PointTable() {
         </tbody>
       </table>
     </div>
+	</div>
   );
 }
 
