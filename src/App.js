@@ -1,29 +1,25 @@
-import logo from "./assets/images/atletico-sanabria-transparent.png";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+
 import "./App.css";
 
 import Navbar from "./Navbar";
-import SimpleSlider from "./Slider";
-import NextMatch from "./components/NextMatch/NextMatch";
-import PointTable from "./components/PointTable/PointTable";
-import Clasification from "./management/Clasification";
-import Matches from "./management/Matches";
+import Home from "./views/Home";
+import Login from "./views/login";
+import Dashboard from "./views/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <SimpleSlider />
-      <div className="main-margin d-flex justify-content-between">
-        <NextMatch />
-        <PointTable />
-      </div>
-      <div className="main-margin d-flex justify-content-between">
-        <Clasification />
-      </div>
-      <div className="main-margin d-flex justify-content-between">
-        <Matches />
-      </div>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

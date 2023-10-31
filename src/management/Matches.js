@@ -25,7 +25,7 @@ function Matches() {
   // Function to fetch data from the server
   const getDataFromServer = () => {
     // Define the URL to fetch data
-    const apiUrl = "http://localhost:3001/matchesdb/full";
+    const apiUrl = "https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/full";
 
     // Make a GET request to the API
     fetch(apiUrl)
@@ -80,7 +80,7 @@ function Matches() {
       };
 
       // Send a POST request to your server using fetch or Axios
-      fetch("http://localhost:3001/matchesdb/add", {
+      fetch("https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -116,7 +116,7 @@ function Matches() {
 
     // Function to delete match
 	const handleDelete = (itemId) => {
-		fetch(`http://localhost:3001/matchesdb/delete/${itemId}`, {
+		fetch(`https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/delete/${itemId}`, {
 		  method: "DELETE",
 		  headers: {
 			"Content-Type": "application/json",
@@ -178,7 +178,7 @@ function Matches() {
       visitorTeam: newMatch.visitorTeam !== "" ? newMatch.visitorTeam : item.visitorTeam,
     };
 
-    const apiUrl = `http://localhost:3001/matchesdb/update/${item.id}`;
+    const apiUrl = `https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/update/${item.id}`;
     fetch(apiUrl, {
       method: "PUT",
       headers: {

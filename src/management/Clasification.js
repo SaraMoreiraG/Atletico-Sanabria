@@ -27,7 +27,7 @@ function Clasification() {
   // Function to fetch data from the server
   const getDataFromServer = () => {
     // Define the URL to fetch data
-    const apiUrl = "http://localhost:3001/clasificationdb/full";
+    const apiUrl = "https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/full";
 
     // Make a GET request to the API
     fetch(apiUrl)
@@ -88,7 +88,7 @@ function Clasification() {
       };
 
       // Send a POST request to your server using fetch or Axios
-      fetch("http://localhost:3001/clasificationdb/add", {
+      fetch("https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -169,7 +169,7 @@ function Clasification() {
       name: newTeam.name === "" ? item.name : newTeam.name,
     };
 
-    const apiUrl = `http://localhost:3001/clasificationdb/update/${item.id}`;
+    const apiUrl = `https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/update/${item.id}`;
     fetch(apiUrl, {
       method: "PUT",
       headers: {
@@ -202,7 +202,7 @@ function Clasification() {
   // Function to delete a team
   const handleDelete = (itemId, itemName) => {
     fetch(
-      `http://localhost:3001/clasificationdb/delete/${itemId}/${itemName}`,
+      `https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/delete/${itemId}/${itemName}`,
       {
         method: "DELETE",
         headers: {

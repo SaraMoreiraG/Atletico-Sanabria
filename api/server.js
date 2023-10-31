@@ -14,13 +14,16 @@ app.use('/clasificationdb', clasificationdb);
 const matchesdb = require('./routes/matchesdb');
 app.use('/matchesdb', matchesdb);
 
+const authentication = require('./routes/authentication');
+app.use('/authentication', authentication);
+
 // Define the root URL route
 app.get('/', (req, res) => {
   res.send('Welcome to your API');
 });
 
 // Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log('Server is running on port ' + port);
 });

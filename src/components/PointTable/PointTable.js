@@ -11,7 +11,7 @@ function PointTable() {
 
 	useEffect(() => {
 	  // Define the URL to fetch data
-	  const apiUrl = 'http://localhost:3001/clasificationdb/onlyfive';
+	  const apiUrl = 'https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/onlyfive';
 
 	  // Make a GET request to the API
 	  fetch(apiUrl)
