@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./NextMatch.css";
 
 import logo from "../../assets/images/atletico-sanabria-transparent-small.png";
-import logo2 from "../../assets/images/logos/originals/venialbo.png";
+// import logo2 from "../../assets/images/logos/originals/venialbo.png";
 function NextMatch() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -80,7 +80,7 @@ function NextMatch() {
             ];
 
             return (
-              <>
+              <div key={match.date}>
                 <div className="next-match-header align-items-center">
                   <div className="next-match-date col-4">
                     <h4>{dayNumber}</h4>
@@ -142,7 +142,7 @@ function NextMatch() {
                 <div className="next-match-footer">
                   <button className="btn-red">Ver calendario</button>
                 </div>
-              </>
+              </div>
             );
           })}
       </div>

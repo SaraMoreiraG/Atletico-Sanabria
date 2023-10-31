@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "./assets/images/atletico-sanabria-transparent.png";
 
 function Navbar() {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 582);
 
   // Use an event listener to update isSmallScreen when the window size changes
@@ -39,11 +39,11 @@ function Navbar() {
             <div>
               <Link to="/login" className="nav-link">
                 {isLogged ? (
-                  <i class="fa-solid fa-user"> Dashboard</i>
+                  <i className="fa-solid fa-user"> Dashboard</i>
                 ) : (
                   <div>
                   <i className="fa-regular fa-user company-name me-2"></i>
-                  <i class="fa-solid fa-bars"></i>
+                  <i className="fa-solid fa-bars"></i>
                   </div>
                 )}
               </Link>
@@ -60,7 +60,7 @@ function Navbar() {
             <div>
               <Link to="/login" className="nav-link">
                 {isLogged ? (
-                  <i class="fa-solid fa-user"> Dashboard</i>
+                  <i className="fa-solid fa-user"> Dashboard</i>
                 ) : (
                   <i className="fa-regular fa-user company-name"></i>
                 )}
