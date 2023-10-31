@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./NextMatch.css";
 
-import logo from "../../assets/images/atletico-sanabria-transparent.png";
-
+import logo from "../../assets/images/atletico-sanabria-transparent-small.png";
+import logo2 from "../../assets/images/logos/originals/depor.png"
 function NextMatch() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,7 +103,7 @@ function NextMatch() {
 
               <div className="home-team col-xs-4 col-sm-4 col-md-4">
                 <div className="home-team-img">
-                  <img src={logo} alt="Logo equipo" height="150px" />
+                  <img src={logo2} alt="Logo equipo" height="150px" />
                 </div>
                 <span className="home-team-name">{match.visitorTeam}</span>
               </div>
