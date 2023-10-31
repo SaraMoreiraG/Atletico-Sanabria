@@ -64,9 +64,7 @@
 }
 .home-team{
 	text-align: center;
-}
-.home-team-img{
-	padding: 40px 40px 20px 20px;
+	flex: 1;
 }
 .home-team-name{
 	font-size: 20px;

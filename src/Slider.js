@@ -13,63 +13,64 @@ function SimpleSlider() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    arrows: false
   };
   return (
     <section>
       <div className="slider-container">
         <Slider {...settings}>
           <div className="slider1">
-            <div className="main-margin col-6">
+            <div className="main-margin">
               <div className="text-slider pe-4">
-                <div className="p-3">
+                <div className="text-holder">
                   <h1 className="bg-white border-rounded">
                     ¡Vive la pasión del fútbol!
                   </h1>
                 </div>
-                <div className="p-3">
+                <div className="text-holder">
                   <h2 className="bg-red border-rounded">
                     Fútbol 11 y Fútbol sala
                   </h2>
                 </div>
-                <div className="p-3">
+                <div className="text-holder">
                   <button className="btn-grey">Leer más</button>
                 </div>
               </div>
             </div>
           </div>
           <div className="slider2">
-            <div className="main-margin col-6">
+            <div className="main-margin">
               <div className="text-slider pe-4">
-                <div className="p-3">
+                <div className="text-holder">
                   <h1 className="bg-white border-rounded">
                     ¡Pedalea hacia la aventura!
                   </h1>
                 </div>
-                <div className="p-3">
+                <div className="text-holder">
                   <h2 className="bg-red border-rounded">
-                    Apúntate a nuestras escapadas de ciclismo
+                    Apúntate a nuestras escapadas
                   </h2>
                 </div>
-                <div className="p-3">
+                <div className="text-holder">
                   <button className="btn-grey">Leer más</button>
                 </div>
               </div>
             </div>
           </div>
           <div className="slider3">
-            <div className="main-margin col-8">
+            <div className="main-margin">
               <div className="text-slider pe-4">
-                <div className="p-3">
+                <div className="text-holder">
                   <h1 className="bg-white border-rounded">
-                    ¡La raqueta y la diversión te esperan!
+                    ¡La diversión te espera!
                   </h1>
                 </div>
-                <div className="p-3">
+                <div className="text-holder">
                   <h2 className="bg-red border-rounded">
                     Juega al pádel con nosotros
                   </h2>
                 </div>
-                <div className="p-3">
+                <div className="text-holder">
                   <button className="btn-grey">Leer más</button>
                 </div>
               </div>
