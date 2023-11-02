@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import "./management.css";
 
-import logo from "../assets/images/atletico-sanabria-transparent.png";
-
 function Clasification() {
   // State variables
   const [data, setData] = useState([]);
@@ -339,11 +337,11 @@ function Clasification() {
               <td className="py-2">{position++}.</td>
               <td className="d-flex align-items-center text-start py-2">
                 <div>
-                  <img
-                    src={logo}
+                <img
+                    src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.shortName}.png`}
                     height="25px"
                     className="me-2"
-                    alt={item.name}
+                    alt={`logo ${item.name}`}
                   />
                 </div>
                 <div>{item.name}</div>
