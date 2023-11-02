@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import "./management.css";
 
-import logo from "../assets/images/atletico-sanabria-transparent.png";
-
 function Matches() {
   // State variables
   const [data, setData] = useState([]);
@@ -25,7 +23,8 @@ function Matches() {
   // Function to fetch data from the server
   const getDataFromServer = () => {
     // Define the URL to fetch data
-    const apiUrl = "https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/full";
+    const apiUrl =
+      "https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/full";
 
     // Make a GET request to the API
     fetch(apiUrl)
@@ -114,39 +113,42 @@ function Matches() {
     }
   };
 
-    // Function to delete match
-	const handleDelete = (itemId) => {
-		fetch(`https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/delete/${itemId}`, {
-		  method: "DELETE",
-		  headers: {
-			"Content-Type": "application/json",
-		  },
-		})
-		  .then((response) => {
-			if (response.status === 204) {
-			  // Item deleted successfully
-			  getDataFromServer();
-			} else {
-			  // Failed to delete the item
-			  alert("Failed to delete the item. Please try again.");
-			}
-		  })
-		  .catch((error) => {
-			console.error("An error occurred:", error);
-		  });
-	  };
+  // Function to delete match
+  const handleDelete = (itemId) => {
+    fetch(
+      `https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/delete/${itemId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => {
+        if (response.status === 204) {
+          // Item deleted successfully
+          getDataFromServer();
+        } else {
+          // Failed to delete the item
+          alert("Failed to delete the item. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  };
 
   // Function to handle row edit
   const handleEdit = (rowIndex) => {
     setEditState({ rowIndex, columnIndex: null });
-	setAddingMatch(false)
-	setNewMatch({
-		date: "",
-		hour: "",
-		place: "",
-		homeTeam: "",
-		visitorTeam: "",
-	  });
+    setAddingMatch(false);
+    setNewMatch({
+      date: "",
+      hour: "",
+      place: "",
+      homeTeam: "",
+      visitorTeam: "",
+    });
   };
 
   // Function to check if a row is in edit state based on its rowIndex
@@ -156,14 +158,14 @@ function Matches() {
 
   // Function to cancel row edit
   const handleCancel = () => {
-	setEditState(false);
-	setNewMatch({
-		date: "",
-		hour: "",
-		place: "",
-		homeTeam: "",
-		visitorTeam: "",
-	  });
+    setEditState(false);
+    setNewMatch({
+      date: "",
+      hour: "",
+      place: "",
+      homeTeam: "",
+      visitorTeam: "",
+    });
   };
 
   // Function to update team
@@ -175,7 +177,8 @@ function Matches() {
       hour: newMatch.hour !== "" ? newMatch.hour : item.hour,
       place: newMatch.place !== "" ? newMatch.place : item.place,
       homeTeam: newMatch.homeTeam !== "" ? newMatch.homeTeam : item.homeTeam,
-      visitorTeam: newMatch.visitorTeam !== "" ? newMatch.visitorTeam : item.visitorTeam,
+      visitorTeam:
+        newMatch.visitorTeam !== "" ? newMatch.visitorTeam : item.visitorTeam,
     };
 
     const apiUrl = `https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/update/${item.id}`;
@@ -193,13 +196,13 @@ function Matches() {
         // Handle the success response here
         // You may also update the state or refresh the data from the server if needed.
         getDataFromServer();
-		setNewMatch({
-			date: "",
-			hour: "",
-			place: "",
-			homeTeam: "",
-			visitorTeam: "",
-		  });
+        setNewMatch({
+          date: "",
+          hour: "",
+          place: "",
+          homeTeam: "",
+          visitorTeam: "",
+        });
       })
       .catch((err) => {
         // Handle the error
@@ -313,23 +316,21 @@ function Matches() {
                 {isRowInEditState(rowIndex) ? (
                   <input
                     type="text"
-					value={newMatch.homeTeam}
+                    value={newMatch.homeTeam}
                     name="homeTeam"
-					placeholder={item.homeTeam}
+                    placeholder={item.homeTeam}
                     className="col-12 text-end"
-                    onChange={
-						handleInputChange
-					  }
+                    onChange={handleInputChange}
                   />
                 ) : (
                   <div className="d-flex align-items-center justify-content-end py-2">
                     <div>{item.homeTeam}</div>
                     <div>
                       <img
-                        src={logo}
+                        src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.homeShortName}.png`}
                         height="25px"
                         className="ms-2"
-                        alt={item.name}
+                        alt={`logo ${item.homeShortName}`}
                       />
                     </div>
                   </div>
@@ -339,22 +340,20 @@ function Matches() {
                 {isRowInEditState(rowIndex) ? (
                   <input
                     type="text"
-					value={newMatch.visitorTeam}
+                    value={newMatch.visitorTeam}
                     name="visitorTeam"
-					placeholder={item.visitorTeam}
-					className="col-12"
-                    onChange={
-                      handleInputChange
-                    }
+                    placeholder={item.visitorTeam}
+                    className="col-12"
+                    onChange={handleInputChange}
                   />
                 ) : (
                   <div className="d-flex align-items-center text-center py-2">
                     <div>
                       <img
-                        src={logo}
+                        src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.visitorShortName}.png`}
                         height="25px"
                         className="me-2"
-                        alt={item.name}
+                        alt={`logo ${item.visitorShortName}`}
                       />
                     </div>
                     <div>{item.visitorTeam}</div>
@@ -365,13 +364,11 @@ function Matches() {
                 {isRowInEditState(rowIndex) ? (
                   <input
                     type="date"
-					value={newMatch.date}
+                    value={newMatch.date}
                     name="date"
-					placeholder={item.date}
+                    placeholder={item.date}
                     className="col-12 text-center"
-                    onChange={
-						handleInputChange
-					  }
+                    onChange={handleInputChange}
                   />
                 ) : (
                   item.date
@@ -381,13 +378,11 @@ function Matches() {
                 {isRowInEditState(rowIndex) ? (
                   <input
                     type="text"
-					value={newMatch.hour}
+                    value={newMatch.hour}
                     name="hour"
-					placeholder={item.hour}
+                    placeholder={item.hour}
                     className="col-12 text-center"
-                    onChange={
-						handleInputChange
-					  }
+                    onChange={handleInputChange}
                   />
                 ) : (
                   item.hour
@@ -397,13 +392,11 @@ function Matches() {
                 {isRowInEditState(rowIndex) ? (
                   <input
                     type="text"
-					value={newMatch.place}
+                    value={newMatch.place}
                     name="place"
-					placeholder={item.place}
+                    placeholder={item.place}
                     className="col-12 text-center"
-                    onChange={
-						handleInputChange
-					  }
+                    onChange={handleInputChange}
                   />
                 ) : (
                   item.place
@@ -413,20 +406,20 @@ function Matches() {
               <td className="">
                 <div className="d-flex justify-content-evenly">
                   {isRowInEditState(rowIndex) ? (
-					<>
-                    <button
-                      onClick={() => handleSave(item)}
-                      className="btn-grey"
-                    >
-                      <i className="fa-regular fa-floppy-disk ms-1"></i>
-                    </button>
-					<button
-                      onClick={() => handleCancel()}
-                      className="btn-grey"
-                    >
-                      <i className="fa-solid fa-x"></i>
-                    </button>
-					</>
+                    <>
+                      <button
+                        onClick={() => handleSave(item)}
+                        className="btn-grey"
+                      >
+                        <i className="fa-regular fa-floppy-disk ms-1"></i>
+                      </button>
+                      <button
+                        onClick={() => handleCancel()}
+                        className="btn-grey"
+                      >
+                        <i className="fa-solid fa-x"></i>
+                      </button>
+                    </>
                   ) : (
                     <>
                       <button

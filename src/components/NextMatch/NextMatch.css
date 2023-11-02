@@ -1,42 +1,60 @@
-
-.next-match{
+.next-match {
 	color: #fff;
 	background-color: #1a252f;
 	border: 1px solid #253443;
 	border-radius: 3px;
 }
-.next-match-header{
+
+.next-match-header {
 	display: flex;
 	text-transform: uppercase;
 	background: linear-gradient(45deg, #0c1217 40%, #273949 70%, #e01a22 100%);
 }
+
 .next-match-header>*:first-child {
 	align-self: stretch;
-  }
-.next-match-header h2{
+
+	@media (max-width: 576px) {
+		display: grid;
+	}
+}
+
+.next-match-header h2 {
 	font-size: 14px;
 	margin: 0 14px;
 }
-.next-match-date{
+
+.next-match-date {
 	line-height: 1.1;
 	display: flex;
 	text-align: start;
 	align-items: center;
 	padding: 4px 0px 4px 20px;
 }
-.next-match-date h4{
+
+.next-match-date h4 {
 	font-size: 36px;
 	padding: 0px 10px 0px 0px;
 	margin: 0;
+
+	@media (max-width: 576px) {
+		font-size: 24px;
+	}
 }
-.next-match-date span{
+
+.next-match-date span {
 	/* font-family: Arial!important; */
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 15px;
 	line-height: 1.1;
+
+	@media (max-width: 576px) {
+		font-size: 12px;
+	}
 }
-.next-match-middle{
+
+.next-match-middle {
 	color: #fdc52c;
 	font-size: 18px;
 	font-style: italic;
@@ -44,38 +62,61 @@
 	font-weight: 700;
 	text-align: center;
 	padding: 6px 20px 4px 0px;
+
+	@media (max-width: 576px) {
+		font-size: 14px;
+	}
 }
-.publicity{
+
+.publicity {
 	display: block;
 	letter-spacing: 0.5px;
 	font-size: 11px;
-	color: rgba(255,255,255,0.6);
+	color: rgba(255, 255, 255, 0.6);
 	font-style: normal;
+
+	@media (max-width: 576px) {
+		font-size: 8px;
+	}
 }
-.publicity h6{
+
+.publicity h6 {
 	color: #fff;
 	font-size: 12px;
 	display: inline-block;
 	margin: 0;
+
+	@media (max-width: 576px) {
+		font-size: 9px;
+	}
 }
-.next-match-body{
+
+.next-match-body {
 	display: flex;
 	align-items: center;
 }
-.home-team{
+
+.home-team {
 	text-align: center;
 	flex: 1;
 }
-.home-team-name{
+
+.home-team-name {
 	font-size: 20px;
 	margin-top: 0px;
+
+	@media (max-width: 576px) {
+		font-size: 16px;
+	}
 }
-.match-info{
-line-height: 1;
+
+.match-info {
+	line-height: 1;
 	padding: 30px 0px;
 	text-align: center;
 }
-.clock{
+
+.clock {
 	font-size: 44px;
 	letter-spacing: 2px;
 	font-family: 'Anton', sans-serif;
@@ -86,7 +127,8 @@ line-height: 1;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-.vs-sign{
+
+.vs-sign {
 	font-size: 24px;
 	display: block;
 	margin-top: 15px;
@@ -98,23 +140,28 @@ line-height: 1;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-.time-venue{
+
+.time-venue {
 	font-size: 16px;
 	margin-top: 20px;
 	color: #ececec;
+	line-height: 20px;
 }
-.time{
+
+.time {
 	display: block;
 	margin-top: 25px;
 }
-.next-match-footer{
+
+.next-match-footer {
 	display: flex;
 	justify-content: center;
 	margin: 20px 0;
 }
-.btn-red{
+
+.btn-red {
 	border-radius: 3px;
-	transition: all 0.2s  linear 0s;
+	transition: all 0.2s linear 0s;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	padding: 6px 12px;
@@ -125,7 +172,36 @@ line-height: 1;
 	font-size: 14px;
 	font-weight: 700;
 }
-.btn-red:hover{
+
+.btn-red:hover {
 	background-color: #c9171f;
 	border-color: 1px solid #c9171f;
+}
+
+/* Custom styles for carousel indicators */
+.carousel-indicators {
+	display: flex;
+	justify-content: center;
+	/* Center the indicators horizontally */
+	margin-top: 100px;
+	/* Adjust the top margin as needed */
+}
+
+
+.carousel-indicators button {
+	width: 12px;
+	/* Set the width of the indicator circles */
+	height: 18px;
+	/* Set the height of the indicator circles */
+	background-color: #515557;
+	/* Background color for inactive indicators */
+	border: none;
+	margin: 0 5px;
+	/* Adjust the margin between indicators */
+	cursor: pointer;
+}
+
+.carousel-indicators button.active {
+	background-color: #e01a22;
+	/* Background color for the active indicator */
 }
