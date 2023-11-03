@@ -25,7 +25,8 @@ function Clasification() {
   // Function to fetch data from the server
   const getDataFromServer = () => {
     // Define the URL to fetch data
-    const apiUrl = "https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/full";
+    const apiUrl = process.env.REACT_APP_API_URL + "/clasificationdb/full";
+
 
     // Make a GET request to the API
     fetch(apiUrl)
@@ -83,7 +84,7 @@ function Clasification() {
       };
 
       // Send a POST request to your server using fetch or Axios
-      fetch("https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/add", {
+      fetch(process.env.REACT_APP_API_URL + "/clasificationdb/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -164,7 +165,7 @@ function Clasification() {
       name: newTeam.name === "" ? item.name : newTeam.name,
     };
 
-    const apiUrl = `https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/update/${item.id}`;
+    const apiUrl = process.env.REACT_APP_API_URL + `/clasificationdb/update/${item.id}`;
     fetch(apiUrl, {
       method: "PUT",
       headers: {
@@ -197,7 +198,7 @@ function Clasification() {
   // Function to delete a team
   const handleDelete = (itemId, itemName) => {
     fetch(
-      `https://mrew2ksxap.us-east-1.awsapprunner.com/clasificationdb/delete/${itemId}/${itemName}`,
+      process.env.REACT_APP_API_URL + `/clasificationdb/delete/${itemId}/${itemName}`,
       {
         method: "DELETE",
         headers: {

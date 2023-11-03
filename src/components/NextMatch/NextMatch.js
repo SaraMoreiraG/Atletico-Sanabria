@@ -8,9 +8,7 @@ function NextMatch() {
   // Function to fetch data from the server
   const getDataFromServer = () => {
     // Define the URL to fetch data
-    const apiUrl =
-      "https://mrew2ksxap.us-east-1.awsapprunner.com/matchesdb/full";
-
+    const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full"
     // Make a GET request to the API
     fetch(apiUrl)
       .then((response) => {
