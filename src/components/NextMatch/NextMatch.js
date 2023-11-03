@@ -142,7 +142,7 @@ function NextMatch() {
                     </div>
                   </div>
                   <div className="next-match-footer">
-                    <button className="btn-red">Ver calendario</button>
+                    <button className="btn-blue">Ver calendario</button>
                   </div>
                 </div>
               );

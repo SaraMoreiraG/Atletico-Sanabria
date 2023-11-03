@@ -3,6 +3,8 @@
 #
 /api/.env
 /api/node_modules
+.env
+.gitignore
 
 # dependencies
 /node_modules
