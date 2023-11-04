@@ -15,9 +15,10 @@ function Home() {
         <PointTable />
       </div>
       <div id="news">
-        <div className="main-margin news py-5">
-          <h1 className="my-4">Feature News</h1>
-          <InfoCards />
+        <div class="fixed-background"></div>
+        <div className="main-margin">
+        <h1 className="mb-4">Feature News</h1>
+        <InfoCards />
         </div>
       </div>
       <NewMemberForm />

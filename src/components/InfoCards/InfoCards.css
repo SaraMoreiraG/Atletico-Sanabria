@@ -1,8 +1,14 @@
 .info-card{
 	display: flex;
-	align-items: center;
 	background-color: #031627;
 	color: #fff;
+
+	@media (max-width: 992px) {
+		display: block;
+		/* margin-left: auto;
+		margin-right: auto; */
+		/* width: 600px; */
+	  }
 }
 .info-card h2{
 	font-size: 16px;
@@ -26,23 +32,5 @@
 	background-color: #c9171f;
 	border-color: 1px solid #c9171f;
 }
-
-#news {
-	position: relative;
-	background: #031626;
-	color: white; /* Add text color to make content visible on the background */
-  }
-  #news::after {
-	content: "";
-	background: url("https://neospor.joomlatema.net/templates/neospor/images/topsl-bg.jpg") no-repeat fixed;
-	opacity: 0.12;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	top: 0;
-	left: 0;
-	position: absolute;
-	z-index: -1;
-  }
 
 

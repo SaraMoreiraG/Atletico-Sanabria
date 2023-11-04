@@ -8,7 +8,7 @@ function NextMatch() {
   // Function to fetch data from the server
   const getDataFromServer = () => {
     // Define the URL to fetch data
-    const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full"
+    const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full";
     // Make a GET request to the API
     fetch(apiUrl)
       .then((response) => {
@@ -99,6 +99,7 @@ function NextMatch() {
                       </span>
                     </div>
                     <div className="col-4"></div>
+                    <div className="header-img"></div>
                   </div>
                   <div className="next-match-body">
                     <div className="home-team col-xs-4 col-sm-4 col-md-4">
