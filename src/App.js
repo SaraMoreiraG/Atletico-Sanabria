@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import Home from "./views/Home";
 import Login from "./views/login";
 import Dashboard from "./views/Dashboard";
+import NewMemberForm from "./views/NewMemberForm";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/newmemberform" element={<NewMemberForm />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

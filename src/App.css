@@ -336,3 +336,8 @@ input[type=number] {
   z-index: -1;
 }
 
+.new-member-form{
+	background-color: #031627;
+	border: 1px solid #052642;
+
+}

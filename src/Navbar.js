@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { scrollToSection } from "./utils/scrollUtils";
 
 import logo from "./assets/images/atletico-sanabria-transparent.png";
 
@@ -53,10 +54,14 @@ function Navbar() {
         ) : (
           <div className="col-5 d-flex align-items-center justify-content-end">
             <div className="me-3">
+              <Link to="/#news" className="nav-link" onClick={() => scrollToSection("news")}>
               <span>Noticias</span>
+              </Link>
             </div>
             <div className="me-3">
+            <Link to="/newmemberform" className="nav-link">
               <span>Hazte socio</span>
+              </Link>
             </div>
             <div>
               <Link to="/login" className="nav-link">
