@@ -10,6 +10,7 @@ function InfoCards() {
             <img
               src="https://neospor.joomlatema.net/images/sampledata/discover-our-solutions/1-intro.jpg"
               className="img-fluid"
+              alt="Lo que sea"
             />
           </div>
           <div className="px-4">
@@ -28,6 +29,7 @@ function InfoCards() {
             <img
               src="https://neospor.joomlatema.net/images/sampledata/discover-our-solutions/1-intro.jpg"
               className="img-fluid"
+              alt="descripcion"
             />
           </div>
           <div className="py-3">
@@ -46,6 +48,7 @@ function InfoCards() {
             <img
               src="https://neospor.joomlatema.net/images/sampledata/discover-our-solutions/1-intro.jpg"
               className="img-fluid"
+              alt="descripcion"
             />
           </div>
           <div className="py-3">
@@ -64,6 +67,7 @@ function InfoCards() {
             <img
               src="https://neospor.joomlatema.net/images/sampledata/discover-our-solutions/1-intro.jpg"
               className="img-fluid"
+              alt="descripcion"
             />
           </div>
           <div className="py-3">
