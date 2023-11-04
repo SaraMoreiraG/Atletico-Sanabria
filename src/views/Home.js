@@ -4,6 +4,7 @@ import NextMatch from "../components/NextMatch/NextMatch";
 import PointTable from "../components/PointTable/PointTable";
 import Sponsors from "../components/Sponsors/Sponsors";
 import InfoCards from "../components/InfoCards/InfoCards";
+import NewMemberForm from "../components/NewMemberForm";
 
 function Home() {
   return (
@@ -19,7 +20,7 @@ function Home() {
           <InfoCards />
         </div>
       </div>
-
+      <NewMemberForm />
       <Sponsors />
     </div>
   );
