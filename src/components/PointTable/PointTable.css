@@ -1,7 +1,7 @@
 .clasification {
 	color: #fff;
-	background-color: #1a252f;
-	border: 1px solid #253443;
+	background-color: #031627;
+	border: 1px solid #052642;
 	border-radius: 3px;
 }
 
@@ -16,9 +16,9 @@
 	font-size: 14px;
 	line-height: 1.7;
 	width: 100%;
-	border-color: gray;
+	border-color: #052642;
 }
 
 .clasification-table tr {
-	border-top: 1px solid #253443;
+	border-top: 1px solid #052642;
 }

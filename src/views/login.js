@@ -10,7 +10,7 @@ function Login() {
   const { login } = useAuth();
 
   const handleLogin = () => {
-    const serverURL = 'https://mrew2ksxap.us-east-1.awsapprunner.com/authentication';
+    const serverURL = process.env.REACT_APP_API_URL + "/authentication";
     const data = {
       username: username,
       password: password,

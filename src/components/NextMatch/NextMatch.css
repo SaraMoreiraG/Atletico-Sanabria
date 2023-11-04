@@ -1,14 +1,14 @@
 .next-match {
 	color: #fff;
-	background-color: #1a252f;
-	border: 1px solid #253443;
+	background-color: #031627;
+	border: 1px solid #052642;
 	border-radius: 3px;
 }
 
 .next-match-header {
 	display: flex;
 	text-transform: uppercase;
-	background: linear-gradient(45deg, #0c1217 40%, #273949 70%, #e01a22 100%);
+	background: linear-gradient(45deg, #0c1217 40%, #273949 70%, #052642 100%);
 }
 
 .next-match-header>*:first-child {
@@ -120,8 +120,8 @@
 	font-size: 44px;
 	letter-spacing: 2px;
 	font-family: 'Anton', sans-serif;
-	background-color: #570a0d;
-	background-image: linear-gradient(90deg, #570a0d 40%, #e01a22);
+	background-color: #052642;
+	background-image: linear-gradient(90deg, #3f6e9a 40%, #052642);
 	background-size: 100%;
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -134,7 +134,7 @@
 	margin-top: 15px;
 	font-family: 'Anton', sans-serif;
 	background-color: #030507;
-	background-image: linear-gradient(90deg, #030507 0%, #e01a22);
+	background-image: linear-gradient(90deg, #3f6e9a 40%, #052642);
 	background-size: 100%;
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -159,21 +159,21 @@
 	margin: 20px 0;
 }
 
-.btn-red {
+.btn-blue{
+	background-color: #3f6e9a;
 	border-radius: 3px;
 	transition: all 0.2s linear 0s;
 	padding-top: 3px;
 	padding-bottom: 3px;
-	padding: 6px 12px;
+	padding: 10px 15px;
 	border: none;
-	background-color: #e01a22;
 	color: #ffffff;
 	text-transform: uppercase;
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: 500;
 }
 
-.btn-red:hover {
+.btn-blue:hover {
 	background-color: #c9171f;
 	border-color: 1px solid #c9171f;
 }
@@ -202,6 +202,6 @@
 }
 
 .carousel-indicators button.active {
-	background-color: #e01a22;
+	background-color: #3f6e9a;
 	/* Background color for the active indicator */
 }

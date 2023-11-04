@@ -27,7 +27,7 @@ function SimpleSlider() {
                   </h1>
                 </div>
                 <div className="text-holder">
-                  <h2 className="bg-red border-rounded">
+                  <h2 className="bg-blue border-rounded">
                     Fútbol 11 y Fútbol sala
                   </h2>
                 </div>
@@ -46,7 +46,7 @@ function SimpleSlider() {
                   </h1>
                 </div>
                 <div className="text-holder">
-                  <h2 className="bg-red border-rounded">
+                  <h2 className="bg-blue border-rounded">
                     Apúntate a nuestras escapadas
                   </h2>
                 </div>
@@ -65,7 +65,7 @@ function SimpleSlider() {
                   </h1>
                 </div>
                 <div className="text-holder">
-                  <h2 className="bg-red border-rounded">
+                  <h2 className="bg-blue border-rounded">
                     Juega al pádel con nosotros
                   </h2>
                 </div>

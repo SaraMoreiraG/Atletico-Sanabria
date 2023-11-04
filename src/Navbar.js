@@ -21,6 +21,7 @@ function Navbar() {
     };
   }, []);
   return (
+    <div className="navbar-color">
     <nav className="navbar">
       <div className="links row d-flex col-12">
         <div className={isSmallScreen ? 'col-9' : 'col-7'}>
@@ -62,7 +63,7 @@ function Navbar() {
                 {isLogged ? (
                   <i className="fa-solid fa-user"> Dashboard</i>
                 ) : (
-                  <i className="fa-regular fa-user company-name"></i>
+                  <i className="fa-regular fa-user"></i>
                 )}
               </Link>
             </div>
@@ -71,6 +72,7 @@ function Navbar() {
       </div>
       <div></div>
     </nav>
+    </div>
   );
 }
 
