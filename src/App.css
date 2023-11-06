@@ -1,68 +1,84 @@
 .main-margin {
   margin: 50px 100px;
+  /* Default margin for larger screens */
+}
 
-  @media (max-width: 992px) {
-    margin: 50px 100px;
-  }
-
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 768px) {
-    margin: 0;
-    margin: 50px 20px;
+    .main-margin {
+      margin: 50px 20px;
+      /* Adjust margin for screens <= 768px */
+    }
   }
 
   @media (max-width: 576px) {
-    margin: 0;
-    padding: 1em;
+    .main-margin {
+      margin: 20px 20px;
+      /* Adjust margin for screens <= 576px */
+    }
   }
 }
-/* .p-10{
-  margin: 0 5em;
-  padding: 0 5em;
-} */
+
+
 .border-rounded {
   border-radius: 3px;
 }
-.navbar-color{
+
+.navbar-color {
   background-color: #212b34;
 }
+
 .navbar {
   height: 12vh;
   margin: 0 5em;
   padding: 0 5em;
+}
 
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 992px) {
-    margin: 0;
-    padding: 0 3em;
+    .navbar {
+      margin: 0;
+      padding: 0 3em;
+    }
   }
 
   @media (max-width: 768px) {
-    margin: 0m;
-    padding: 0 2em;
+    .navbar {
+      margin: 0;
+      padding: 0 2em;
+    }
   }
-
-  /* @media (max-width: 576px) {
-    margin: 0;
-    padding: 0 2em;
-  } */
 }
 
 .navbar-logo {
   height: 70px;
   display: inline-block;
   text-align: center;
+}
 
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 650px) {
-    height: 60px;
+    .navbar-logo {
+      height: 60px;
+    }
   }
 
   @media (max-width: 582px) {
-    height: 50px;
+    .navbar-logo {
+      height: 50px;
+    }
   }
 
   @media (max-width: 390px) {
-    height: 40px;
+    .navbar-logo {
+      height: 40px;
+    }
   }
 }
+
 
 .navbar a {
   text-decoration: none;
@@ -90,42 +106,54 @@
   margin: 0;
   font-size: 20px;
   font-weight: 700;
-  /* color: #040a8d; */
   color: #f26722;
   text-transform: uppercase;
+}
 
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 650px) {
-    font-size: 18px;
+    .company-name {
+      font-size: 18px;
+    }
   }
 
   @media (max-width: 582px) {
-    font-size: 14px;
-  }
-
-  @media (max-width: 582px) {
-    font-size: 14px;
+    .company-name {
+      font-size: 14px;
+    }
   }
 
   @media (max-width: 390px) {
-    font-size: 12px;
+    .company-name {
+      font-size: 12px;
+    }
   }
 }
 
 .company-sub-name {
   font-size: 20px;
-
   color: #fff;
+}
 
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 650px) {
-    font-size: 18px;
+    .company-sub-name {
+      font-size: 18px;
+    }
   }
 
   @media (max-width: 582px) {
-    font-size: 14px;
+    .company-sub-name {
+      font-size: 14px;
+    }
   }
 
   @media (max-width: 390px) {
-    font-size: 12px;
+    .company-sub-name {
+      font-size: 12px;
+    }
   }
 }
 
@@ -134,40 +162,59 @@
   font-size: 16px;
   font-weight: 500;
   color: #c6c6c6;
+}
 
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 650px) {
-    font-size: 14px;
+    .company-description {
+      font-size: 14px;
+    }
   }
 
   @media (max-width: 582px) {
-    font-size: 12px;
+    .company-description {
+      font-size: 12px;
+    }
   }
 }
+
 
 .slider1,
 .slider2,
 .slider3 {
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 88vh;
   position: relative;
+  height: calc(88vh - 12em);
+}
 
+@supports (display: flex) {
   @media (max-width: 992px) {
-    height: 50vh;
-  }
 
-  @media (max-width: 768px) {
-    height: 50vh;
+    .slider1,
+    .slider2,
+    .slider3 {
+      height: calc(50vh - 5em);
+    }
   }
 
   @media (max-width: 576px) {
-    height: 40vh;
 
+    .slider1,
+    .slider2,
+    .slider3 {
+      height: calc(40vh - 5em);
+    }
   }
 
   @media (max-width: 390px) {
-    height: 30vh;
 
+    .slider1,
+    .slider2,
+    .slider3 {
+      height: 30vh;
+    }
   }
 }
 
@@ -186,85 +233,121 @@
 .text-slider {
   z-index: 1;
 }
+
 .text-holder {
-padding: 20px;
-
-@media (max-width: 992px) {
-  padding: 14px;
+  padding: 20px;
 }
 
-@media (max-width: 768px) {
-  padding: 8px;
-}
-
-@media (max-width: 576px) {
-  padding: 5px;
-}
-
-@media (max-width: 390px) {
-  padding: 3px;
-
-}
-}
-.bg-white {
-  background-color: #fff;
-  color: #0d0d0d;
-  padding: 10px 15px;
-  font-size: 31px;
-  font-weight: 500;
-  display: inline;
-
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 992px) {
-    font-size: 24px;
-    padding: 8px 12px;
+    .text-holder {
+      padding: 14px;
+    }
   }
 
   @media (max-width: 768px) {
-    font-size: 16px;
-    padding: 5px 10px;
+    .text-holder {
+      padding: 8px;
+    }
   }
 
   @media (max-width: 576px) {
-    font-size: 14px;
-    padding: 4px 8px;
+    .text-holder {
+      padding: 5px;
+    }
   }
 
   @media (max-width: 390px) {
-    font-size: 12px;
-
+    .text-holder {
+      padding: 3px;
+    }
   }
+}
+
+.bg-white,
+.bg-blue {
+  color: #0d0d0d;
+  padding: 10px 15px;
+  font-weight: 500;
+  display: inline;
+}
+
+.bg-white {
+  background-color: #fff;
+  font-size: 31px;
 }
 
 .bg-blue {
   background-color: #3f6e9a;
-  color: #fff;
   font-size: 22px;
-  padding: 10px 15px;
-  display: inline;
+  color: #fff;
+}
 
+/* Check if the browser supports media queries */
+@supports (display: flex) {
   @media (max-width: 992px) {
-    font-size: 18px;
-    padding: 8px 12px;
 
+    .bg-white,
+    .bg-blue {
+      padding: 8px 12px;
+    }
+
+    .bg-white {
+      font-size: 24px;
+    }
+
+    .bg-blue {
+      font-size: 18px;
+    }
   }
 
   @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 5px 10px;
 
+    .bg-white,
+    .bg-blue {
+      padding: 5px 10px;
+    }
+
+    .bg-white {
+      font-size: 16px;
+    }
+
+    .bg-blue {
+      font-size: 14px;
+    }
   }
 
   @media (max-width: 576px) {
-    font-size: 12px;
-    padding: 4px 8px;
 
+    .bg-white,
+    .bg-blue {
+      padding: 4px 8px;
+    }
+
+    .bg-white {
+      font-size: 14px;
+    }
+
+    .bg-blue {
+      font-size: 12px;
+    }
   }
 
   @media (max-width: 390px) {
-    font-size: 12px;
 
+    .bg-white,
+    .bg-blue {
+      padding: 4px;
+    }
+
+    .bg-white,
+    .bg-blue {
+      font-size: 12px;
+    }
   }
 }
+
 
 .btn-grey {
   background-color: #171e36;
@@ -336,8 +419,8 @@ input[type=number] {
   z-index: -1;
 }
 
-.new-member-form{
-	background-color: #031627;
-	border: 1px solid #052642;
+.new-member-form {
+  background-color: #031627;
+  border: 1px solid #052642;
 
 }
