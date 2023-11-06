@@ -19,6 +19,7 @@ function Clasification() {
     pe: "",
     pp: "",
     pts: "",
+    shortName: "",
   });
   let position = 1;
 
@@ -46,7 +47,6 @@ function Clasification() {
         setLoading(false);
       });
   };
-
   // Effect to fetch data when the component mounts
   useEffect(() => {
     getDataFromServer();
@@ -67,6 +67,7 @@ function Clasification() {
     if (
       newTeam &&
       newTeam.name !== undefined &&
+      newTeam.shortName !== undefined &&
       newTeam.pj !== undefined &&
       newTeam.pg !== undefined &&
       newTeam.pe !== undefined &&
@@ -76,14 +77,15 @@ function Clasification() {
       // Prepare the data to send to the server, including the generated ID
       const newTeamData = {
         name: newTeam.name,
+        shortName: newTeam.shortName,
         pj: parseInt(newTeam.pj),
         pg: parseInt(newTeam.pg),
         pe: parseInt(newTeam.pe),
         pp: parseInt(newTeam.pp),
         pts: parseInt(newTeam.pts),
       };
-
       // Send a POST request to your server using fetch or Axios
+      console.log(newTeamData)
       fetch(process.env.REACT_APP_API_URL + "/clasificationdb/add", {
         method: "POST",
         headers: {
@@ -97,6 +99,7 @@ function Clasification() {
             setNewTeam({
               id: "", // Clear the ID field
               name: "",
+              shortName: "",
               pj: "",
               pg: "",
               pe: "",
@@ -126,6 +129,7 @@ function Clasification() {
 	setAddingTeam(false)
   setNewTeam({
     name: "",
+    shortName: "",
     pj: "",
     pg: "",
     pe: "",
@@ -144,6 +148,7 @@ function Clasification() {
     setEditState(false);
     setNewTeam({
       name: "",
+      shortName: "",
       pj: "",
       pg: "",
       pe: "",
@@ -163,7 +168,10 @@ function Clasification() {
       pp: newTeam.pp !== "" ? parseInt(newTeam.pp, 10) : item.pp,
       pts: newTeam.pts !== "" ? parseInt(newTeam.pts, 10) : item.pts,
       name: newTeam.name === "" ? item.name : newTeam.name,
+      shortName: newTeam.shortName === "" ? item.shortName : newTeam.shortName,
     };
+    console.log(updatedFields)
+
 
     const apiUrl = process.env.REACT_APP_API_URL + `/clasificationdb/update/${item.id}`;
     fetch(apiUrl, {
@@ -182,6 +190,7 @@ function Clasification() {
         getDataFromServer();
         setNewTeam({
           name: "",
+          shortName: "",
           pj: "",
           pg: "",
           pe: "",
@@ -239,7 +248,7 @@ function Clasification() {
           <h3 className="mb-3">Clasificación</h3>
         </div>
         <div className="col-6 text-end">
-          <button onClick={() => setAddingTeam(true)} className="btn-red">
+          <button onClick={() => setAddingTeam(true)} className="btn-blue">
             Añadir equipo
           </button>
         </div>
@@ -322,7 +331,7 @@ function Clasification() {
                 />
               </td>
               <td className="text-end">
-                <button onClick={handleAddTeam} className="btn-red my-2">
+                <button onClick={handleAddTeam} className="btn-blue my-2">
                   <i className="fa-solid fa-check"></i> Añadir
                 </button>
               </td>
