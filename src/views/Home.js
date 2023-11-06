@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { scrollToSection } from "../utils/scrollUtils";
 
 import SimpleSlider from "../Slider";
 import NextMatch from "../components/NextMatch/NextMatch";
@@ -8,40 +9,54 @@ import InfoCards from "../components/InfoCards/InfoCards";
 
 
 function Home() {
-  // Create refs for each section
-  const homeSectionRef = useRef(null);
-  const newsSectionRef = useRef(null);
-  const contactSectionRef = useRef(null);
+  const [navbarHeight, setNavbarHeight] = useState(80); // Default height
 
   useEffect(() => {
-    // Check if there is a hash in the URL
-    if (window.location.hash) {
-      // Check the hash in the URL and scroll to the corresponding section if it exists
-      if (
-        window.location.hash === "#news" &&
-        newsSectionRef.current
-      ) {
-        newsSectionRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (
-        window.location.hash === "#contact" &&
-        contactSectionRef.current
-      ) {
-        contactSectionRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (window.location.hash === "#home" && homeSectionRef.current) {
-        homeSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    // Create a ResizeObserver instance
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.target.classList.contains("navbar")) {
+          // Update the navbarHeight state when the navbar size changes
+          setNavbarHeight(entry.target.offsetHeight);
+        }
       }
+    });
+
+    // Observe the navbar element
+    const navbar = document.querySelector(".navbar");
+    if (navbar) {
+      resizeObserver.observe(navbar);
     }
+
+    return () => {
+      // Clean up the observer when the component unmounts
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    // Measure the actual height of the navbar and set it in the state
+    const navbar = document.querySelector(".navbar");
+    if (navbar) {
+      setNavbarHeight(navbar.offsetHeight);
+    }
+  }, [navbarHeight]);
+  useEffect(() => {
+    const sectionFromURL = window.location.hash;
+    const sectionWithoutHash = sectionFromURL.substring(1); // Remove the first character, which is the #
+
+    scrollToSection(sectionWithoutHash);
   }, []);
 
   return (
-    <div className="main">
+    <div style={{ paddingTop: navbarHeight + "px" }}>
       <SimpleSlider />
       <div className="main-margin row d-flex justify-content-between">
         <NextMatch />
         <PointTable />
       </div>
-      <div ref={newsSectionRef} id="news">
-        <div class="fixed-background"></div>
+      <div id="news">
+        <div className="fixed-background"></div>
         <div className="main-margin">
         <h1 className="mb-4">Feature News</h1>
         <InfoCards />

@@ -19,12 +19,24 @@ function Sponsors() {
             alt="Logo Padornelo"
           />
           <img
-            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/senda.jpg"
-            alt="Logo Senda"
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/caja-rural.jpg"
+            alt="Logo Caja Rural"
           />
           <img
             src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/alqui-sanabria.jpg"
             alt="Logo Alqui Sanabria"
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/senda.jpg"
+            alt="Logo Senda"
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/mmt.jpg"
+            alt="Logo MMT seguros"
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/electricas.jpg"
+            alt="Logo Electricas Sanabria"
           />
         </p>
         <p>
@@ -42,12 +54,24 @@ function Sponsors() {
             alt="Logo Padornelo"
           />
           <img
-            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/senda.jpg"
-            alt="Logo Senda"
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/caja-rural.jpg"
+            alt="Logo Caja Rural"
           />
           <img
             src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/alqui-sanabria.jpg"
             alt="Logo Alqui Sanabria"
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/senda.jpg"
+            alt="Logo Senda"
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/mmt.jpg"
+            alt="Logo MMT seguros"
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/electricas.jpg"
+            alt="Logo Electricas Sanabria"
           />
         </p>
       </div>

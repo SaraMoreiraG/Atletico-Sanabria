@@ -6,8 +6,9 @@
 }
 
 .header-img{
-	background-image: url("https://neospor.joomlatema.net/templates/neospor/images/stripes.png");
+	background-image: url("https://images-atletico-sanabria.s3.amazonaws.com/stripes.png");
 	background-repeat: no-repeat;
+	background-size: cover;
 	right: 0;
 	top: 0;
 	position: absolute;
