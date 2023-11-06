@@ -57,39 +57,6 @@ router.get("/full", (req, res) => {
     });
 });
 
-// GET route to retrieve the first 5 items from the table
-router.get("/onlyfive", (req, res) => {
-  const scanParams = {
-    TableName: "clasification",
-    Limit: 5, // Limit the result to the first 5 items
-  };
-
-  dynamodbClient
-    .send(new ScanCommand(scanParams))
-    .then((data) => {
-      // Process the items to convert attribute values to plain JavaScript types
-      const items = data.Items.map((item) => {
-        const unmarshalledItem = unmarshall(item);
-        // Convert attribute values to plain JavaScript types
-        Object.keys(unmarshalledItem).forEach((key) => {
-          const value = unmarshalledItem[key];
-          if (value && typeof value === "object" && value.hasOwnProperty("N")) {
-            unmarshalledItem[key] = parseInt(value.N);
-          } else if (value.hasOwnProperty("S")) {
-            unmarshalledItem[key] = value.S;
-          }
-        });
-        return unmarshalledItem;
-      });
-
-      res.json(items);
-    })
-    .catch((err) => {
-      console.error("DynamoDB scan error:", err);
-      res.status(500).send("Server Error");
-    });
-});
-
 // Update items
 router.put("/update/:itemId", (req, res) => {
   const itemId = parseInt(req.params.itemId, 10);
@@ -101,56 +68,40 @@ router.put("/update/:itemId", (req, res) => {
   }
 
   const updatedData = req.body;
-  const updateExpression = [];
-  const expressionAttributeNames = {};
-  const expressionAttributeValues = {};
-
-  // Check and update multiple attributes
-  if (typeof updatedData.pe === "number") {
-    updateExpression.push("#pe = :pe");
-    expressionAttributeNames["#pe"] = "pe";
-    expressionAttributeValues[":pe"] = { N: updatedData.pe.toString() };
-  }
-
-  if (typeof updatedData.pg === "number") {
-    updateExpression.push("#pg = :pg");
-    expressionAttributeNames["#pg"] = "pg";
-    expressionAttributeValues[":pg"] = { N: updatedData.pg.toString() };
-  }
-
-  if (typeof updatedData.pj === "number") {
-    updateExpression.push("#pj = :pj");
-    expressionAttributeNames["#pj"] = "pj";
-    expressionAttributeValues[":pj"] = { N: updatedData.pj.toString() };
-  }
-
-  if (typeof updatedData.pp === "number") {
-    updateExpression.push("#pp = :pp");
-    expressionAttributeNames["#pp"] = "pp";
-    expressionAttributeValues[":pp"] = { N: updatedData.pp.toString() };
-  }
-
-  if (typeof updatedData.pts === "number") {
-    updateExpression.push("#pts = :pts");
-    expressionAttributeNames["#pts"] = "pts";
-    expressionAttributeValues[":pts"] = { N: updatedData.pts.toString() };
-  }
-
-  const updateCommand = {
+  const updateParams = {
     TableName: "clasification",
-    Key: {
+    Item: {
       id: { N: itemId.toString() },
       name: { S: name },
     },
-    UpdateExpression: "SET " + updateExpression.join(", "),
-    ExpressionAttributeNames: expressionAttributeNames,
-    ExpressionAttributeValues: marshall(expressionAttributeValues),
   };
 
+  // Optional attributes
+  if (typeof updatedData.pe === "number") {
+    updateParams.Item.pe = { N: updatedData.pe.toString() };
+  }
+  if (typeof updatedData.pg === "number") {
+    updateParams.Item.pg = { N: updatedData.pg.toString() };
+  }
+  if (typeof updatedData.pj === "number") {
+    updateParams.Item.pj = { N: updatedData.pj.toString() };
+  }
+  if (typeof updatedData.pp === "number") {
+    updateParams.Item.pp = { N: updatedData.pp.toString() };
+  }
+  if (typeof updatedData.pts === "number") {
+    updateParams.Item.pts = { N: updatedData.pts.toString() };
+  }
+  if (updatedData.shortName) {
+		updateParams.Item.shortName = { S: updatedData.shortName };
+	  }
+
+  // Use DynamoDBClient to send the PutItemCommand for updating
   dynamodbClient
-    .send(new UpdateItemCommand(updateCommand))
-    .then((data) => {
+    .send(new PutItemCommand(updateParams))
+    .then(() => {
       console.log("Item successfully updated in DynamoDB.");
+      console.log(updateParams)
       res.sendStatus(200);
     })
     .catch((err) => {
@@ -158,6 +109,7 @@ router.put("/update/:itemId", (req, res) => {
       res.status(500).send("Server Error");
     });
 });
+
 
 // Delete items
 router.delete("/delete/:itemId/:itemName", (req, res) => {

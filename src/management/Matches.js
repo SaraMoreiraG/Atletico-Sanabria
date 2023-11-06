@@ -227,7 +227,7 @@ function Matches() {
           <h3 className="mb-3">Próximos partidos</h3>
         </div>
         <div className="col-6 text-end">
-          <button onClick={() => setAddingMatch(true)} className="btn-red">
+          <button onClick={() => setAddingMatch(true)} className="btn-blue">
             Añadir partido
           </button>
         </div>
@@ -297,7 +297,7 @@ function Matches() {
                 />
               </td>
               <td className="text-end">
-                <button onClick={handleAddMatch} className="btn-red my-2">
+                <button onClick={handleAddMatch} className="btn-blue my-2">
                   <i className="fa-solid fa-check"></i> Añadir
                 </button>
               </td>
