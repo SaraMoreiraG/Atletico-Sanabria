@@ -90,16 +90,14 @@
  transition: max-height 0.5s ease-out; /* Add animation */
 }
 .open .dropdown-list {
-  max-height: 1000px; /* Adjust to a sufficiently large value to show all items */
+  max-height: 100px; /* Adjust to a sufficiently large value to show all items */
   transition: max-height 0.5s ease-in;
 }
 .dropdown-list li {
-  border-bottom: 1px solid #151C21;
   padding: 8px 0;
 }
-
-.dropdown-list li:last-child {
-  border-bottom: none;
+.dropdown-link{
+  border-bottom: 1px solid #151C21;
 }
 
 .navbar-logo {

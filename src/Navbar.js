@@ -90,7 +90,7 @@ function Navbar() {
                 <ul className="dropdown-list">
                 <Link
                   to="/#news"
-                  className="nav-link"
+                  className="nav-link dropdown-link"
                   onClick={() => {
                     scrollToSection("news");
                     closeMenu();
