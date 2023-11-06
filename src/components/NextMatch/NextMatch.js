@@ -5,11 +5,11 @@ function NextMatch() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   // Function to fetch data from the server
   const getDataFromServer = () => {
-    // Define the URL to fetch data
     const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full";
-    // Make a GET request to the API
+
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -17,8 +17,23 @@ function NextMatch() {
         }
         return response.json();
       })
-      .then((data) => {
-        setData(data);
+      .then((matches) => {
+        // Get the current date
+        const currentDate = new Date();
+
+        // Filter matches that are in the future (based on date)
+        const futureMatches = matches.filter((match) => {
+          const matchDate = new Date(match.date);
+          return matchDate > currentDate;
+        });
+
+        // Sort the future matches by date
+        futureMatches.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        // Take the first three matches
+        const nextThreeMatches = futureMatches.slice(0, 3);
+
+        setData(nextThreeMatches);
         setLoading(false);
       })
       .catch((err) => {
