@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { scrollToSection } from "../utils/scrollUtils";
 
 import SimpleSlider from "../Slider";
