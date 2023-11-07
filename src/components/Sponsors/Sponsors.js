@@ -18,6 +18,12 @@ function Sponsors() {
 
           />
           <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/meigas.jpg"
+            alt="Logo Limpieza Meigas"
+            height="100px"
+
+          />
+          <img
             src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/padornelo.jpg"
             className="mx-4"
             alt="Logo Padornelo"
@@ -33,6 +39,12 @@ function Sponsors() {
           <img
             src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/alqui-sanabria.jpg"
             alt="Logo Alqui Sanabria"
+            height="100px"
+
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/pinturas.jpg"
+            alt="Logo Pinturas Muñoz"
             height="100px"
 
           />
@@ -68,6 +80,12 @@ function Sponsors() {
 
           />
           <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/meigas.jpg"
+            alt="Logo Limpieza Meigas"
+            height="100px"
+
+          />
+          <img
             src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/padornelo.jpg"
             className="mx-4"
             alt="Logo Padornelo"
@@ -83,6 +101,12 @@ function Sponsors() {
           <img
             src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/alqui-sanabria.jpg"
             alt="Logo Alqui Sanabria"
+            height="100px"
+
+          />
+          <img
+            src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/pinturas.jpg"
+            alt="Logo Pinturas Muñoz"
             height="100px"
 
           />
