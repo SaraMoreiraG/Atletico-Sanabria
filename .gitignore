@@ -4,6 +4,7 @@
 /api/.env
 /api/node_modules
 .gitignore
+.env
 
 # dependencies
 /node_modules

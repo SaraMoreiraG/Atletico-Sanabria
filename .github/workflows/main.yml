@@ -37,7 +37,7 @@ jobs:
         run: npm install
 
       - name: Build the React app
-        run: npm run build
+        run: REACT_APP_API_URL=${REACT_APP_API_URL} REACT_APP_INSTAGRAM_TOKEN=${REACT_APP_INSTAGRAM_TOKEN} npm run build
 
       - name: Deploy to AWS S3
         run: |
