@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from "react";
-
 import "./Footer.css";
 import logo from "../../assets/images/atletico-sanabria-transparent.png";
+import { fetchInstagramSecretValue } from "../../utils/fetchInstagramSecretValue";
 
 function Footer() {
   const [instagramPhotos, setInstagramPhotos] = useState([]);
 
   useEffect(() => {
-    // Your Instagram API endpoint
-    const instagramApiUrl = `https://graph.instagram.com/v12.0/me/media?fields=id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${process.env.REACT_APP_INSTAGRAM_TOKEN}`;
+    async function fetchData() {
+      try {
+        const secret = await fetchInstagramSecretValue();
+        // Use the secret data in your app
+        const instagramApiUrl = `https://graph.instagram.com/v12.0/me/media?fields=id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${secret}`;
+        fetch(instagramApiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            setInstagramPhotos(data.data); // Assuming the photos are in the 'data' field
+          })
+          .catch((error) => {
+            console.error("Error fetching Instagram photos: ", error);
+          });
+        console.log(secret);
+      } catch (error) {
+        console.error("Error fetching secret:", error);
+      }
+    }
 
-    fetch(instagramApiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        setInstagramPhotos(data.data); // Assuming the photos are in the 'data' field
-      })
-      .catch((error) => {
-        console.error("Error fetching Instagram photos: ", error);
-      });
+    fetchData();
   }, []);
+
   return (
     <>
       <div id="footer">
