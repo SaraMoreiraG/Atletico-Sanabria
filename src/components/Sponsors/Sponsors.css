@@ -1,10 +1,27 @@
+#sponsors{
+	background-color: #fff;
+}
 .wrapper {
 	max-width: 100%;
 	overflow: hidden;
-	background-color: #fff;
 	text-transform: uppercase;
-	height: 180px;
+	margin: 0px 100px;
 }
+@supports (display: flex) {
+	@media (max-width: 768px) {
+	  .wrapper {
+		margin: 0px 20px;
+		/* Adjust margin for screens <= 768px */
+	  }
+	}
+
+	@media (max-width: 576px) {
+	  .wrapper {
+		margin: 0px 20px;
+		/* Adjust margin for screens <= 576px */
+	  }
+	}
+  }
 
 .marquee {
 	white-space: nowrap;
