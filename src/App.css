@@ -2,9 +2,6 @@
   margin: 50px 100px;
   /* Default margin for larger screens */
 }
-.main{
-  padding-top: 20%;
-}
 /* Check if the browser supports media queries */
 @supports (display: flex) {
   @media (max-width: 768px) {

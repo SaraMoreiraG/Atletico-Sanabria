@@ -8,6 +8,7 @@ import Home from "./views/Home";
 import Login from "./views/login";
 import Dashboard from "./views/Dashboard";
 import NewMemberForm from "./views/NewMemberForm";
+import Footer from "./components/Footer/Footer"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/newmemberform" element={<NewMemberForm />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </AuthProvider>
   );
