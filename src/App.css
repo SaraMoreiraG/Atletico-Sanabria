@@ -2,6 +2,7 @@
   margin: 50px 100px;
   /* Default margin for larger screens */
 }
+
 /* Check if the browser supports media queries */
 @supports (display: flex) {
   @media (max-width: 768px) {
@@ -19,31 +20,32 @@
   }
 }
 
-
 .border-rounded {
   border-radius: 3px;
 }
 
-.navbar-color {
-  background-color: #212b34;
+/* NAVBAR */
+.navbar-row {
   position: fixed;
   width: 100%;
   z-index: 100;
   transition: background-color 0.3s;
   top: 0;
 }
-.navbar-color.scrolling{
-  background-color: rgba(42, 50, 58, 0.956)
+.navbar-color{
+  background-color: #212b34;
 }
-.navbar{
+.navbar-color.scrolling {
+  background-color: #212b34ee
+}
+
+.navbar {
   /* height: 12vh; */
   margin: 0 5em;
   padding: 0 5em;
 }
-/* .navbar.open{
-  height: 30vh;
-} */
-/* Check if the browser supports media queries */
+
+/* Responsive */
 @supports (display: flex) {
   @media (max-width: 992px) {
     .navbar {
@@ -60,10 +62,13 @@
   }
 }
 
-.dropdown{
+/* Dropdown */
+.dropdown {
   text-align: end;
 }
-.dropdown-button{
+
+/* Dropdown small screens */
+.dropdown-button {
   cursor: pointer;
   background-color: #3f6e9a;
   border-color: #305476;
@@ -75,26 +80,89 @@
   border-radius: 4px;
   transition: color 0.5s ease;
 }
-.open .dropdown-button{
+
+.open .dropdown-button {
   color: #305476;
 }
-.dropdown-list{
- list-style: none;
- margin: 0;
- padding: 0;
- max-height: 0; /* Initially hide the list */
- overflow: hidden; /* Hide the content that overflows the max height */
- transition: max-height 0.5s ease-out; /* Add animation */
+
+.sports-toggle{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
 }
-.open .dropdown-list {
-  max-height: 100px; /* Adjust to a sufficiently large value to show all items */
-  transition: max-height 0.5s ease-in;
+/* Dropdown sports */
+.arrow-up,
+.arrow-down {
+  transition: transform 0.5s ease-in-out;
+  display: inline-block;
 }
-.dropdown-list li {
+
+.arrow-up {
+  transform: rotate(0deg);
+}
+
+.arrow-down {
+  transform: rotate(180deg);
+}
+.dropdown-sports{
+  background-color: #212b34;
+}
+.dropdown-list,
+.dropdown-sports {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  border: transparent;
+  transition: border-top 0.5s ease-out;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.open .dropdown-list,
+.open .dropdown-sports {
+  max-height: 170px;
+
+  border-top: 2px solid #3f6e9a;
+  transition: border-top 0.5s ease-in;
+  transition: max-height 0.5s ease-in-out;
+}
+/* .open .dropdown-sports{
+  border-top: 2px solid #3f6e9a;
+  transition: border-top 0.5s ease-in;
+} */
+
+.dropdown-link {
   padding: 8px 0;
+  border-bottom: 1px solid #141b20;
 }
-.dropdown-link{
-  border-bottom: 1px solid #151C21;
+
+.dropdown-link:last-child {
+  border-bottom: 0px;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.nav-link {
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+.nav-link:hover {
+  color: #3f6e9a;
+}
+
+.user-registered {
+  color: #052642;
+}
+
+.fa-user {
+  letter-spacing: 2px;
+  color: #3f6e9a;
 }
 
 .navbar-logo {
@@ -103,7 +171,7 @@
   text-align: center;
 }
 
-/* Check if the browser supports media queries */
+/* NAVBAR Logo responsive */
 @supports (display: flex) {
   @media (max-width: 650px) {
     .navbar-logo {
@@ -124,29 +192,6 @@
   }
 }
 
-
-.navbar a {
-  text-decoration: none;
-}
-
-.nav-link {
-  color: #fff;
-  cursor: pointer;
-}
-
-/* .navbar span{
-  color: #666666;
-  font-size: 16px;
-} */
-.user-registered {
-  color: #052642;
-}
-
-.fa-user {
-  letter-spacing: 2px;
-  color: #3f6e9a;
-}
-
 .company-name {
   margin: 0;
   font-size: 20px;
@@ -155,7 +200,7 @@
   text-transform: uppercase;
 }
 
-/* Check if the browser supports media queries */
+/* company-name responsive */
 @supports (display: flex) {
   @media (max-width: 650px) {
     .company-name {
@@ -181,7 +226,7 @@
   color: #fff;
 }
 
-/* Check if the browser supports media queries */
+/* company-sub-name responsive */
 @supports (display: flex) {
   @media (max-width: 650px) {
     .company-sub-name {
@@ -209,7 +254,7 @@
   color: #c6c6c6;
 }
 
-/* Check if the browser supports media queries */
+/* company-description responsive */
 @supports (display: flex) {
   @media (max-width: 650px) {
     .company-description {
@@ -224,7 +269,7 @@
   }
 }
 
-
+/* SLIDERS */
 .slider1,
 .slider2,
 .slider3 {
@@ -283,7 +328,7 @@
   padding: 20px;
 }
 
-/* Check if the browser supports media queries */
+/* text-holder responsive */
 @supports (display: flex) {
   @media (max-width: 992px) {
     .text-holder {
@@ -310,6 +355,7 @@
   }
 }
 
+/* Texts sliders */
 .bg-white,
 .bg-blue {
   color: #0d0d0d;
@@ -329,7 +375,7 @@
   color: #fff;
 }
 
-/* Check if the browser supports media queries */
+/* text-sliders responsive */
 @supports (display: flex) {
   @media (max-width: 992px) {
 
@@ -407,6 +453,7 @@
   background-color: #151f28;
 }
 
+/* FORMS */
 input {
   background-color: #0d1520;
   border: 1px solid #19283d;
@@ -425,6 +472,12 @@ input:focus {
   margin-bottom: 20px;
 }
 
+
+.new-member-form {
+  background-color: #031627;
+  border: 1px solid #052642;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -438,6 +491,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* Login View */
 .login {
   color: #c6c6c6;
   height: 90vh;
@@ -464,20 +518,18 @@ input[type=number] {
   z-index: -1;
 }
 
-.new-member-form {
-  background-color: #031627;
-  border: 1px solid #052642;
-}
+/* CardComponent */
 
-
-#card-details{
+#card-details {
   background-color: #031627;
 }
-.card-details-margin{
+
+.card-details-margin {
   margin: 0 100px;
   padding: 50px 0;
   /* Default margin for larger screens */
 }
+
 /* Check if the browser supports media queries */
 @supports (display: flex) {
   @media (max-width: 768px) {
