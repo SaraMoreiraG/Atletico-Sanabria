@@ -8,6 +8,7 @@ import Home from "./views/Home";
 import Login from "./views/login";
 import Dashboard from "./views/Dashboard";
 import NewMemberForm from "./views/NewMemberForm";
+import ActivitiesForm from "./views/ActivitiesForm";
 import CardDetails from "./views/CardDetails";
 import Footer from "./components/Footer/Footer";
 
@@ -20,7 +21,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/newmemberform" element={<NewMemberForm />} />
+          <Route path="/formulario-nuevo-socio" element={<NewMemberForm />} />
+          <Route path="/formulario-actividades" element={<ActivitiesForm />} />
           <Route path="/deportes/:sport" element={<CardDetails />} />
         </Routes>
         <Footer />

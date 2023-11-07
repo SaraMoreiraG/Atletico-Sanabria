@@ -107,7 +107,7 @@ function Navbar() {
                       <li>Noticias</li>
                     </Link>
                     <Link
-                      to="/newmemberform"
+                      to="/formulario-nuevo-socio"
                       className="nav-link"
                       onClick={closeMenu}
                     >
@@ -134,16 +134,12 @@ function Navbar() {
                     </span>
                   </div>
                   <div className="me-3">
-                    <Link
-                      to="/#news"
-                      className="nav-link"
-                      onClick={() => scrollToSection("news")}
-                    >
-                      <span>Noticias</span>
+                  <Link to="/formulario-actividades" className="nav-link">
+                      <span>Actividades</span>
                     </Link>
                   </div>
                   <div className="me-3">
-                    <Link to="/newmemberform" className="nav-link">
+                    <Link to="/formulario-nuevo-socio" className="nav-link">
                       <span>Hazte socio</span>
                     </Link>
                   </div>

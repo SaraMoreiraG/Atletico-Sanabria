@@ -41,8 +41,8 @@
 }
 
 /* Check if the browser supports media queries */
-/* @supports (display: flex) {
-	@media (max-width: 650px) {
+@supports (display: flex) {
+	@media (max-width: 1070px) {
 		.footer-logo {
 			height: 40px;
 		}
@@ -59,7 +59,7 @@
 			height: 20px;
 		}
 	}
-} */
+}
 
 .company-name-footer {
 	margin: 0;
@@ -71,7 +71,7 @@
 
 /* Check if the browser supports media queries */
 @supports (display: flex) {
-	@media (max-width: 650px) {
+	@media (max-width: 1070px) {
 		.company-name-footer {
 			font-size: 16px;
 		}
@@ -104,6 +104,10 @@
 	padding: 8px 0;
 	border-bottom: 1px solid #0b0f12;
 	border-top: 1px solid #1f2831;
+	color: #fff;
+  }
+  .footer-list li:hover{
+
   }
   .footer-list li:first-child {
 	border-top: 0px;
@@ -118,6 +122,10 @@
 .instagram-photo{
 	height: 80%;
 }
-a{
+/* a{
 	text-decoration: none;
-}
+	color: #fff;
+} */
+/* a:hover{
+	color: #325575;
+} */
