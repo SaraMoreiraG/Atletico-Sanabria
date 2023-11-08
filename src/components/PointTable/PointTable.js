@@ -41,7 +41,7 @@ function PointTable() {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-  let position = 1;
+
   return (
 <div className="col-lg-4 col-md-12 px-2 d-flex align-items-start">
   <div className="clasification col-12 p-3">
