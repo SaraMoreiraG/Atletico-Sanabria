@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import logo from "../../assets/images/atletico-sanabria-transparent.png";
-import sportsData from "../../redux/sportsData";
+import sportsData from "../../context/sportsData";
 
 function Footer() {
   const [instagramPhotos, setInstagramPhotos] = useState([]);
@@ -25,7 +24,7 @@ function Footer() {
         <div className="row margin py-5 g-3 text-start">
           <div className="col-lg-3 col-md-6">
             <div className="d-flex mb-2">
-              <img src={logo} alt="Logo" className="footer-logo img-fluid" />
+              <img src="https://images-atletico-sanabria.s3.amazonaws.com/atletico-sanabria-transparent.png" alt="Logo" className="footer-logo img-fluid" />
               <div className="text-center mt-2">
                 <p className="company-name-footer">
                   Atlético

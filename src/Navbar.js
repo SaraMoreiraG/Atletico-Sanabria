@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import sportsData from "./redux/sportsData";
-import { scrollToSection } from "./utils/scrollUtils";
+import sportsData from "./context/sportsData";
 import { useAuth } from "./context/AuthContext";
-
-import logo from "./assets/images/atletico-sanabria-transparent.png";
 
 function Navbar() {
   const { isAuthenticated } = useAuth();
-  console.log("navbar",isAuthenticated)
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 582);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSportsMenuOpen, setIsSportsMenuOpen] = useState(false);
@@ -120,7 +116,7 @@ function Navbar() {
           {/***** Logo ******/}
           <div className={`px-0 py-2 ${isSmallScreen ? "col-9" : "col-5"}`}>
             <Link to="/" className="logo d-flex" onClick={closeMenu}>
-              <img src={logo} alt="Logo" className="navbar-logo" />
+              <img src="https://images-atletico-sanabria.s3.amazonaws.com/atletico-sanabria-transparent.png" alt="Logo" className="navbar-logo" />
               <div className="text-center mt-2">
                 <p className="company-name">
                   Atlético <span className="company-sub-name">Sanabria</span>
@@ -152,7 +148,6 @@ function Navbar() {
                     to="/formulario-nuevo-socio"
                     className="nav-link dropdown-link"
                     onClick={() => {
-                      scrollToSection("news");
                       closeMenu();
                     }}
                   >

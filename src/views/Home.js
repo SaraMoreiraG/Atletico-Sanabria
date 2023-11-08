@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { scrollToSection } from "../utils/scrollUtils";
+import React from "react";
 
 import SimpleSlider from "../Slider";
 import NextMatch from "../components/NextMatch/NextMatch";
@@ -8,12 +7,6 @@ import Sponsors from "../components/Sponsors/Sponsors";
 import InfoCards from "../components/InfoCards/InfoCards";
 
 function Home() {
-  useEffect(() => {
-    const sectionFromURL = window.location.hash;
-    const sectionWithoutHash = sectionFromURL.substring(1); // Remove the first character, which is the #
-
-    scrollToSection(sectionWithoutHash);
-  }, []);
 
   return (
     <div>

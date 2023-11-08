@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import sportsData from "../redux/sportsData";
+import sportsData from "../context/sportsData";
 import { useParams } from "react-router-dom";
 
 const CardDetails = () => {
