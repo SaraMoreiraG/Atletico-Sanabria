@@ -13,6 +13,7 @@ function Clasification() {
   });
   const [addingTeam, setAddingTeam] = useState(false);
   const [newTeam, setNewTeam] = useState({
+    position: "",
     name: "",
     pj: "",
     pg: "",
@@ -21,15 +22,11 @@ function Clasification() {
     pts: "",
     shortName: "",
   });
-  let position = 1;
 
-  // Function to fetch data from the server
+  // Fetch data from the server
   const getDataFromServer = () => {
-    // Define the URL to fetch data
     const apiUrl = process.env.REACT_APP_API_URL + "/clasificationdb/full";
 
-
-    // Make a GET request to the API
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -38,7 +35,7 @@ function Clasification() {
         return response.json();
       })
       .then((data) => {
-        data.sort((a, b) => b.pts - a.pts);
+        data.sort((a, b) => a.position - b.position);
         setData(data);
         setLoading(false);
       })
@@ -47,7 +44,7 @@ function Clasification() {
         setLoading(false);
       });
   };
-  // Effect to fetch data when the component mounts
+  // Fetch data when the component mounts
   useEffect(() => {
     getDataFromServer();
   }, []);
@@ -61,11 +58,12 @@ function Clasification() {
     }));
   };
 
-  // Function to add a new team
+  // Add new team
   const handleAddTeam = () => {
     // Check if all required properties are defined
     if (
       newTeam &&
+      newTeam.position !== undefined &&
       newTeam.name !== undefined &&
       newTeam.shortName !== undefined &&
       newTeam.pj !== undefined &&
@@ -76,6 +74,7 @@ function Clasification() {
     ) {
       // Prepare the data to send to the server, including the generated ID
       const newTeamData = {
+        position: parseInt(newTeam.position),
         name: newTeam.name,
         shortName: newTeam.shortName,
         pj: parseInt(newTeam.pj),
@@ -85,7 +84,6 @@ function Clasification() {
         pts: parseInt(newTeam.pts),
       };
       // Send a POST request to your server using fetch or Axios
-      console.log(newTeamData)
       fetch(process.env.REACT_APP_API_URL + "/clasificationdb/add", {
         method: "POST",
         headers: {
@@ -98,6 +96,7 @@ function Clasification() {
             // Team added successfully
             setNewTeam({
               id: "", // Clear the ID field
+              position: "",
               name: "",
               shortName: "",
               pj: "",
@@ -126,16 +125,17 @@ function Clasification() {
   // Function to handle an edit click on a specific row
   const handleEdit = (rowIndex) => {
     setEditState({ rowIndex, columnIndex: null });
-	setAddingTeam(false)
-  setNewTeam({
-    name: "",
-    shortName: "",
-    pj: "",
-    pg: "",
-    pe: "",
-    pp: "",
-    pts: "",
-  });
+    setAddingTeam(false);
+    setNewTeam({
+      position: "",
+      name: "",
+      shortName: "",
+      pj: "",
+      pg: "",
+      pe: "",
+      pp: "",
+      pts: "",
+    });
   };
 
   // Function to check if a row is in edit state based on its rowIndex
@@ -157,11 +157,12 @@ function Clasification() {
     });
   };
 
-  // Function to update team
+  // Update team
   const handleSave = (item) => {
     setEditState({ rowIndex: null, columnIndex: null });
 
     const updatedFields = {
+      position: newTeam.position !== "" ? parseInt(newTeam.position, 10) : item.position,
       pe: newTeam.pe !== "" ? parseInt(newTeam.pe, 10) : item.pe,
       pg: newTeam.pg !== "" ? parseInt(newTeam.pg, 10) : item.pg,
       pj: newTeam.pj !== "" ? parseInt(newTeam.pj, 10) : item.pj,
@@ -170,16 +171,15 @@ function Clasification() {
       name: newTeam.name === "" ? item.name : newTeam.name,
       shortName: newTeam.shortName === "" ? item.shortName : newTeam.shortName,
     };
-    console.log(updatedFields)
 
-
-    const apiUrl = process.env.REACT_APP_API_URL + `/clasificationdb/update/${item.id}`;
+    const apiUrl =
+      process.env.REACT_APP_API_URL + `/clasificationdb/update/${item.id}`;
     fetch(apiUrl, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedFields), // Send only the fields you want to update
+      body: JSON.stringify(updatedFields), // Send only the fields to update
     })
       .then((response) => {
         if (!response.ok) {
@@ -189,6 +189,7 @@ function Clasification() {
         // You may also update the state or refresh the data from the server if needed.
         getDataFromServer();
         setNewTeam({
+          position: "",
           name: "",
           shortName: "",
           pj: "",
@@ -207,7 +208,8 @@ function Clasification() {
   // Function to delete a team
   const handleDelete = (itemId, itemName) => {
     fetch(
-      process.env.REACT_APP_API_URL + `/clasificationdb/delete/${itemId}/${itemName}`,
+      process.env.REACT_APP_API_URL +
+        `/clasificationdb/delete/${itemId}/${itemName}`,
       {
         method: "DELETE",
         headers: {
@@ -269,7 +271,16 @@ function Clasification() {
         <tbody>
           {addingTeam && (
             <tr className="text-center">
-              <td></td>
+              <td>
+              <input
+                  type="numbert"
+                  name="position"
+                  placeholder="Pos"
+                  value={newTeam.position}
+                  onChange={handleInputChange}
+                  className="col-11"
+                />
+              </td>
               <td>
                 <input
                   type="text"
@@ -344,10 +355,23 @@ function Clasification() {
               }`}
               key={rowIndex}
             >
-              <td className="py-2">{position++}.</td>
+              <td className="py-2">
+              {isRowInEditState(rowIndex) ? (
+                  <input
+                    type="number"
+                    value={newTeam.position}
+                    name="position"
+                    placeholder={item.position}
+                    className="col-12"
+                    onChange={handleInputChange}
+                  />
+                ) : (
+                  item.position
+                )}
+              </td>
               <td className="d-flex align-items-center text-start py-2">
                 <div>
-                <img
+                  <img
                     src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.shortName}.png`}
                     height="25px"
                     className="me-2"
@@ -373,13 +397,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                  type="number"
-                  value={newTeam.pg}
-                  name="pg"
-                  placeholder={item.pg}
-                  className="col-12"
-                  onChange={handleInputChange}
-                />
+                    type="number"
+                    value={newTeam.pg}
+                    name="pg"
+                    placeholder={item.pg}
+                    className="col-12"
+                    onChange={handleInputChange}
+                  />
                 ) : (
                   item.pg
                 )}
@@ -387,13 +411,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                  type="number"
-                  value={newTeam.pe}
-                  name="pe"
-                  placeholder={item.pe}
-                  className="col-12"
-                  onChange={handleInputChange}
-                />
+                    type="number"
+                    value={newTeam.pe}
+                    name="pe"
+                    placeholder={item.pe}
+                    className="col-12"
+                    onChange={handleInputChange}
+                  />
                 ) : (
                   item.pe
                 )}
@@ -401,13 +425,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                  type="number"
-                  value={newTeam.pp}
-                  name="pp"
-                  placeholder={item.pp}
-                  className="col-12"
-                  onChange={handleInputChange}
-                />
+                    type="number"
+                    value={newTeam.pp}
+                    name="pp"
+                    placeholder={item.pp}
+                    className="col-12"
+                    onChange={handleInputChange}
+                  />
                 ) : (
                   item.pp
                 )}
@@ -415,13 +439,13 @@ function Clasification() {
               <td>
                 {isRowInEditState(rowIndex) ? (
                   <input
-                  type="number"
-                  value={newTeam.pts}
-                  name="pts"
-                  placeholder={item.pts}
-                  className="col-12"
-                  onChange={handleInputChange}
-                />
+                    type="number"
+                    value={newTeam.pts}
+                    name="pts"
+                    placeholder={item.pts}
+                    className="col-12"
+                    onChange={handleInputChange}
+                  />
                 ) : (
                   item.pts
                 )}

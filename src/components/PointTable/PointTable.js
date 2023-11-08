@@ -20,7 +20,7 @@ function PointTable() {
         return response.json();
       })
       .then((data) => {
-        data.sort((a, b) => b.pts - a.pts);
+        data.sort((a, b) => b.position - a.position);
         setData(data);
         setLoading(false);
       })

@@ -5,11 +5,10 @@ const dotenv = require("dotenv");
 const {
   DynamoDBClient,
   ScanCommand,
-  UpdateItemCommand,
   DeleteItemCommand,
   PutItemCommand,
 } = require("@aws-sdk/client-dynamodb");
-const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
+const { unmarshall } = require("@aws-sdk/util-dynamodb");
 
 dotenv.config();
 const router = express.Router();
@@ -77,6 +76,9 @@ router.put("/update/:itemId", (req, res) => {
   };
 
   // Optional attributes
+  if (typeof updatedData.position === "number") {
+    updateParams.Item.position = { N: updatedData.position.toString() };
+  }
   if (typeof updatedData.pe === "number") {
     updateParams.Item.pe = { N: updatedData.pe.toString() };
   }
@@ -157,6 +159,9 @@ router.post("/add", async (req, res) => {
 	  };
 
 	  // Optional attributes
+    if (newTeam.position) {
+      newTeamParams.Item.position = { N: newTeam.position.toString() };
+      }
 	  if (newTeam.pj) {
 		newTeamParams.Item.pj = { N: newTeam.pj.toString() };
 	  }
@@ -192,6 +197,5 @@ router.post("/add", async (req, res) => {
 	  res.status(500).json({ error: "Adding Error" });
 	}
   });
-
 
 module.exports = router;
