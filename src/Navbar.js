@@ -8,6 +8,7 @@ import logo from "./assets/images/atletico-sanabria-transparent.png";
 
 function Navbar() {
   const { isAuthenticated } = useAuth();
+  console.log("navbar",isAuthenticated)
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 582);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSportsMenuOpen, setIsSportsMenuOpen] = useState(false);
