@@ -20,7 +20,7 @@ function PointTable() {
         return response.json();
       })
       .then((data) => {
-        data.sort((a, b) => b.position - a.position);
+        data.sort((a, b) => a.position - b.position);
         setData(data);
         setLoading(false);
       })
@@ -66,7 +66,7 @@ function PointTable() {
         <tbody>
           {data.map((item, index) => (
             <tr key={index} className="text-center">
-              <td className="col-1 py-2">{position++}.</td>
+              <td className="col-1 py-2">{item.position}</td>
               <td className="col-6 text-start">
                 <img
                   src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.shortName}.png`}
