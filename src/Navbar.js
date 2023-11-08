@@ -158,7 +158,7 @@ function Navbar() {
                 <div className="col-7 d-flex align-items-center justify-content-end p-0">
                   {/* Sports toggle */}
                   <div
-                    className={`sports-toggle bg-danger ${
+                    className={`sports-toggle ${
                       isSportsMenuOpen ? "open" : ""
                     }`}
                     onClick={toggleSportsMenu}
