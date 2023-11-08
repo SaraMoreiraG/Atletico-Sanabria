@@ -128,8 +128,7 @@ a:hover {
 
 .open .dropdown-list,
 .open .dropdown-sports {
-  max-height: 170px;
-
+  max-height: 300px;
   border-top: 2px solid #3f6e9a;
   transition: border-top 0.5s ease-in;
   transition: max-height 0.5s ease-in-out;
