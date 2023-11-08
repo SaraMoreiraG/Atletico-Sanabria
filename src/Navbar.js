@@ -61,23 +61,32 @@ function Navbar() {
       <div className="navbar-black">
         <div className="navbar-margin justify-content-end">
           <div className="me-3">
-            <a href="https://www.instagram.com/atletico_sanabria/" target="blank">
-            <i className="fa-brands fa-instagram"></i>
+            <a
+              href="https://www.instagram.com/atletico_sanabria/"
+              target="blank"
+            >
+              <i className="fa-brands fa-instagram"></i>
             </a>
           </div>
           <div className="me-3">
-          <a href="https://www.tiktok.com/@atltico.sanabria?_t=8hAZmFjuOw5&_r=1" target="blank">
-            <i className="fa-brands fa-tiktok"></i>
+            <a
+              href="https://www.tiktok.com/@atltico.sanabria?_t=8hAZmFjuOw5&_r=1"
+              target="blank"
+            >
+              <i className="fa-brands fa-tiktok"></i>
             </a>
           </div>
           <div className="me-3">
-          <a href="https://www.facebook.com/profile.php?id=100093372765743&ref=xav_ig_profile_web" target="blank">
-            <i className="fa-brands fa-square-facebook"></i>
+            <a
+              href="https://www.facebook.com/profile.php?id=100093372765743&ref=xav_ig_profile_web"
+              target="blank"
+            >
+              <i className="fa-brands fa-square-facebook"></i>
             </a>
           </div>
           <div className="me-3">
-          <a href="https://www.youtube.com/@ATLETICO.SANABRIA" target="blank">
-            <i className="fa-brands fa-youtube"></i>
+            <a href="https://www.youtube.com/@ATLETICO.SANABRIA" target="blank">
+              <i className="fa-brands fa-youtube"></i>
             </a>
           </div>
           <div className="d-flex justify-content-end align-items-center ms-2">
@@ -94,8 +103,12 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className={`navbar-grey ${scrolling ? "scrolling" : ""}`}>
-        <nav className={`row navbar-margin justify-content-between ${isMenuOpen ? "open" : ""}`}>
+        <div className={`navbar-grey ${scrolling ? "scrolling" : ""}`}>
+          <nav
+            className={`row navbar-margin justify-content-between ${
+              isMenuOpen ? "open" : ""
+            }`}
+          >
             {/***** Logo ******/}
             <div className={`px-0 py-2 ${isSmallScreen ? "col-9" : "col-5"}`}>
               <Link to="/" className="logo d-flex" onClick={closeMenu}>
@@ -153,7 +166,7 @@ function Navbar() {
                 </div>
               </>
             ) : (
-            //***** Big Menu *********
+              //***** Big Menu *********
               <>
                 <div className="col-7 d-flex align-items-center justify-content-end p-0">
                   {/* Sports toggle */}
@@ -185,37 +198,37 @@ function Navbar() {
                 </div>
               </>
             )}
-        </nav>
-      </div>
-      {/* Sports dropdown */}
-      <div className="d-flex justify-content-end">
-        <div className={`text-start col-4 ${isSportsMenuOpen ? "open" : ""}`}>
-          <div>
-            <ul
-              className="dropdown-sports col-2"
-              onMouseEnter={() => setIsSportsMenuOpen(true)}
-              onMouseLeave={() => setIsSportsMenuOpen(false)}
-            >
-              {Object.keys(sportsData).map((sportKey) => {
-                const sport = sportsData[sportKey];
-                return (
-                  <Link
-                    key={sport.title}
-                    to={`/deportes/${sportKey}`}
-                    className="nav-link dropdown-link ps-3"
-                    onClick={() => {
-                      scrollToSection("news");
-                      closeMenu();
-                    }}
-                  >
-                    <li>{sport.title}</li>
-                  </Link>
-                );
-              })}
-            </ul>
+          </nav>
+        </div>
+        {/* Sports dropdown */}
+        <div className="d-flex justify-content-end">
+          <div className={`text-start col-4 ${isSportsMenuOpen ? "open" : ""}`}>
+            <div>
+              <ul
+                className={`dropdown-sports ${scrolling ? "scrolling" : ""}`}
+                onMouseEnter={() => setIsSportsMenuOpen(true)}
+                onMouseLeave={() => setIsSportsMenuOpen(false)}
+              >
+                {Object.keys(sportsData).map((sportKey) => {
+                  const sport = sportsData[sportKey];
+                  return (
+                    <Link
+                      key={sport.title}
+                      to={`/deportes/${sportKey}`}
+                      className="nav-link dropdown-link ps-3"
+                      onClick={() => {
+                        scrollToSection("news");
+                        closeMenu();
+                      }}
+                    >
+                      <li>{sport.title}</li>
+                    </Link>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
