@@ -8,13 +8,12 @@ function Footer() {
   const [instagramPhotos, setInstagramPhotos] = useState([]);
 
   useEffect(() => {
-    // Your Instagram API endpoint
     const instagramApiUrl = `https://graph.instagram.com/v12.0/me/media?fields=id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${process.env.REACT_APP_INSTAGRAM_TOKEN}`;
 
     fetch(instagramApiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setInstagramPhotos(data.data); // Assuming the photos are in the 'data' field
+        setInstagramPhotos(data.data);
       })
       .catch((error) => {
         console.error("Error fetching Instagram photos: ", error);
@@ -72,7 +71,7 @@ function Footer() {
               {Object.keys(sportsData).map((sportKey) => {
                 const sport = sportsData[sportKey];
                 return (
-                  <li>
+                  <li key={sportKey}>
                     <Link
                       key={sport.title}
                       to={`/deportes/${sportKey}`}
@@ -129,6 +128,40 @@ function Footer() {
               </li>
               <li></li>
             </ul>
+            <div className="d-flex justify-content-end">
+              <div className="me-3">
+                <a
+                  href="https://www.instagram.com/atletico_sanabria/"
+                  target="blank"
+                >
+                  <i className="fa-brands fa-instagram"></i>
+                </a>
+              </div>
+              <div className="me-3">
+                <a
+                  href="https://www.tiktok.com/@atltico.sanabria?_t=8hAZmFjuOw5&_r=1"
+                  target="blank"
+                >
+                  <i className="fa-brands fa-tiktok"></i>
+                </a>
+              </div>
+              <div className="me-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100093372765743&ref=xav_ig_profile_web"
+                  target="blank"
+                >
+                  <i className="fa-brands fa-square-facebook"></i>
+                </a>
+              </div>
+              <div className="me-3">
+                <a
+                  href="https://www.youtube.com/@ATLETICO.SANABRIA"
+                  target="blank"
+                >
+                  <i className="fa-brands fa-youtube"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

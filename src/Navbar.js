@@ -14,7 +14,7 @@ function Navbar() {
 
   // Handle scrolling and update the state
   const handleScroll = () => {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 130) {
       setScrolling(true);
     } else {
       setScrolling(false);
@@ -57,12 +57,47 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="navbar-row">
-      <div className={`navbar-color ${scrolling ? "scrolling" : ""}`}>
-        <nav className={`navbar ${isMenuOpen ? "open" : ""}`}>
-          <div className="row d-flex col-12">
+    <div className="navbar">
+      <div className="navbar-black">
+        <div className="navbar-margin justify-content-end">
+          <div className="me-3">
+            <a href="https://www.instagram.com/atletico_sanabria/" target="blank">
+            <i className="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <div className="me-3">
+          <a href="https://www.tiktok.com/@atltico.sanabria?_t=8hAZmFjuOw5&_r=1" target="blank">
+            <i className="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+          <div className="me-3">
+          <a href="https://www.facebook.com/profile.php?id=100093372765743&ref=xav_ig_profile_web" target="blank">
+            <i className="fa-brands fa-square-facebook"></i>
+            </a>
+          </div>
+          <div className="me-3">
+          <a href="https://www.youtube.com/@ATLETICO.SANABRIA" target="blank">
+            <i className="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+          <div className="d-flex justify-content-end align-items-center ms-2">
+            <Link to="/login" className="nav-link">
+              {isLogged ? (
+                <i className="fa-solid fa-user"> Dashboard</i>
+              ) : (
+                <div>
+                  <span>LOG IN</span>
+                  <i className="fa-regular fa-user ms-2"></i>
+                </div>
+              )}
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className={`navbar-grey ${scrolling ? "scrolling" : ""}`}>
+        <nav className={`row navbar-margin justify-content-between ${isMenuOpen ? "open" : ""}`}>
             {/***** Logo ******/}
-            <div className={isSmallScreen ? "col-9" : "col-7"}>
+            <div className={`px-0 py-2 ${isSmallScreen ? "col-9" : "col-5"}`}>
               <Link to="/" className="logo d-flex" onClick={closeMenu}>
                 <img src={logo} alt="Logo" className="navbar-logo" />
                 <div className="text-center mt-2">
@@ -73,6 +108,7 @@ function Navbar() {
                 </div>
               </Link>
             </div>
+            {/***** Small Menu ******/}
             {isSmallScreen ? (
               <>
                 <div className="col-3 d-flex align-items-center justify-content-end">
@@ -117,11 +153,14 @@ function Navbar() {
                 </div>
               </>
             ) : (
+            //***** Big Menu *********
               <>
-                <div className="col-5 d-flex align-items-center justify-content-end">
+                <div className="col-7 d-flex align-items-center justify-content-end p-0">
                   {/* Sports toggle */}
                   <div
-                    className={`sports-toggle ${isSportsMenuOpen ? "open" : ""}`}
+                    className={`sports-toggle ${
+                      isSportsMenuOpen ? "open" : ""
+                    }`}
                     onClick={toggleSportsMenu}
                     onMouseEnter={() => setIsSportsMenuOpen(true)}
                     onMouseLeave={() => setIsSportsMenuOpen(false)}
@@ -129,12 +168,12 @@ function Navbar() {
                     <span className="nav-link">
                       Deportes
                       <span className="ms-2">
-                        <i class="fa-solid fa-caret-down"></i>
+                        <i className="fa-solid fa-caret-down"></i>
                       </span>
                     </span>
                   </div>
                   <div className="me-3">
-                  <Link to="/formulario-actividades" className="nav-link">
+                    <Link to="/formulario-actividades" className="nav-link">
                       <span>Actividades</span>
                     </Link>
                   </div>
@@ -143,27 +182,17 @@ function Navbar() {
                       <span>Hazte socio</span>
                     </Link>
                   </div>
-                  <div>
-                    <Link to="/login" className="nav-link">
-                      {isLogged ? (
-                        <i className="fa-solid fa-user"> Dashboard</i>
-                      ) : (
-                        <i className="fa-regular fa-user"></i>
-                      )}
-                    </Link>
-                  </div>
                 </div>
               </>
             )}
-          </div>
         </nav>
       </div>
       {/* Sports dropdown */}
       <div className="d-flex justify-content-end">
-        <div className={`text-start col-5 ${isSportsMenuOpen ? "open" : ""}`}>
+        <div className={`text-start col-4 ${isSportsMenuOpen ? "open" : ""}`}>
           <div>
             <ul
-              className="dropdown-sports col-4"
+              className="dropdown-sports col-2"
               onMouseEnter={() => setIsSportsMenuOpen(true)}
               onMouseLeave={() => setIsSportsMenuOpen(false)}
             >
