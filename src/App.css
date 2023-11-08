@@ -22,27 +22,33 @@
 .border-rounded {
   border-radius: 3px;
 }
-a{
+
+a {
   color: #fff;
   text-decoration: none;
 }
-a:hover{
+
+a:hover {
   color: #305476;
 }
+
 /* NAVBAR */
-.navbar{
+.navbar {
   display: block;
   padding: 0;
 }
-.navbar-black{
+
+.navbar-black {
   display: flex;
   justify-content: flex-end;
   background-color: #000;
   padding: 15px 0;
 }
+
 .navbar-grey {
   background-color: #212b34;
 }
+
 .navbar-grey.scrolling {
   background-color: #212b34ee;
   position: fixed;
@@ -89,19 +95,25 @@ a:hover{
   color: #305476;
 }
 
-.sports-toggle{
+/* Dropdown sports */
+.sports-toggle {
   height: 100%;
   display: flex;
   align-items: center;
   margin-right: 15px;
 }
-/* Dropdown sports */
-.dropdown-sports{
+
+.dropdown-sports {
   background-color: #212b34;
-  position: fixed;
-  top: 74px;
+  position: absolute;
   z-index: 100;
+  width: 150px;
 }
+
+.dropdown-sports.scrolling {
+  position: fixed;
+}
+
 .dropdown-list,
 .dropdown-sports {
   list-style: none;
@@ -116,8 +128,7 @@ a:hover{
 
 .open .dropdown-list,
 .open .dropdown-sports {
-  max-height: 170px;
-
+  max-height: 300px;
   border-top: 2px solid #3f6e9a;
   transition: border-top 0.5s ease-in;
   transition: max-height 0.5s ease-in-out;
@@ -138,6 +149,7 @@ a:hover{
   font-weight: 500;
   font-size: 14px;
 }
+
 .nav-link:hover {
   color: #3f6e9a;
 }
