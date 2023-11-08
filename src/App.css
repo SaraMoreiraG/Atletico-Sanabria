@@ -158,7 +158,7 @@ a:hover {
   color: #052642;
 }
 
-.fa-user {
+.fa-solid.fa-user {
   letter-spacing: 2px;
   color: #3f6e9a;
 }
@@ -544,4 +544,13 @@ input[type=number] {
       /* Adjust margin for screens <= 576px */
     }
   }
+}
+
+.log-out{
+  cursor: pointer;
+  text-align: end;
+
+}
+.log-out .fa-user{
+  color: red;
 }

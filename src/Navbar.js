@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import sportsData from "./redux/sportsData";
 import { scrollToSection } from "./utils/scrollUtils";
+import { useAuth } from "./context/AuthContext";
 
 import logo from "./assets/images/atletico-sanabria-transparent.png";
 
 function Navbar() {
-  const [isLogged] = useState(false);
+  const { isAuthenticated } = useAuth();
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 582);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSportsMenuOpen, setIsSportsMenuOpen] = useState(false);
@@ -43,9 +44,11 @@ function Navbar() {
   const toggleSmallSports = () => {
     setIsSmallSportsOpen(!isSmallSportsOpen);
   };
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
   // Use an event listener to update isSmallScreen when the window size changes
   useEffect(() => {
     const handleResize = () => {
@@ -94,16 +97,16 @@ function Navbar() {
             </a>
           </div>
           <div className="d-flex justify-content-end align-items-center ms-2">
-            <Link to="/login" className="nav-link">
-              {isLogged ? (
-                <i className="fa-solid fa-user"> Dashboard</i>
+              {isAuthenticated ? (
+                <Link to="/dashboard" className="nav-link">
+                  <i className="fa-solid fa-user"></i>
+                </Link>
               ) : (
-                <div>
+                <Link to="/login" className="nav-link">
                   <span>LOG IN</span>
                   <i className="fa-regular fa-user ms-2"></i>
-                </div>
+                </Link>
               )}
-            </Link>
           </div>
         </div>
       </div>
@@ -128,26 +131,17 @@ function Navbar() {
           {/***** Small Menu ******/}
           {isSmallScreen ? (
             <>
+              {/***** Small Menu Button ******/}
               <div className="col-3 d-flex align-items-center justify-content-end">
-                <div className="d-flex align-items-center">
-                  <Link to="/login" className="nav-link">
-                    {isLogged ? (
-                      <i className="fa-solid fa-user"> Dashboard</i>
-                    ) : (
-                      <div>
-                        <i className="fa-regular fa-user company-name me-2"></i>
-                      </div>
-                    )}
-                  </Link>
-                  <div
-                    className={`dropdown-button ${isMenuOpen ? "open" : ""}`}
-                    onClick={toggleMenu}
-                    onMouseEnter={() => setIsMenuOpen(true)}
-                  >
-                    <i className="fa-solid fa-bars"></i>
-                  </div>
+                <div
+                  className={`dropdown-button ${isMenuOpen ? "open" : ""}`}
+                  onClick={toggleMenu}
+                  onMouseEnter={() => setIsMenuOpen(true)}
+                >
+                  <i className="fa-solid fa-bars"></i>
                 </div>
               </div>
+              {/***** Small Menu Dropdown ******/}
               <div
                 className="text-start pt-2"
                 onMouseLeave={() => setIsMenuOpen(false)}
@@ -170,6 +164,7 @@ function Navbar() {
                   >
                     <li>Información Actividades</li>
                   </Link>
+                  {/* Sports toggle */}
                   <li
                     className={`sports-toggle dropdown-link ${
                       isSportsMenuOpen ? "open" : ""
@@ -250,17 +245,16 @@ function Navbar() {
               {Object.keys(sportsData).map((sportKey) => {
                 const sport = sportsData[sportKey];
                 return (
-                  <Link
-                    key={sport.title}
-                    to={`/deportes/${sportKey}`}
-                    className="nav-link dropdown-link ps-3"
-                    onClick={() => {
-                      scrollToSection("news");
-                      closeMenu();
-                    }}
-                  >
-                    <li>{sport.title}</li>
-                  </Link>
+                  <li key={sport.title} className="nav-link dropdown-link ps-3">
+                    <Link
+                      to={`/deportes/${sportKey}`}
+                      onClick={() => {
+                        closeMenu();
+                      }}
+                    >
+                      <span>{sport.title}</span>
+                    </Link>
+                  </li>
                 );
               })}
             </ul>
