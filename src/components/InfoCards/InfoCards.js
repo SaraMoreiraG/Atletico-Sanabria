@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import sportsData from "../../redux/sportsData";
+import sportsData from "../../context/sportsData";
 
 import "./InfoCards.css";
 

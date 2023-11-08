@@ -1,7 +1,7 @@
 const sportsData = {
 	futbol11: {
 	  title: 'Fútbol 11',
-	  img: 'https://images-atletico-sanabria.s3.amazonaws.com/lobos.jpg',
+	  img: 'https://images-atletico-sanabria.s3.amazonaws.com/sports/futbol11.jpg',
 	  description: 'El fútbol 11 es una modalidad de fútbol en la que participamos en competiciones locales y nacionales. Nuestro equipo está formado por jugadores apasionados que se esfuerzan por lograr el éxito en cada partido.',
 	  schedule: 'Horarios de entrenamiento y partidos',
 	  coach: 'Nombre del Entrenador',
@@ -10,7 +10,7 @@ const sportsData = {
 	},
 	futbolSala: {
 	  title: 'Fútbol Sala',
-	  img:'https://d26itsb5vlqdeq.cloudfront.net//image/BBBE927E-D853-9E03-736571E953A88935',
+	  img:'https://images-atletico-sanabria.s3.amazonaws.com/sports/futbol-sala.jpg',
 	  description: 'El fútbol sala es una disciplina rápida y emocionante. En nuestro club, nos enfocamos en la técnica y el juego en equipo. ¡Únete a nosotros y perfecciona tus habilidades en el fútbol sala!',
 	  schedule: 'Horarios de entrenamiento y partidos',
 	  coach: 'Entrenador principal: [Nombre del Entrenador]',
@@ -19,7 +19,7 @@ const sportsData = {
 	},
 	padel: {
 	  title: 'Pádel',
-	  img: 'https://villadelrio.es/wp-content/uploads/2023/11/padel-g9a1278dbc_1280.jpg',
+	  img: 'https://images-atletico-sanabria.s3.amazonaws.com/sports/padel.jpg',
 	  description: 'El pádel es un deporte divertido y social que puedes disfrutar en nuestro club. Contamos con canchas de alta calidad y ofrecemos clases para todos los niveles, desde principiantes hasta jugadores avanzados.',
 	  schedule: 'Horarios de juego y clases',
 	  coach: 'Nombre del Instructor',
@@ -28,7 +28,7 @@ const sportsData = {
 	},
 	ciclismo: {
 	  title: 'Ciclismo',
-	  img: 'https://www.sport.es/bicio/wp-content/uploads/2023/01/BUFF-MEGAMO_MTB.jpg',
+	  img: 'https://images-atletico-sanabria.s3.amazonaws.com/sports/biking.jpg',
 	  description: 'El ciclismo es una forma fantástica de mantenerse en forma y explorar hermosos paisajes. En nuestro club, organizamos rutas regulares y eventos para ciclistas de todos los niveles. Únete a nosotros y descubre nuevas rutas.',
 	  schedule: 'Programa de rutas y eventos',
 	  coach: 'Nombre del Líder',

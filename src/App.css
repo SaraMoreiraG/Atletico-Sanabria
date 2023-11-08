@@ -273,6 +273,7 @@ a:hover {
 .slider3 {
   background-repeat: no-repeat;
   background-size: 100%;
+  background-position: center;
   position: relative;
   height: calc(88vh - 12em);
 }
@@ -307,15 +308,15 @@ a:hover {
 }
 
 .slider1 {
-  background-image: url("./assets/images/slider1.jpg");
+  background-image: url("https://images-atletico-sanabria.s3.amazonaws.com/sliders/slider1.jpg");
 }
 
 .slider2 {
-  background-image: url("./assets/images/slider2.jpg");
+  background-image: url("https://images-atletico-sanabria.s3.amazonaws.com/sliders/slider2.jpg");
 }
 
 .slider3 {
-  background-image: url("./assets/images/slider3.jpg");
+  background-image: url("https://images-atletico-sanabria.s3.amazonaws.com/sliders/slider3.jpg");
 }
 
 .text-slider {

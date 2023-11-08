@@ -5,7 +5,7 @@
 /api/node_modules
 .gitignore
 .env
-
+/src/assets
 # dependencies
 /node_modules
 /.pnp
