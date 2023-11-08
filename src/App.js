@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 
 import "./App.css";
 
@@ -13,22 +14,39 @@ import CardDetails from "./views/CardDetails";
 import Footer from "./components/Footer/Footer";
 
 function App() {
+  const { login } = useAuth();
+
+  useEffect(() => {
+    // Check for authentication on page load
+    const storedToken = localStorage.getItem("token");
+
+    if (storedToken) {
+      login();
+    }
+  }, [login]);
+
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/formulario-nuevo-socio" element={<NewMemberForm />} />
+        <Route path="/formulario-actividades" element={<ActivitiesForm />} />
+        <Route path="/deportes/:sport" element={<CardDetails />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
+}
+
+function AppWithProvider() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/formulario-nuevo-socio" element={<NewMemberForm />} />
-          <Route path="/formulario-actividades" element={<ActivitiesForm />} />
-          <Route path="/deportes/:sport" element={<CardDetails />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <App />
     </AuthProvider>
   );
 }
 
-export default App;
+export default AppWithProvider;

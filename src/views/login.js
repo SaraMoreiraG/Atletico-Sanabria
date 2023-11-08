@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -18,9 +18,9 @@ function Login() {
 
     // POST request
     fetch(`${serverURL}/login`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
@@ -33,9 +33,8 @@ function Login() {
       })
       .then((data) => {
         // Handle successful login and JWT token
-        // Save the token securely in local storage or cookies
         const token = data.token;
-        localStorage.setItem('token', token); // Store the token in local storage
+        localStorage.setItem("token", token);
 
         // Use the login function from the AuthContext to set the user as authenticated
         login();
@@ -48,37 +47,36 @@ function Login() {
       });
   };
 
-
   return (
     <div className="login">
-		<div className='management text-center border-rounded p-5'>
-      <h3 className='mb-4'>Iniciar sesión</h3>
-      <form>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-		<div>
-          <input
-            type="text"
-			className='mb-4'
-            placeholder="Nombre de usuario"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-</div>
-        <div>
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <button type="button" className='btn-grey' onClick={handleLogin}>
-            Login
-          </button>
-        </div>
-      </form>
-	  </div>
+      <div className="management text-center border-rounded p-5">
+        <h3 className="mb-4">Iniciar sesión</h3>
+        <form>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <div>
+            <input
+              type="text"
+              className="mb-4"
+              placeholder="Nombre de usuario"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div>
+            <button type="button" className="btn-grey" onClick={handleLogin}>
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
