@@ -1,35 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import sportsData from "../redux/sportsData";
 import { useParams } from "react-router-dom";
 
 const CardDetails = () => {
   const { sport } = useParams();
   const sportData = sportsData[sport];
-  const [navbarHeight, setNavbarHeight] = useState(80);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
-    // Create a ResizeObserver instance
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        if (entry.target.classList.contains("navbar")) {
-          // Update the navbarHeight state when the navbar size changes
-          setNavbarHeight(entry.target.offsetHeight);
-        }
-      }
-    });
-
-    // Observe the navbar element
-    const navbar = document.querySelector(".navbar");
-    if (navbar) {
-      resizeObserver.observe(navbar);
-    }
-
-    return () => {
-      // Clean up the observer when the component unmounts
-      resizeObserver.disconnect();
-    };
+    window.scrollTo(0, 57);
   }, []);
 
   if (!sportData) {
@@ -37,7 +15,7 @@ const CardDetails = () => {
   }
 
   return (
-    <div style={{ paddingTop: navbarHeight + "px" }} id="card-details">
+    <div id="card-details">
       <div className="card-details-margin">
         <h2>{sportData.title}</h2>
         <div className="row">

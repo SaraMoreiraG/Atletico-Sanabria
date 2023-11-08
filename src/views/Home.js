@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { scrollToSection } from "../utils/scrollUtils";
 
 import SimpleSlider from "../Slider";
@@ -7,40 +7,16 @@ import PointTable from "../components/PointTable/PointTable";
 import Sponsors from "../components/Sponsors/Sponsors";
 import InfoCards from "../components/InfoCards/InfoCards";
 
-
 function Home() {
-  const [navbarHeight, setNavbarHeight] = useState(80); // Default height
-
   useEffect(() => {
     const sectionFromURL = window.location.hash;
     const sectionWithoutHash = sectionFromURL.substring(1); // Remove the first character, which is the #
 
     scrollToSection(sectionWithoutHash);
-
-    // Create a ResizeObserver instance
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        if (entry.target.classList.contains("navbar")) {
-          // Update the navbarHeight state when the navbar size changes
-          setNavbarHeight(entry.target.offsetHeight);
-        }
-      }
-    });
-
-    // Observe the navbar element
-    const navbar = document.querySelector(".navbar");
-    if (navbar) {
-      resizeObserver.observe(navbar);
-    }
-
-    return () => {
-      // Clean up the observer when the component unmounts
-      resizeObserver.disconnect();
-    };
   }, []);
 
   return (
-    <div style={{ paddingTop: navbarHeight + "px" }}>
+    <div>
       <SimpleSlider />
       <div className="main-margin row d-flex justify-content-between">
         <NextMatch />
@@ -49,8 +25,8 @@ function Home() {
       <div id="news">
         <div className="fixed-background"></div>
         <div className="main-margin">
-        <h1 className="mb-4">Deportes</h1>
-        <InfoCards />
+          <h1 className="mb-4">Deportes</h1>
+          <InfoCards />
         </div>
       </div>
       <Sponsors />
