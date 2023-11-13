@@ -17,6 +17,11 @@ function Sponsors() {
               height="100px"
             />
             <img
+              src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/casona.png"
+              alt="Logo Casona Sanabria"
+              height="100px"
+            />
+            <img
               src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/miliar.jpg"
               alt="Logo Miliar"
               height="100px"
@@ -77,6 +82,11 @@ function Sponsors() {
             <img
               src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/carnicas.jpg"
               alt="Logo Carnicas Sanabria"
+              height="100px"
+            />
+            <img
+              src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/casona.png"
+              alt="Logo Casona Sanabria"
               height="100px"
             />
             <img
