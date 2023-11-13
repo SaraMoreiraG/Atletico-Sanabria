@@ -13,7 +13,7 @@ const sportsData = {
 	  img:'https://images-atletico-sanabria.s3.amazonaws.com/sports/futbol-sala2.jpg',
 	  description: 'El fútbol sala es una disciplina rápida y emocionante. En nuestro club, nos enfocamos en la técnica y el juego en equipo. ¡Únete a nosotros y perfecciona tus habilidades en el fútbol sala!',
 	  schedule: 'Horarios de entrenamiento y partidos',
-	  coach: 'Entrenador principal: [Nombre del Entrenador]',
+	  coach: 'Nombre del Entrenador',
 	  equipment: 'Zapatillas de fútbol sala, uniforme del club, etc.',
 	  // Agrega información sobre competiciones y logros del equipo si es relevante.
 	},
