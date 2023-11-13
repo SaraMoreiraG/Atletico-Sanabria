@@ -5,7 +5,7 @@ import sportsData from "../../context/sportsData";
 
 function Footer() {
   const [instagramPhotos, setInstagramPhotos] = useState([]);
-
+console.log(instagramPhotos)
   useEffect(() => {
     const instagramApiUrl = `https://graph.instagram.com/v12.0/me/media?fields=id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${process.env.REACT_APP_INSTAGRAM_TOKEN}`;
 
@@ -101,7 +101,7 @@ function Footer() {
                     >
                       <img
                         src={photo.media_url}
-                        alt={photo.caption}
+                        alt={photo.id}
                         className="instagram-photo img-fluid"
                       />
                     </a>

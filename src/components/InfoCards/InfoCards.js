@@ -13,7 +13,7 @@ function InfoCards() {
           <div className="col-md-6" key={sportKey}>
             <div className="info-card">
               <div className="col-lg-5 col-md-12">
-                <img src={sport.img} className="img-fluid" alt="Lo que sea" />
+                <img src={sport.img} className="img-fluid" alt={sport.title} />
               </div>
               <div className="px-4 my-3">
                 <h2>{sport.title}</h2>

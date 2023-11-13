@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import "./PointTable.css";
+import Loader from "../Loader/Loader";
 
 function PointTable() {
   const [data, setData] = useState([]);
@@ -32,8 +33,8 @@ function PointTable() {
 
   if (loading) {
     return (
-      <div className="clasification col-4 p-3 my-5">
-        <div>Loading...</div>
+      <div className="clasification col-4 p-3 my-5" style={{ height: '300px' }}>
+        <Loader />
       </div>
     );
   }

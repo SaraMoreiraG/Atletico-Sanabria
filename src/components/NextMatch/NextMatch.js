@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./NextMatch.css";
 import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 function NextMatch() {
   const [data, setData] = useState([]);
@@ -50,8 +51,8 @@ function NextMatch() {
 
   if (loading) {
     return (
-      <div className="clasification col-4 p-3 my-5">
-        <div>Loading...</div>
+      <div className="clasification col-4 p-3 my-5" style={{ height: '300px' }}>
+        <Loader />
       </div>
     );
   }
