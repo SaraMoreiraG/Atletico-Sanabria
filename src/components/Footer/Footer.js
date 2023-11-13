@@ -48,7 +48,7 @@ function Footer() {
               <div className="my-2">
                 <i className="fa-solid fa-location-dot me-2"></i>
                 <span>
-                  <b>Dirección:</b> C/ Las Herrerías 30, Puebla de Sanabria,
+                  <b>Dirección:</b> Puebla de Sanabria, 49300,
                   Zamora.
                 </span>
               </div>
