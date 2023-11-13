@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./NextMatch.css";
+import { Link } from "react-router-dom";
 
 function NextMatch() {
   const [data, setData] = useState([]);
@@ -156,7 +157,9 @@ function NextMatch() {
                     </div>
                   </div>
                   <div className="next-match-footer">
+                    <Link to="/calendario">
                     <button className="btn-blue">Ver calendario</button>
+                    </Link>
                   </div>
                 </div>
               );

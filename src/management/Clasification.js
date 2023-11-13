@@ -255,6 +255,7 @@ function Clasification() {
           </button>
         </div>
       </div>
+      <div className="table-responsive">
       <table className="management-table">
         <thead>
           <tr className="text-center">
@@ -490,6 +491,7 @@ function Clasification() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

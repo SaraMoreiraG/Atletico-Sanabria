@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
 
 import "./management.css";
 
 function Matches() {
-  // State variables
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { isAuthenticated } = useAuth();
   const [editState, setEditState] = useState({
     rowIndex: null,
     columnIndex: null,
@@ -114,14 +115,12 @@ function Matches() {
 
   // Function to delete match
   const handleDelete = (itemId) => {
-    fetch(process.env.REACT_APP_API_URL + `/matchesdb/delete/${itemId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch(process.env.REACT_APP_API_URL + `/matchesdb/delete/${itemId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => {
         if (response.status === 204) {
           // Item deleted successfully
@@ -179,7 +178,8 @@ function Matches() {
         newMatch.visitorTeam !== "" ? newMatch.visitorTeam : item.visitorTeam,
     };
 
-    const apiUrl = process.env.REACT_APP_API_URL + `/matchesdb/update/${item.id}`;
+    const apiUrl =
+      process.env.REACT_APP_API_URL + `/matchesdb/update/${item.id}`;
     fetch(apiUrl, {
       method: "PUT",
       headers: {
@@ -226,21 +226,24 @@ function Matches() {
         <div className="col-6">
           <h3 className="mb-3">Próximos partidos</h3>
         </div>
-        <div className="col-6 text-end">
-          <button onClick={() => setAddingMatch(true)} className="btn-blue">
-            Añadir partido
-          </button>
-        </div>
+        {isAuthenticated && (
+          <div className="col-6 text-end">
+            <button onClick={() => setAddingMatch(true)} className="btn-blue">
+              Añadir partido
+            </button>
+          </div>
+        )}
       </div>
+      <div className="table-responsive">
       <table className="management-table">
         <thead>
           <tr className="text-center">
-            <th className="text-end p-2">Local</th>
-            <th className="text-start p-2">Visitante</th>
-            <th className="col-1 p-2">Fecha</th>
-            <th className="col-1 p-2">Hora</th>
-            <th className="col-3 p-2">Lugar</th>
-            <th className="col-2 p-2"></th>
+            <th className="text-end col-xs-6 p-2">Local</th>
+            <th className="text-start col-xs-6 p-2">Visitante</th>
+            <th className="col-lg-2 col-md-2 col-sm-2 p-2">Fecha</th>
+            <th className="col-lg-1 col-md-2 p-2">Hora</th>
+            <th className="col-lg-3 col-md-2 p-2">Lugar</th>
+            {isAuthenticated && <th className="col-2 p-2"></th>}
           </tr>
         </thead>
         <tbody>
@@ -317,7 +320,7 @@ function Matches() {
                     value={newMatch.homeTeam}
                     name="homeTeam"
                     placeholder={item.homeTeam}
-                    className="col-12 text-end"
+                    className="col-12 col-xs-6 text-end"
                     onChange={handleInputChange}
                   />
                 ) : (
@@ -401,45 +404,48 @@ function Matches() {
                 )}
               </td>
               {/* Edit buttons */}
-              <td className="">
-                <div className="d-flex justify-content-evenly">
-                  {isRowInEditState(rowIndex) ? (
-                    <>
-                      <button
-                        onClick={() => handleSave(item)}
-                        className="btn-grey"
-                      >
-                        <i className="fa-regular fa-floppy-disk ms-1"></i>
-                      </button>
-                      <button
-                        onClick={() => handleCancel()}
-                        className="btn-grey"
-                      >
-                        <i className="fa-solid fa-x"></i>
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <button
-                        onClick={() => handleEdit(rowIndex, item.id)}
-                        className="btn-grey"
-                      >
-                        <i className="fa-regular fa-pen-to-square ms-1"></i>
-                      </button>
-                      <button
-                        onClick={() => handleDelete(item.id, item.name)}
-                        className="btn-grey"
-                      >
-                        <i className="fa-regular fa-trash-can ms-1"></i>
-                      </button>
-                    </>
-                  )}
-                </div>
-              </td>
+              {isAuthenticated && (
+                <td className="">
+                  <div className="d-flex justify-content-evenly">
+                    {isRowInEditState(rowIndex) ? (
+                      <>
+                        <button
+                          onClick={() => handleSave(item)}
+                          className="btn-grey"
+                        >
+                          <i className="fa-regular fa-floppy-disk ms-1"></i>
+                        </button>
+                        <button
+                          onClick={() => handleCancel()}
+                          className="btn-grey"
+                        >
+                          <i className="fa-solid fa-x"></i>
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => handleEdit(rowIndex, item.id)}
+                          className="btn-grey"
+                        >
+                          <i className="fa-regular fa-pen-to-square ms-1"></i>
+                        </button>
+                        <button
+                          onClick={() => handleDelete(item.id, item.name)}
+                          className="btn-grey"
+                        >
+                          <i className="fa-regular fa-trash-can ms-1"></i>
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

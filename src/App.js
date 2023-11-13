@@ -11,6 +11,7 @@ import Dashboard from "./views/Dashboard";
 import NewMemberForm from "./views/NewMemberForm";
 import ActivitiesForm from "./views/ActivitiesForm";
 import CardDetails from "./views/CardDetails";
+import Calendary from "./views/Calendary";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/formulario-nuevo-socio" element={<NewMemberForm />} />
         <Route path="/formulario-actividades" element={<ActivitiesForm />} />
         <Route path="/deportes/:sport" element={<CardDetails />} />
+        <Route path="/calendario" element={<Calendary />} />
       </Routes>
       <Footer />
     </BrowserRouter>
