@@ -68,6 +68,7 @@ function Navbar() {
             <a
               href="https://www.instagram.com/atletico_sanabria/"
               target="blank"
+              alt="Enlace a instagram"
             >
               <i className="fa-brands fa-instagram"></i>
             </a>
