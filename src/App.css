@@ -517,6 +517,15 @@ input[type=number] {
   z-index: -1;
 }
 
+.log-out{
+  cursor: pointer;
+  text-align: end;
+
+}
+.log-out .fa-user{
+  color: red;
+}
+
 /* CardComponent */
 
 #card-details {
@@ -547,11 +556,3 @@ input[type=number] {
   }
 }
 
-.log-out{
-  cursor: pointer;
-  text-align: end;
-
-}
-.log-out .fa-user{
-  color: red;
-}
