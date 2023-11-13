@@ -16,7 +16,7 @@ const CardDetails = () => {
 
   return (
     <div id="card-details">
-      <div className="card-details-margin">
+      <div className="main-margin">
         <div className="next-match">
         <div className="next-match-header align-items-center">
           <div className="next-match-date col-4">
@@ -35,8 +35,8 @@ const CardDetails = () => {
           <div className="col-4"></div>
           <div className="header-img"></div>
         </div>
-        <div className="next-match-body p-3">
-          <div className="home-team col-xs-4 col-sm-4 col-md-4">
+        <div className="next-match-body row p-3">
+          <div className="home-team col-sm-12 col-md-6 col-lg-4">
             <div className="home-team-img">
               <img
                 src={sportData.img}
@@ -46,7 +46,7 @@ const CardDetails = () => {
               />
             </div>
           </div>
-          <div className="match-info col-xs-4 col-sm-4 col-md-4">
+          <div className="match-info col-sm-12 col-md-12 col-lg-4">
             <span className="clock">ENTRENAMIENTOS</span>
             <div className="time-venue">
               <span className="time">
@@ -63,7 +63,7 @@ const CardDetails = () => {
               </span>
             </div>
           </div>
-          <div className="home-team col-xs-4 col-sm-4 col-md-4">
+          <div className="home-team col-sm-12 col-md-12 col-lg-4">
             <span className="home-team-name">{sportData.description}</span>
           </div>
         </div>
