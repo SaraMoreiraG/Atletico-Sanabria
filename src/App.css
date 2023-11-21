@@ -674,11 +674,14 @@ input[type=number] {
 	align-items: center;
 }
 
-.home-team {
+.home-team,
+.sport-description-wrapper {
 	text-align: center;
 	flex: 1;
 }
-
+.sport-description-wrapper span{
+  font-size: 18px;
+}
 .home-team-name {
 	font-size: 20px;
 	margin-top: 0px;
