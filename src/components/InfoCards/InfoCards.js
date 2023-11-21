@@ -17,7 +17,7 @@ function InfoCards() {
               </div>
               <div className="px-4 my-3">
                 <h2>{sport.title}</h2>
-                <p>{sport.description}</p>
+                <p>{sport.description.length > 206 ? `${sport.description.slice(0, 206)}...` : sport.description}</p>
                 <Link to={`/deportes/${sportKey}`}>
                   <button className="btn-blue mb-2">Leer más</button>
                 </Link>
