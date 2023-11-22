@@ -1,9 +1,13 @@
 const express = require('express');
-const app = express();
+const https = require('https');
+const fs = require('fs');
 const cors = require('cors');
+
+const app = express();
 
 // Middleware for CORS
 app.use(cors());
+
 // Middleware for parsing JSON
 app.use(express.json());
 
@@ -22,8 +26,14 @@ app.get('/', (req, res) => {
   res.send('Welcome to your API');
 });
 
-// Start the server
+// HTTPS options
+const httpsOptions = {
+  key: fs.readFileSync('/etc/pki/tls/private/localhost.key'),
+  cert: fs.readFileSync('/etc/pki/tls/certs/localhost.crt'),
+};
+
+// Start the server with HTTPS
 const port = process.env.PORT || 3001;
-app.listen(port, () => {
-  console.log('Server is running on port ' + port);
+https.createServer(httpsOptions, app).listen(port, () => {
+  console.log('Server is running on port ' + port + ' with HTTPS');
 });
