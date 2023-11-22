@@ -1,0 +1,49 @@
+#sponsors{
+	background-color: #fff;
+}
+.wrapper {
+	max-width: 100%;
+	overflow: hidden;
+	text-transform: uppercase;
+	margin: 0px 100px;
+}
+@supports (display: flex) {
+	@media (max-width: 768px) {
+	  .wrapper {
+		margin: 0px 20px;
+		/* Adjust margin for screens <= 768px */
+	  }
+	}
+
+	@media (max-width: 576px) {
+	  .wrapper {
+		margin: 0px 20px;
+		/* Adjust margin for screens <= 576px */
+	  }
+	}
+  }
+
+.marquee {
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	animation: marquee 30s linear infinite;
+}
+
+.marquee p {
+	display: inline-block;
+	font-size: 100px;
+	font-weight: bold;
+	color: #02050a;
+	margin: 0;
+}
+
+@keyframes marquee {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+
+	100% {
+		transform: translate3d(-50%, 0, 0);
+	}
+}

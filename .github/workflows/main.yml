@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - production
 
 jobs:
   deploy:
@@ -36,11 +37,16 @@ jobs:
         run: npm install
 
       - name: Build the React app
-        run: npm run build
+        run: |
+          REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }} REACT_APP_INSTAGRAM_TOKEN=${{ secrets.REACT_APP_INSTAGRAM_TOKEN }} npm run build
 
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync ./build s3://atleticosanabria.com
+          if [ $GITHUB_REF = 'refs/heads/main' ]; then
+            aws s3 sync ./build s3://atleticosanabria.com
+          elif [ $GITHUB_REF = 'refs/heads/production' ]; then
+            aws s3 sync ./build s3://production-atletico-sanabria
+          fi
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

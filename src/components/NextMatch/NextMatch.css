@@ -1,0 +1,233 @@
+.next-match {
+	color: #fff;
+	background-color: #031627;
+	border: 1px solid #052642;
+	border-radius: 3px;
+}
+
+.header-img{
+	background-image: url("https://images-atletico-sanabria.s3.amazonaws.com/stripes.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	right: 0;
+	top: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+
+}
+.next-match-header {
+	display: flex;
+	text-transform: uppercase;
+	background: linear-gradient(45deg, #171e24 40%, #354553 70%, #3f6e9a 100%);
+	position: relative;
+	z-index: 1;
+}
+
+.next-match-header>*:first-child {
+	align-self: stretch;
+	z-index: 1;
+}
+@supports (display: flex) {
+	@media (max-width: 576px) {
+	  .next-match-header>*:first-child {
+		display: grid;
+	  }
+	}
+}
+.next-match-date {
+	line-height: 1.1;
+	display: flex;
+	text-align: start;
+	align-items: center;
+	padding: 4px 0px 4px 20px;
+}
+
+.next-match-date h4 {
+	font-size: 36px;
+	padding: 0px 10px 0px 0px;
+	margin: 0;
+}
+@supports (display: flex) {
+	@media (max-width: 576px) {
+	  .next-match-date h4 {
+		font-size: 24px;
+	  }
+	}
+}
+.next-match-date span {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 15px;
+	line-height: 1.1;
+}
+@supports (display: flex) {
+	@media (max-width: 576px) {
+	  .next-match-date span {
+		font-size: 12px;
+	  }
+	}
+}
+.next-match-middle {
+	color: #fdc52c;
+	font-size: 18px;
+	font-style: italic;
+	line-height: 1.1;
+	font-weight: 700;
+	text-align: center;
+	padding: 6px 20px 4px 0px;
+	z-index: 1;
+}
+@supports (display: flex) {
+	@media (max-width: 576px) {
+	  .next-match-middle {
+		font-size: 14px;
+	  }
+	}
+}
+.publicity {
+	display: block;
+	letter-spacing: 0.5px;
+	font-size: 11px;
+	color: rgba(255, 255, 255, 0.6);
+	font-style: normal;
+}
+@supports (display: flex) {
+	@media (max-width: 576px) {
+	  .publicity {
+		font-size: 8px;
+	  }
+	}
+}
+.publicity h6 {
+	color: #fff;
+	font-size: 12px;
+	display: inline-block;
+	margin: 0;
+}
+@supports (display: flex) {
+	@media (max-width: 576px) {
+	  .publicity h6 {
+		font-size: 9px;
+	  }
+	}
+}
+
+.next-match-body {
+	display: flex;
+	align-items: center;
+}
+
+.home-team {
+	text-align: center;
+	flex: 1;
+}
+
+.home-team-name {
+	font-size: 20px;
+	margin-top: 0px;
+}
+@supports (display: flex) {
+	@media (max-width: 576px) {
+	  .home-team-name {
+		font-size: 16px;
+	  }
+	}
+}
+.match-info {
+	line-height: 1;
+	padding: 30px 0px;
+	text-align: center;
+}
+
+.clock {
+	font-size: 44px;
+	letter-spacing: 2px;
+	font-family: 'Anton', sans-serif;
+	background-color: #052642;
+	background-image: linear-gradient(90deg, #3f6e9a 40%, #052642);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.vs-sign {
+	font-size: 24px;
+	display: block;
+	margin-top: 15px;
+	font-family: 'Anton', sans-serif;
+	background-color: #030507;
+	background-image: linear-gradient(90deg, #3f6e9a 40%, #052642);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.time-venue {
+	font-size: 16px;
+	margin-top: 20px;
+	color: #ececec;
+	line-height: 20px;
+}
+
+.time {
+	display: block;
+	margin-top: 25px;
+}
+
+.next-match-footer {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.btn-blue{
+	background-color: #3f6e9a;
+	border-radius: 3px;
+	transition: all 0.2s linear 0s;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding: 10px 15px;
+	border: none;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.btn-blue:hover {
+	background-color: #c9171f;
+	border-color: 1px solid #c9171f;
+}
+
+/* Custom styles for carousel indicators */
+.carousel-indicators {
+	display: flex;
+	justify-content: center;
+	/* Center the indicators horizontally */
+	margin-top: 100px;
+	/* Adjust the top margin as needed */
+}
+
+
+.carousel-indicators button {
+	width: 20px;
+	/* Set the width of the indicator circles */
+	height: 28px;
+	/* Set the height of the indicator circles */
+	background-color: #515557;
+	/* Background color for inactive indicators */
+	border: none;
+	margin: 0 5px;
+	/* Adjust the margin between indicators */
+	cursor: pointer;
+}
+
+.carousel-indicators button.active {
+	background-color: #3f6e9a;
+	/* Background color for the active indicator */
+}

@@ -1,0 +1,44 @@
+.loader-full-screen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* height: 100vh; */
+	margin: 0;
+  }
+
+  .loader-container {
+	position: relative;
+  }
+
+  .football {
+	width: 50px;
+	height: 50px;
+	margin-top: 20px;
+	background: url('https://images-atletico-sanabria.s3.amazonaws.com/pelota-futbol.avif') center/cover;
+	border-radius: 50%;
+	position: absolute;
+	animation: rotateAndMove 2s linear infinite;
+  }
+
+  .loading-text {
+	text-align: center;
+	margin-top: 10px;
+	font-weight: bold;
+	color: #333;
+	position: relative;
+  }
+
+  @keyframes rotateAndMove {
+	0% {
+	  transform: translateY(0) rotate(0deg);
+	}
+
+	50% {
+	  transform: translateY(150px) rotate(180deg);
+	}
+
+	100% {
+	  transform: translateY(0) rotate(360deg);
+	}
+  }
+
