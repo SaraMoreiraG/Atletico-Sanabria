@@ -6,7 +6,11 @@ const cors = require('cors');
 const app = express();
 
 // Middleware for CORS
-app.use(cors());
+app.use(cors({
+  origin: ['https://atleticosanabria.com', 'https://www.atleticosanabria.com'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
 // Middleware for parsing JSON
 app.use(express.json());
@@ -28,8 +32,8 @@ app.get('/', (req, res) => {
 
 // HTTPS options
 const httpsOptions = {
-  key: fs.readFileSync('/etc/pki/tls/private/localhost.key'),
-  cert: fs.readFileSync('/etc/pki/tls/certs/localhost.crt'),
+  key: fs.readFileSync('/etc/letsencrypt/live/api.atleticosanabria.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/api.atleticosanabria.com/fullchain.pem'),
 };
 
 // Start the server with HTTPS
