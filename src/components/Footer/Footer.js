@@ -42,7 +42,7 @@ function Footer() {
               <div className="my-2">
                 <i className="fa-solid fa-phone me-2"></i>
                 <span>
-                  <b>Teléfono:</b> +34 649 720 616
+                  <b>Teléfono:</b> +34 672 55 67 45
                 </span>
               </div>
               <div className="my-2">

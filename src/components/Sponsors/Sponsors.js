@@ -11,11 +11,17 @@ function Sponsors() {
               alt="Logo Josu"
               height="100px"
             />
-            <img
-              src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/carnicas.jpg"
-              alt="Logo Carnicas Sanabria"
-              height="100px"
-            />
+            <a
+              href="https://carnicaslaculebra.es/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/carnicas.jpg"
+                alt="Logo Carnicas Sanabria"
+                height="100px"
+              />
+            </a>
             <a
               href="https://www.grancasona.com/"
               target="_blank"
@@ -103,11 +109,17 @@ function Sponsors() {
                 height="100px"
               />
             </a>
-            <img
-              src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/electricas.jpg"
-              alt="Logo Electricas Sanabria"
-              height="100px"
-            />
+            <a
+              href="https://instalacionessanabria.es/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/electricas.jpg"
+                alt="Logo Electricas Sanabria"
+                height="100px"
+              />
+            </a>
           </p>
           <p>
             <img
@@ -115,11 +127,17 @@ function Sponsors() {
               alt="Logo Josu"
               height="100px"
             />
-            <img
-              src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/carnicas.jpg"
-              alt="Logo Carnicas Sanabria"
-              height="100px"
-            />
+            <a
+              href="https://carnicaslaculebra.es/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/carnicas.jpg"
+                alt="Logo Carnicas Sanabria"
+                height="100px"
+              />
+            </a>
             <a
               href="https://www.grancasona.com/"
               target="_blank"
@@ -207,11 +225,17 @@ function Sponsors() {
                 height="100px"
               />
             </a>
-            <img
-              src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/electricas.jpg"
-              alt="Logo Electricas Sanabria"
-              height="100px"
-            />
+            <a
+              href="https://instalacionessanabria.es/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/electricas.jpg"
+                alt="Logo Electricas Sanabria"
+                height="100px"
+              />
+            </a>
           </p>
         </div>
       </div>

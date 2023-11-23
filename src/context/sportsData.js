@@ -2,7 +2,7 @@ const sportsData = {
   futbol11: {
     title: "Fútbol 11",
     img: "https://images-atletico-sanabria.s3.amazonaws.com/sports/futbol112.webp",
-    place: "Santa Croya",
+    place: "Robleda",
     description:
       "El fútbol 11 es una modalidad deportiva en la que participamos en competiciones locales, provinciales y nacionales. Nuestro equipo está formado por jugadores apasionados que se esfuerzan por lograr el éxito en cada partido, estos jugadores luchan con gran esfuerzo llevando el nombre de la Carballeda y Sanabria con orgullo, respeto y alardeando de dos de las comarcas más bonitas de la Provincia de Zamora.",
     schedule: [
@@ -20,12 +20,11 @@ const sportsData = {
     title: "Fútbol Sala",
     img: "https://images-atletico-sanabria.s3.amazonaws.com/sports/futbol-sala2.webp",
     description:
-      "El fútbol sala es una modalidad deportiva en la que actualmente trabajamos con los más pequeños. Acuden niños desde los 5 años hasta los 12 años. Practicamos este deporte con la ayuda y colaboración del CEIP Monte Gándara (El Puente de Sanabria). Intentamos inculcar a los participantes valores de colaboración, respeto, igualdad, esfuerzo y compañerismo a la par de instruir en aspectos técnicos básicos del fútbol. De esta forma fomentar la práctica del deporte en su día a día y la importancia que este tiene, junto al crecimiento personal de cada alumno.",
+      "El fútbol sala es una modalidad deportiva en la que actualmente intentaremos trabajar con los más pequeños. Intentaremos inculcar a los participantes valores de colaboración, respeto, igualdad, esfuerzo y compañerismo a la par de instruir en aspectos técnicos básicos del fútbol. De esta forma fomentar la práctica del deporte en su día a día y la importancia que este tiene, junto al crecimiento personal de cada alumno.",
     place: "Puente de Sanabria",
     schedule: [],
-    coach: "Marta Bermejo Velasco",
-    ayudante: "Alberto Aran Parente",
-    delegado: "Raul Fernandez Escudero",
+    coach: "Alberto Aran Parente",
+    ayudante: "Raul Fernandez Escudero",
     equipment: "Zapatillas de fútbol sala, uniforme del club, etc.",
     message:
       "Esperamos poder ayudar a todos los centros escolares de las comarcas de Carballeda y de Sanabria a desarrollar cualquier práctica deportiva que se quiera realizar.",
