@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware for CORS
 app.use(cors({
-  origin: ['https://atleticosanabria.com', 'https://www.atleticosanabria.com'],
+  origin: ['https://atleticosanabria.com', 'https://www.atleticosanabria.com', 'http://atleticosanabria.com.s3-website-us-east-1.amazonaws.com/', 'http://production-atletico-sanabria.s3-website-us-east-1.amazonaws.com/'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
