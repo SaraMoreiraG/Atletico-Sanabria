@@ -8,15 +8,12 @@ const app = express();
 // Middleware for parsing JSON
 app.use(express.json());
 
-// Routes
-const clasificationdb = require('./routes/clasificationdb');
-app.use('/clasificationdb', clasificationdb);
-
-const matchesdb = require('./routes/matchesdb');
-app.use('/matchesdb', matchesdb);
-
-const authentication = require('./routes/authentication');
-app.use('/authentication', authentication);
+// Middleware for CORS
+app.use(cors({
+  origin: ['https://atleticosanabria.com', 'https://www.atleticosanabria.com', 'http://atleticosanabria.com.s3-website-us-east-1.amazonaws.com/', 'http://production-atletico-sanabria.s3-website-us-east-1.amazonaws.com/'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
 // Allow CORS for all routes
 app.use((req, res, next) => {
@@ -26,12 +23,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware for CORS
-app.use(cors({
-  origin: ['https://atleticosanabria.com', 'https://www.atleticosanabria.com', 'http://atleticosanabria.com.s3-website-us-east-1.amazonaws.com/', 'http://production-atletico-sanabria.s3-website-us-east-1.amazonaws.com/'],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
+// Routes
+const clasificationdb = require('./routes/clasificationdb');
+app.use('/clasificationdb', clasificationdb);
+
+const matchesdb = require('./routes/matchesdb');
+app.use('/matchesdb', matchesdb);
+
+const authentication = require('./routes/authentication');
+app.use('/authentication', authentication);
 
 // Define the root URL route
 app.get('/', (req, res) => {
