@@ -5,13 +5,6 @@ const cors = require('cors');
 
 const app = express();
 
-// Middleware for CORS
-app.use(cors({
-  origin: ['https://atleticosanabria.com', 'https://www.atleticosanabria.com', 'http://atleticosanabria.com.s3-website-us-east-1.amazonaws.com/', 'http://production-atletico-sanabria.s3-website-us-east-1.amazonaws.com/'],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
-
 // Middleware for parsing JSON
 app.use(express.json());
 
@@ -32,6 +25,13 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
+
+// Middleware for CORS
+app.use(cors({
+  origin: ['https://atleticosanabria.com', 'https://www.atleticosanabria.com', 'http://atleticosanabria.com.s3-website-us-east-1.amazonaws.com/', 'http://production-atletico-sanabria.s3-website-us-east-1.amazonaws.com/'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
 // Define the root URL route
 app.get('/', (req, res) => {
