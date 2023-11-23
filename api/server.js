@@ -25,6 +25,14 @@ app.use('/matchesdb', matchesdb);
 const authentication = require('./routes/authentication');
 app.use('/authentication', authentication);
 
+// Allow CORS for all routes
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 // Define the root URL route
 app.get('/', (req, res) => {
   res.send('Welcome to your API');
