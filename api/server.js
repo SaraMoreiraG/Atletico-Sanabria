@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 // HTTPS options
 const httpsOptions = {
   key: fs.readFileSync('/etc/letsencrypt/live/api.atleticosanabria.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/api.atleticosanabria.com/fullchain.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/api.atleticosanabria.com/combined.pem'),
 };
 
 // Start the server with HTTPS
