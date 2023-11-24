@@ -10,6 +10,7 @@ import Login from "./views/login";
 import Dashboard from "./views/Dashboard";
 import NewMemberForm from "./views/NewMemberForm";
 import ActivitiesForm from "./views/ActivitiesForm";
+import ColaboratorsForm from "./views/ColaboratorsForm";
 import CardDetails from "./views/CardDetails";
 import Calendary from "./views/Calendary";
 import Footer from "./components/Footer/Footer";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/formulario-nuevo-socio" element={<NewMemberForm />} />
         <Route path="/formulario-actividades" element={<ActivitiesForm />} />
+        <Route path="/formulario-colaboradores" element={<ColaboratorsForm />} />
         <Route path="/deportes/:sport" element={<CardDetails />} />
         <Route path="/calendario" element={<Calendary />} />
       </Routes>

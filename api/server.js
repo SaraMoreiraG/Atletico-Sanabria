@@ -15,6 +15,11 @@ app.use(cors({
   credentials: true,
 }));
 
+// Handle 404 errors
+app.use((req, res) => {
+  res.status(404).send("Sorry, can't find that!");
+});
+
 // Allow CORS for all routes
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
