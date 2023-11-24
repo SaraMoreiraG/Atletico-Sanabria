@@ -161,6 +161,13 @@ function Navbar() {
                   >
                     <li>Información Actividades</li>
                   </Link>
+                  <Link
+                    to="/formulario-colaboradores"
+                    className="nav-link dropdown-link"
+                    onClick={closeMenu}
+                  >
+                    <li>¿Quieres colaborar?</li>
+                  </Link>
                   {/* Sports toggle */}
                   <li
                     className={`sports-toggle dropdown-link ${
@@ -224,6 +231,11 @@ function Navbar() {
               <div className="me-3">
                 <Link to="/formulario-nuevo-socio" className="nav-link">
                   <span>Hazte socio</span>
+                </Link>
+              </div>
+              <div className="me-3">
+                <Link to="/formulario-colaboradores" className="nav-link">
+                  <span>Colabora</span>
                 </Link>
               </div>
             </div>
