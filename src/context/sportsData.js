@@ -34,7 +34,7 @@ const sportsData = {
     title: "Pádel",
     img: "https://images-atletico-sanabria.s3.amazonaws.com/sports/padel2.webp",
     description:
-      "El pádel es un deporte divertido y social que puedes disfrutar en nuestro club. Contamos con canchas de alta calidad y ofrecemos clases para todos los niveles, desde principiantes hasta jugadores avanzados.",
+      "El pádel es un deporte de paleta con origen en México. Se juega siempre en parejas y consta de tres elementos fundamentales para su desarrollo: la pelota, la pala y el campo de juego o pista. Consiste en hacer botar la bola en el campo contrario, con la posibilidad de rebotar en las paredes y en los cristales.",
     schedule: [],
     equipment:
       "4 canchas de pádel iluminadas, área de descanso, vestuarios, etc.",
