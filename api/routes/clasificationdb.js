@@ -24,9 +24,6 @@ const dynamodbClient = new DynamoDBClient({
   },
 });
 
-// Add this to your code
-console.log('Environment Variables:', process.env);
-
 // GET route to retrieve all items from the table
 router.get("/full", (req, res) => {
   const scanParams = {
