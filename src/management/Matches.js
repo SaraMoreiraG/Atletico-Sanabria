@@ -5,76 +5,76 @@ import "./management.css";
 
 function Matches() {
   const [data, setData] = useState([
-    {
-      homeShortName: "manganeses-lampreana",
-      date: "2024-01-13",
-      homeTeam: "Manganeses de la Lampreana",
-      visitorShortName: "atletico-sanabria",
-      visitorTeam: "Atlético Sanabria CF",
-      place: "CM Manganeses de la Lampreana - MNG",
-      hour: "16:00",
-      id: 1701658716744,
-    },
-    {
-      homeShortName: "arcos",
-      date: "2023-12-08",
-      homeTeam: "Arcos de la Polvorosa",
-      visitorShortName: "atletico-sanabria",
-      visitorTeam: "Atlético Sanabria CF",
-      place: ' Campo de Fútbol "El Sestil" Arcos - ARC',
-      hour: "16:00",
-      id: 1700944465642,
-    },
-    {
-      homeShortName: "atletico-sanabria",
-      date: "2023-11-11",
-      homeTeam: "Atlético Sanabria CF",
-      visitorShortName: "sayagues",
-      visitorTeam: "CD Sayagues",
-      place: "Campo de Deportes de SANTA CROYA",
-      hour: "16:00",
-      id: 1698774484109,
-    },
-    {
-      homeShortName: "ciudad-benavente",
-      date: "2023-11-19",
-      homeTeam: "Ciudad de Benavente",
-      visitorShortName: "atletico-sanabria",
-      visitorTeam: "Atlético Sanabria CF",
-      place: "Benavente",
-      hour: "16:00",
-      id: 1698775457212,
-    },
-    {
-      homeShortName: "rayo-alba",
-      date: "2023-12-02",
-      homeTeam: "Rayo de Alba",
-      visitorShortName: "atletico-sanabria",
-      visitorTeam: "Atlético Sanabria CF",
-      place: 'Campo de Fútbol "La Era" Carbajales de Alba - CBJ',
-      hour: "16:00",
-      id: 1698775662148,
-    },
-    {
-      homeShortName: "atletico-sanabria",
-      date: "2023-12-16",
-      homeTeam: "Atlético Sanabria CF",
-      visitorShortName: "fuentes",
-      visitorTeam: "Fuentes de Ropel CF",
-      place: "Campo de Deportes de SANTA CROYA",
-      hour: "16:00",
-      id: 1698775768172,
-    },
-    {
-      homeShortName: "atletico-sanabria",
-      date: "2023-11-25",
-      homeTeam: "Atlético Sanabria CF",
-      visitorShortName: "burganes",
-      visitorTeam: "Atco. Burganes - Aventura Deportes",
-      place: "Campo de Deportes de SANTA CROYA",
-      hour: "16:00",
-      id: 1698775569448,
-    },
+    // {
+    //   homeShortName: "manganeses-lampreana",
+    //   date: "2024-01-13",
+    //   homeTeam: "Manganeses de la Lampreana",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: "CM Manganeses de la Lampreana - MNG",
+    //   hour: "16:00",
+    //   id: 1701658716744,
+    // },
+    // {
+    //   homeShortName: "arcos",
+    //   date: "2023-12-08",
+    //   homeTeam: "Arcos de la Polvorosa",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: ' Campo de Fútbol "El Sestil" Arcos - ARC',
+    //   hour: "16:00",
+    //   id: 1700944465642,
+    // },
+    // {
+    //   homeShortName: "atletico-sanabria",
+    //   date: "2023-11-11",
+    //   homeTeam: "Atlético Sanabria CF",
+    //   visitorShortName: "sayagues",
+    //   visitorTeam: "CD Sayagues",
+    //   place: "Campo de Deportes de SANTA CROYA",
+    //   hour: "16:00",
+    //   id: 1698774484109,
+    // },
+    // {
+    //   homeShortName: "ciudad-benavente",
+    //   date: "2023-11-19",
+    //   homeTeam: "Ciudad de Benavente",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: "Benavente",
+    //   hour: "16:00",
+    //   id: 1698775457212,
+    // },
+    // {
+    //   homeShortName: "rayo-alba",
+    //   date: "2023-12-02",
+    //   homeTeam: "Rayo de Alba",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: 'Campo de Fútbol "La Era" Carbajales de Alba - CBJ',
+    //   hour: "16:00",
+    //   id: 1698775662148,
+    // },
+    // {
+    //   homeShortName: "atletico-sanabria",
+    //   date: "2023-12-16",
+    //   homeTeam: "Atlético Sanabria CF",
+    //   visitorShortName: "fuentes",
+    //   visitorTeam: "Fuentes de Ropel CF",
+    //   place: "Campo de Deportes de SANTA CROYA",
+    //   hour: "16:00",
+    //   id: 1698775768172,
+    // },
+    // {
+    //   homeShortName: "atletico-sanabria",
+    //   date: "2023-11-25",
+    //   homeTeam: "Atlético Sanabria CF",
+    //   visitorShortName: "burganes",
+    //   visitorTeam: "Atco. Burganes - Aventura Deportes",
+    //   place: "Campo de Deportes de SANTA CROYA",
+    //   hour: "16:00",
+    //   id: 1698775569448,
+    // },
   ]);
   const logosList = [
     "arcos",
@@ -91,7 +91,7 @@ function Matches() {
     "selvatika",
     "venialbo",
   ];
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { isAuthenticated } = useAuth();
   const [editState, setEditState] = useState({
@@ -110,35 +110,34 @@ function Matches() {
   });
 
   // Function to fetch data from the server
-  // const getDataFromServer = () => {
-  //   // Define the URL to fetch data
-  //   const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full";
+  const getDataFromServer = () => {
+    // Define the URL to fetch data
+    const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full";
 
-  //   // Make a GET request to the API
-  //   fetch(apiUrl)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       setData(data);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       setError(err);
-  //       setLoading(false);
-  //     });
-  // };
+    // Make a GET request to the API
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setLoading(false);
+      });
+  };
 
-  // // Effect to fetch data when the component mounts
-  // useEffect(() => {
-  //   getDataFromServer();
-  // }, []);
+  // Effect to fetch data when the component mounts
+  useEffect(() => {
+    getDataFromServer();
+  }, []);
 
   // Function to handle input changes for a new match
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewMatch((prevMatch) => ({
@@ -251,7 +250,9 @@ function Matches() {
       hour: "",
       place: "",
       homeTeam: "",
+      homeShortName: "",
       visitorTeam: "",
+      visitorShortName: "",
     });
   };
 
@@ -266,7 +267,7 @@ function Matches() {
       homeTeam: newMatch.homeTeam !== "" ? newMatch.homeTeam : item.homeTeam,
       homeShortName:
         newMatch.homeShortName !== ""
-        ? item.homeShortName
+          ? item.homeShortName
           : newMatch.homeShortName,
 
       visitorTeam:
@@ -580,11 +581,14 @@ function Matches() {
                             ? item.visitorShortName
                             : "Logo Local"}
                         </option>
-                        {logosList.map((logo, index) => item.visitorShortName !== logo && (
-                          <option key={index} value={logo}>
-                            {logo}
-                          </option>
-                        ))}
+                        {logosList.map(
+                          (logo, index) =>
+                            item.visitorShortName !== logo && (
+                              <option key={index} value={logo}>
+                                {logo}
+                              </option>
+                            )
+                        )}
                       </select>
                     </td>
                   </tr>
