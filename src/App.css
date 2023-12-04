@@ -453,7 +453,7 @@ a:hover {
 }
 
 /* FORMS */
-input {
+input, select {
   background-color: #0d1520;
   border: 1px solid #19283d;
   color: #666666;

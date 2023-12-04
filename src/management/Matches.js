@@ -4,8 +4,94 @@ import { useAuth } from "../context/AuthContext";
 import "./management.css";
 
 function Matches() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([
+    {
+      homeShortName: "manganeses-lampreana",
+      date: "2024-01-13",
+      homeTeam: "Manganeses de la Lampreana",
+      visitorShortName: "atletico-sanabria",
+      visitorTeam: "Atlético Sanabria CF",
+      place: "CM Manganeses de la Lampreana - MNG",
+      hour: "16:00",
+      id: 1701658716744,
+    },
+    {
+      homeShortName: "arcos",
+      date: "2023-12-08",
+      homeTeam: "Arcos de la Polvorosa",
+      visitorShortName: "atletico-sanabria",
+      visitorTeam: "Atlético Sanabria CF",
+      place: ' Campo de Fútbol "El Sestil" Arcos - ARC',
+      hour: "16:00",
+      id: 1700944465642,
+    },
+    {
+      homeShortName: "atletico-sanabria",
+      date: "2023-11-11",
+      homeTeam: "Atlético Sanabria CF",
+      visitorShortName: "sayagues",
+      visitorTeam: "CD Sayagues",
+      place: "Campo de Deportes de SANTA CROYA",
+      hour: "16:00",
+      id: 1698774484109,
+    },
+    {
+      homeShortName: "ciudad-benavente",
+      date: "2023-11-19",
+      homeTeam: "Ciudad de Benavente",
+      visitorShortName: "atletico-sanabria",
+      visitorTeam: "Atlético Sanabria CF",
+      place: "Benavente",
+      hour: "16:00",
+      id: 1698775457212,
+    },
+    {
+      homeShortName: "rayo-alba",
+      date: "2023-12-02",
+      homeTeam: "Rayo de Alba",
+      visitorShortName: "atletico-sanabria",
+      visitorTeam: "Atlético Sanabria CF",
+      place: 'Campo de Fútbol "La Era" Carbajales de Alba - CBJ',
+      hour: "16:00",
+      id: 1698775662148,
+    },
+    {
+      homeShortName: "atletico-sanabria",
+      date: "2023-12-16",
+      homeTeam: "Atlético Sanabria CF",
+      visitorShortName: "fuentes",
+      visitorTeam: "Fuentes de Ropel CF",
+      place: "Campo de Deportes de SANTA CROYA",
+      hour: "16:00",
+      id: 1698775768172,
+    },
+    {
+      homeShortName: "atletico-sanabria",
+      date: "2023-11-25",
+      homeTeam: "Atlético Sanabria CF",
+      visitorShortName: "burganes",
+      visitorTeam: "Atco. Burganes - Aventura Deportes",
+      place: "Campo de Deportes de SANTA CROYA",
+      hour: "16:00",
+      id: 1698775569448,
+    },
+  ]);
+  const logosList = [
+    "arcos",
+    "atletico-sanabria",
+    "burganes",
+    "castrogonzalo",
+    "ciudad-benavente",
+    "fuentes",
+    "manganeses-lampreana",
+    "manganeses",
+    "rayo-alba",
+    "santa-cristina",
+    "sayagues",
+    "selvatika",
+    "venialbo",
+  ];
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { isAuthenticated } = useAuth();
   const [editState, setEditState] = useState({
@@ -18,44 +104,48 @@ function Matches() {
     hour: "",
     place: "",
     homeTeam: "",
+    homeShortName: "",
     visitorTeam: "",
+    visitorShortName: "",
   });
 
   // Function to fetch data from the server
-  const getDataFromServer = () => {
-    // Define the URL to fetch data
-    const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full";
+  // const getDataFromServer = () => {
+  //   // Define the URL to fetch data
+  //   const apiUrl = process.env.REACT_APP_API_URL + "/matchesdb/full";
 
-    // Make a GET request to the API
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
-  };
+  //   // Make a GET request to the API
+  //   fetch(apiUrl)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setData(data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       setError(err);
+  //       setLoading(false);
+  //     });
+  // };
 
-  // Effect to fetch data when the component mounts
-  useEffect(() => {
-    getDataFromServer();
-  }, []);
+  // // Effect to fetch data when the component mounts
+  // useEffect(() => {
+  //   getDataFromServer();
+  // }, []);
 
   // Function to handle input changes for a new match
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewMatch((prevMatch) => ({
       ...prevMatch,
       [name]: value,
     }));
+    console.log(event.target.name, event.target.value);
   };
 
   // Function to add a new match
@@ -96,7 +186,7 @@ function Matches() {
               homeTeam: "",
               visitorTeam: "",
             });
-            getDataFromServer();
+            // getDataFromServer();
             setAddingMatch(false);
           } else {
             // Handle any other response status codes or errors here
@@ -124,7 +214,7 @@ function Matches() {
       .then((response) => {
         if (response.status === 204) {
           // Item deleted successfully
-          getDataFromServer();
+          // getDataFromServer();
         } else {
           // Failed to delete the item
           alert("Failed to delete the item. Please try again.");
@@ -174,10 +264,19 @@ function Matches() {
       hour: newMatch.hour !== "" ? newMatch.hour : item.hour,
       place: newMatch.place !== "" ? newMatch.place : item.place,
       homeTeam: newMatch.homeTeam !== "" ? newMatch.homeTeam : item.homeTeam,
+      homeShortName:
+        newMatch.homeShortName !== ""
+        ? item.homeShortName
+          : newMatch.homeShortName,
+
       visitorTeam:
         newMatch.visitorTeam !== "" ? newMatch.visitorTeam : item.visitorTeam,
+      visitorShortName:
+        newMatch.visitorShortName !== ""
+          ? item.visitorShortName
+          : newMatch.visitorShortName,
     };
-
+    console.log(updatedFields);
     const apiUrl =
       process.env.REACT_APP_API_URL + `/matchesdb/update/${item.id}`;
     fetch(apiUrl, {
@@ -193,13 +292,15 @@ function Matches() {
         }
         // Handle the success response here
         // You may also update the state or refresh the data from the server if needed.
-        getDataFromServer();
+        // getDataFromServer();
         setNewMatch({
           date: "",
           hour: "",
           place: "",
           homeTeam: "",
+          homeShortName: "",
           visitorTeam: "",
+          visitorShortName: "",
         });
       })
       .catch((err) => {
@@ -307,7 +408,7 @@ function Matches() {
               </tr>
             )}
             {data.map((item, rowIndex) => (
-              <>
+              <React.Fragment key={rowIndex}>
                 <tr
                   className={`text-center ${
                     isRowInEditState(rowIndex) ? "edit-mode" : ""
@@ -444,28 +545,51 @@ function Matches() {
                   )}
                 </tr>
                 {isRowInEditState(rowIndex) && (
-                  <tr className="text-center edit-mode" key={rowIndex}>
+                  <tr className="text-center edit-mode">
                     <td>
-                      <input
-                        type="text"
-                        value={newMatch.homeLogo}
-                        name="homeLogo"
-                        placeholder={item.homeLogo}
-                        className="col-12 col-xs-6 text-end"
+                      <select
+                        id="homeShortName"
+                        value={newMatch.homeShortName}
+                        name="homeShortName"
                         onChange={handleInputChange}
-                      />
-                      <input
-                        type="text"
-                        value={newMatch.visitorLogo}
-                        name="visitorLogo"
-                        placeholder={item.visitorLogo}
-                        className="col-12 col-xs-6 text-end"
+                      >
+                        <option value="">
+                          {item.homeShortName
+                            ? item.homeShortName
+                            : "Logo Local"}
+                        </option>
+                        {logosList.map(
+                          (logo, index) =>
+                            item.homeShortName !== logo && (
+                              <option key={index} value={logo}>
+                                {logo}
+                              </option>
+                            )
+                        )}
+                      </select>
+                    </td>
+                    <td>
+                      <select
+                        id="visitorShortName"
+                        value={newMatch.visitorShortName}
+                        name="visitorShortName"
                         onChange={handleInputChange}
-                      />
+                      >
+                        <option value="visitorShortName">
+                          {item.visitorShortName
+                            ? item.visitorShortName
+                            : "Logo Local"}
+                        </option>
+                        {logosList.map((logo, index) => item.visitorShortName !== logo && (
+                          <option key={index} value={logo}>
+                            {logo}
+                          </option>
+                        ))}
+                      </select>
                     </td>
                   </tr>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </tbody>
         </table>
