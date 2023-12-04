@@ -19,3 +19,8 @@
 .management-table tr{
 	border-top: 1px solid #253443;
 }
+.edit-mode input,
+.edit-mode select {
+	height: 35px;
+	color: #fff;
+}
