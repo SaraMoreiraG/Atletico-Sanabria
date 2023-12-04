@@ -267,15 +267,14 @@ function Matches() {
       homeTeam: newMatch.homeTeam !== "" ? newMatch.homeTeam : item.homeTeam,
       homeShortName:
         newMatch.homeShortName !== ""
-          ? item.homeShortName
-          : newMatch.homeShortName,
-
+          ? newMatch.homeShortName
+          : item.homeShortName,
       visitorTeam:
         newMatch.visitorTeam !== "" ? newMatch.visitorTeam : item.visitorTeam,
       visitorShortName:
         newMatch.visitorShortName !== ""
-          ? item.visitorShortName
-          : newMatch.visitorShortName,
+          ? newMatch.visitorShortName
+          : item.visitorShortName,
     };
     console.log(updatedFields);
     const apiUrl =
@@ -293,7 +292,7 @@ function Matches() {
         }
         // Handle the success response here
         // You may also update the state or refresh the data from the server if needed.
-        // getDataFromServer();
+        getDataFromServer();
         setNewMatch({
           date: "",
           hour: "",
