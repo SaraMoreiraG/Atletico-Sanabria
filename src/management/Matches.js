@@ -190,7 +190,7 @@ function Matches() {
               visitorTeam: "",
               visitorShortName: "",
             });
-            // getDataFromServer();
+            getDataFromServer();
             setAddingMatch(false);
           } else {
             // Handle any other response status codes or errors here
@@ -218,7 +218,7 @@ function Matches() {
       .then((response) => {
         if (response.status === 204) {
           // Item deleted successfully
-          // getDataFromServer();
+          getDataFromServer();
         } else {
           // Failed to delete the item
           alert("Failed to delete the item. Please try again.");
