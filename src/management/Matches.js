@@ -155,7 +155,9 @@ function Matches() {
       newMatch.hour !== undefined &&
       newMatch.place !== undefined &&
       newMatch.homeTeam !== undefined &&
-      newMatch.visitorTeam !== undefined
+      newMatch.homeShortName !== undefined &&
+      newMatch.visitorTeam !== undefined &&
+      newMatch.visitorShortName !== undefined
     ) {
       // Prepare the data to send to the server, including the generated ID
       const newMatchData = {
@@ -163,7 +165,9 @@ function Matches() {
         hour: newMatch.hour,
         place: newMatch.place,
         homeTeam: newMatch.homeTeam,
+        homeShortName: newMatch.homeShortName,
         visitorTeam: newMatch.visitorTeam,
+        visitorShortName: newMatch.visitorShortName,
       };
 
       // Send a POST request to your server using fetch or Axios
@@ -182,7 +186,9 @@ function Matches() {
               hour: "",
               place: "",
               homeTeam: "",
+              homeShortName: "",
               visitorTeam: "",
+              visitorShortName: "",
             });
             // getDataFromServer();
             setAddingMatch(false);
