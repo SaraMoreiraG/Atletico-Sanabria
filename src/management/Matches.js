@@ -144,7 +144,6 @@ function Matches() {
       ...prevMatch,
       [name]: value,
     }));
-    console.log(event.target.name, event.target.value);
   };
 
   // Function to add a new match
@@ -276,7 +275,6 @@ function Matches() {
           ? newMatch.visitorShortName
           : item.visitorShortName,
     };
-    console.log(updatedFields);
     const apiUrl =
       process.env.REACT_APP_API_URL + `/matchesdb/update/${item.id}`;
     fetch(apiUrl, {
@@ -349,63 +347,103 @@ function Matches() {
           </thead>
           <tbody>
             {addingMatch && (
-              <tr className="text-center">
-                <td>
-                  <input
-                    type="text"
-                    name="homeTeam"
-                    placeholder="Selecciona"
-                    value={newMatch.homeTeam}
-                    onChange={handleInputChange}
-                    className="col-12"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    name="visitorTeam"
-                    placeholder="Selecciona"
-                    value={newMatch.visitorTeam}
-                    onChange={handleInputChange}
-                    className="col-12"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="date"
-                    name="date"
-                    placeholder="Fecha"
-                    value={newMatch.date}
-                    onChange={handleInputChange}
-                    className="col-11"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    name="hour"
-                    placeholder="hora"
-                    value={newMatch.hour}
-                    onChange={handleInputChange}
-                    className="col-12"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    name="place"
-                    placeholder="Lugar"
-                    value={newMatch.place}
-                    onChange={handleInputChange}
-                    className="col-12"
-                  />
-                </td>
-                <td className="text-end">
-                  <button onClick={handleAddMatch} className="btn-blue my-2">
-                    <i className="fa-solid fa-check"></i> Añadir
-                  </button>
-                </td>
-              </tr>
+              <>
+                <tr className="text-center edit-mode">
+                  <td>
+                    <input
+                      type="text"
+                      name="homeTeam"
+                      placeholder="Selecciona"
+                      value={newMatch.homeTeam}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="visitorTeam"
+                      placeholder="Selecciona"
+                      value={newMatch.visitorTeam}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="date"
+                      name="date"
+                      placeholder="Fecha"
+                      value={newMatch.date}
+                      onChange={handleInputChange}
+                      className="col-11"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="hour"
+                      placeholder="hora"
+                      value={newMatch.hour}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="place"
+                      placeholder="Lugar"
+                      value={newMatch.place}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td className="text-end">
+                    <button onClick={handleAddMatch} className="btn-blue my-2">
+                      <i className="fa-solid fa-check"></i> Añadir
+                    </button>
+                  </td>
+                </tr>
+                <tr className="text-center edit-mode">
+                  <td>
+                    <select
+                      id="homeShortName"
+                      value={newMatch.homeShortName}
+                      name="homeShortName"
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Logo Local</option>
+                      {logosList.map(
+                        (logo, index) =>
+                          item.homeShortName !== logo && (
+                            <option key={index} value={logo}>
+                              {logo}
+                            </option>
+                          )
+                      )}
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      id="visitorShortName"
+                      value={newMatch.visitorShortName}
+                      name="visitorShortName"
+                      onChange={handleInputChange}
+                    >
+                      <option value="visitorShortName">Logo Local</option>
+                      {logosList.map(
+                        (logo, index) =>
+                          item.visitorShortName !== logo && (
+                            <option key={index} value={logo}>
+                              {logo}
+                            </option>
+                          )
+                      )}
+                    </select>
+                  </td>
+                </tr>
+              </>
             )}
             {data.map((item, rowIndex) => (
               <React.Fragment key={rowIndex}>
