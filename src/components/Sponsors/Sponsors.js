@@ -120,6 +120,17 @@ function Sponsors() {
                 height="100px"
               />
             </a>
+            <a
+              href="https://sanabriafuneraria.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/funeraria.jpg"
+                alt="Logo Logo Funeraria Sanabria"
+                height="100px"
+              />
+            </a>
           </p>
           <p>
             <img
@@ -233,6 +244,17 @@ function Sponsors() {
               <img
                 src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/electricas.jpg"
                 alt="Logo Electricas Sanabria"
+                height="100px"
+              />
+            </a>
+            <a
+              href="https://sanabriafuneraria.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://images-atletico-sanabria.s3.amazonaws.com/sponsors/funeraria.jpg"
+                alt="Logo Funeraria Sanabria"
                 height="100px"
               />
             </a>
