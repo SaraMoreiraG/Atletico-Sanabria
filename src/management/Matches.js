@@ -414,14 +414,11 @@ function Matches() {
                       onChange={handleInputChange}
                     >
                       <option value="">Logo Local</option>
-                      {logosList.map(
-                        (logo, index) =>
-                          item.homeShortName !== logo && (
-                            <option key={index} value={logo}>
-                              {logo}
-                            </option>
-                          )
-                      )}
+                      {logosList.map((logo, index) => (
+                        <option key={index} value={logo}>
+                          {logo}
+                        </option>
+                      ))}
                     </select>
                   </td>
                   <td>
@@ -432,14 +429,11 @@ function Matches() {
                       onChange={handleInputChange}
                     >
                       <option value="visitorShortName">Logo Local</option>
-                      {logosList.map(
-                        (logo, index) =>
-                          item.visitorShortName !== logo && (
-                            <option key={index} value={logo}>
-                              {logo}
-                            </option>
-                          )
-                      )}
+                      {logosList.map((logo, index) => (
+                        <option key={index} value={logo}>
+                          {logo}
+                        </option>
+                      ))}
                     </select>
                   </td>
                 </tr>
