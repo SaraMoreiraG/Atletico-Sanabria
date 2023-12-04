@@ -220,8 +220,14 @@ router.post("/add", async (req, res) => {
     if (newTeam.homeTeam) {
       newTeamParams.Item.homeTeam = { S: newTeam.homeTeam.toString() };
     }
+    if (newTeam.homeShortName) {
+      newTeamParams.Item.homeShortName = { S: newTeam.homeShortName.toString() };
+    }
     if (newTeam.visitorTeam) {
       newTeamParams.Item.visitorTeam = { S: newTeam.visitorTeam.toString() };
+    }
+    if (newTeam.visitorShortName) {
+      newTeamParams.Item.visitorShortName = { S: newTeam.visitorShortName.toString() };
     }
 
     // Use DynamoDBClient to send the PutItemCommand
