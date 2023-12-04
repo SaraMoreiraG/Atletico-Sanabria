@@ -235,216 +235,240 @@ function Matches() {
         )}
       </div>
       <div className="table-responsive">
-      <table className="management-table">
-        <thead>
-          <tr className="text-center">
-            <th className="text-end col-xs-6 p-2">Local</th>
-            <th className="text-start col-xs-6 p-2">Visitante</th>
-            <th className="col-lg-2 col-md-2 col-sm-2 p-2">Fecha</th>
-            <th className="col-lg-1 col-md-2 p-2">Hora</th>
-            <th className="col-lg-3 col-md-2 p-2">Lugar</th>
-            {isAuthenticated && <th className="col-2 p-2"></th>}
-          </tr>
-        </thead>
-        <tbody>
-          {addingMatch && (
+        <table className="management-table">
+          <thead>
             <tr className="text-center">
-              <td>
-                <input
-                  type="text"
-                  name="homeTeam"
-                  placeholder="Selecciona"
-                  value={newMatch.homeTeam}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="visitorTeam"
-                  placeholder="Selecciona"
-                  value={newMatch.visitorTeam}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td>
-                <input
-                  type="date"
-                  name="date"
-                  placeholder="Fecha"
-                  value={newMatch.date}
-                  onChange={handleInputChange}
-                  className="col-11"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="hour"
-                  placeholder="hora"
-                  value={newMatch.hour}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="place"
-                  placeholder="Lugar"
-                  value={newMatch.place}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td className="text-end">
-                <button onClick={handleAddMatch} className="btn-blue my-2">
-                  <i className="fa-solid fa-check"></i> Añadir
-                </button>
-              </td>
+              <th className="text-end col-xs-6 p-2">Local</th>
+              <th className="text-start col-xs-6 p-2">Visitante</th>
+              <th className="col-lg-2 col-md-2 col-sm-2 p-2">Fecha</th>
+              <th className="col-lg-1 col-md-2 p-2">Hora</th>
+              <th className="col-lg-3 col-md-2 p-2">Lugar</th>
+              {isAuthenticated && <th className="col-2 p-2"></th>}
             </tr>
-          )}
-          {data.map((item, rowIndex) => (
-            <tr
-              className={`text-center ${
-                isRowInEditState(rowIndex) ? "edit-mode" : ""
-              }`}
-              key={rowIndex}
-            >
-              <td>
-                {isRowInEditState(rowIndex) ? (
+          </thead>
+          <tbody>
+            {addingMatch && (
+              <tr className="text-center">
+                <td>
                   <input
                     type="text"
-                    value={newMatch.homeTeam}
                     name="homeTeam"
-                    placeholder={item.homeTeam}
-                    className="col-12 col-xs-6 text-end"
+                    placeholder="Selecciona"
+                    value={newMatch.homeTeam}
                     onChange={handleInputChange}
+                    className="col-12"
                   />
-                ) : (
-                  <div className="d-flex align-items-center justify-content-end py-2">
-                    <div>{item.homeTeam}</div>
-                    <div>
-                      <img
-                        src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.homeShortName}.png`}
-                        height="25px"
-                        className="ms-2"
-                        alt={`logo ${item.homeShortName}`}
-                      />
-                    </div>
-                  </div>
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
+                </td>
+                <td>
                   <input
                     type="text"
-                    value={newMatch.visitorTeam}
                     name="visitorTeam"
-                    placeholder={item.visitorTeam}
-                    className="col-12"
+                    placeholder="Selecciona"
+                    value={newMatch.visitorTeam}
                     onChange={handleInputChange}
+                    className="col-12"
                   />
-                ) : (
-                  <div className="d-flex align-items-center text-center py-2">
-                    <div>
-                      <img
-                        src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.visitorShortName}.png`}
-                        height="25px"
-                        className="me-2"
-                        alt={`logo ${item.visitorShortName}`}
-                      />
-                    </div>
-                    <div>{item.visitorTeam}</div>
-                  </div>
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
+                </td>
+                <td>
                   <input
                     type="date"
-                    value={newMatch.date}
                     name="date"
-                    placeholder={item.date}
-                    className="col-12 text-center"
+                    placeholder="Fecha"
+                    value={newMatch.date}
                     onChange={handleInputChange}
+                    className="col-11"
                   />
-                ) : (
-                  item.date
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
-                  <input
-                    type="text"
-                    value={newMatch.hour}
-                    name="hour"
-                    placeholder={item.hour}
-                    className="col-12 text-center"
-                    onChange={handleInputChange}
-                  />
-                ) : (
-                  item.hour
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
-                  <input
-                    type="text"
-                    value={newMatch.place}
-                    name="place"
-                    placeholder={item.place}
-                    className="col-12 text-center"
-                    onChange={handleInputChange}
-                  />
-                ) : (
-                  item.place
-                )}
-              </td>
-              {/* Edit buttons */}
-              {isAuthenticated && (
-                <td className="">
-                  <div className="d-flex justify-content-evenly">
-                    {isRowInEditState(rowIndex) ? (
-                      <>
-                        <button
-                          onClick={() => handleSave(item)}
-                          className="btn-grey"
-                        >
-                          <i className="fa-regular fa-floppy-disk ms-1"></i>
-                        </button>
-                        <button
-                          onClick={() => handleCancel()}
-                          className="btn-grey"
-                        >
-                          <i className="fa-solid fa-x"></i>
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        <button
-                          onClick={() => handleEdit(rowIndex, item.id)}
-                          className="btn-grey"
-                        >
-                          <i className="fa-regular fa-pen-to-square ms-1"></i>
-                        </button>
-                        <button
-                          onClick={() => handleDelete(item.id, item.name)}
-                          className="btn-grey"
-                        >
-                          <i className="fa-regular fa-trash-can ms-1"></i>
-                        </button>
-                      </>
-                    )}
-                  </div>
                 </td>
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                <td>
+                  <input
+                    type="text"
+                    name="hour"
+                    placeholder="hora"
+                    value={newMatch.hour}
+                    onChange={handleInputChange}
+                    className="col-12"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="place"
+                    placeholder="Lugar"
+                    value={newMatch.place}
+                    onChange={handleInputChange}
+                    className="col-12"
+                  />
+                </td>
+                <td className="text-end">
+                  <button onClick={handleAddMatch} className="btn-blue my-2">
+                    <i className="fa-solid fa-check"></i> Añadir
+                  </button>
+                </td>
+              </tr>
+            )}
+            {data.map((item, rowIndex) => (
+              <>
+                <tr
+                  className={`text-center ${
+                    isRowInEditState(rowIndex) ? "edit-mode" : ""
+                  }`}
+                  key={rowIndex}
+                >
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="text"
+                        value={newMatch.homeTeam}
+                        name="homeTeam"
+                        placeholder={item.homeTeam}
+                        className="col-12 col-xs-6 text-end"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className="d-flex align-items-center justify-content-end py-2">
+                        <div>{item.homeTeam}</div>
+                        <div>
+                          <img
+                            src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.homeShortName}.png`}
+                            height="25px"
+                            className="ms-2"
+                            alt={`logo ${item.homeShortName}`}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="text"
+                        value={newMatch.visitorTeam}
+                        name="visitorTeam"
+                        placeholder={item.visitorTeam}
+                        className="col-12"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className="d-flex align-items-center text-center py-2">
+                        <div>
+                          <img
+                            src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.visitorShortName}.png`}
+                            height="25px"
+                            className="me-2"
+                            alt={`logo ${item.visitorShortName}`}
+                          />
+                        </div>
+                        <div>{item.visitorTeam}</div>
+                      </div>
+                    )}
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="date"
+                        value={newMatch.date}
+                        name="date"
+                        placeholder={item.date}
+                        className="col-12 text-center"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      item.date
+                    )}
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="text"
+                        value={newMatch.hour}
+                        name="hour"
+                        placeholder={item.hour}
+                        className="col-12 text-center"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      item.hour
+                    )}
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="text"
+                        value={newMatch.place}
+                        name="place"
+                        placeholder={item.place}
+                        className="col-12 text-center"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      item.place
+                    )}
+                  </td>
+                  {/* Edit buttons */}
+                  {isAuthenticated && (
+                    <td className="">
+                      <div className="d-flex justify-content-evenly">
+                        {isRowInEditState(rowIndex) ? (
+                          <>
+                            <button
+                              onClick={() => handleSave(item)}
+                              className="btn-grey"
+                            >
+                              <i className="fa-regular fa-floppy-disk ms-1"></i>
+                            </button>
+                            <button
+                              onClick={() => handleCancel()}
+                              className="btn-grey"
+                            >
+                              <i className="fa-solid fa-x"></i>
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              onClick={() => handleEdit(rowIndex, item.id)}
+                              className="btn-grey"
+                            >
+                              <i className="fa-regular fa-pen-to-square ms-1"></i>
+                            </button>
+                            <button
+                              onClick={() => handleDelete(item.id, item.name)}
+                              className="btn-grey"
+                            >
+                              <i className="fa-regular fa-trash-can ms-1"></i>
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </td>
+                  )}
+                </tr>
+                {isRowInEditState(rowIndex) && (
+                  <tr className="text-center edit-mode" key={rowIndex}>
+                    <td>
+                      <input
+                        type="text"
+                        value={newMatch.homeLogo}
+                        name="homeLogo"
+                        placeholder={item.homeLogo}
+                        className="col-12 col-xs-6 text-end"
+                        onChange={handleInputChange}
+                      />
+                      <input
+                        type="text"
+                        value={newMatch.visitorLogo}
+                        name="visitorLogo"
+                        placeholder={item.visitorLogo}
+                        className="col-12 col-xs-6 text-end"
+                        onChange={handleInputChange}
+                      />
+                    </td>
+                  </tr>
+                )}
+              </>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
