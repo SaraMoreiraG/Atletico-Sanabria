@@ -1,6 +1,6 @@
 # Sports Club Project
 
-Welcome to the Sports Club project! This React application allows users to ... 
+Welcome to the Sports Club project! This React application allows users to experience the thrill of sports through a modern, responsive, and feature-rich web interface. Whether you're a fan, player, or administrator, this project caters to everyone's needs.
 
 <p align="center">See live <a href="https://atleticosanabria.com/" target="_blank">clicking here</a></p>
 
@@ -11,35 +11,35 @@ Welcome to the Sports Club project! This React application allows users to ...
 	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png' alt='css' width='40'>
 	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png' alt='bootstrap' width='50'>
 	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png' alt='react' width='50'>
-	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png' alt='typescript' width='40'>
-	<img src='https://cdn.iconscout.com/icon/free/png-256/free-google-maps-2863735-2378123.png'
-	alt='google maps api' width='45'>
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png' alt='javascript' width='40'>
+	<img src='https://miro.medium.com/v2/resize:fit:800/1*bc9pmTiyKR0WNPka2w3e0Q.png'
+	alt='nodejs' width='45'>
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/AWS_Simple_Icons_AWS_Cloud.svg/2560px-AWS_Simple_Icons_AWS_Cloud.svg.png'
+	alt='aws' width='45'>
 </p>
 
 ## Features
 
-- **Front-End View**: This view provides a user-friendly interface for browsing available rural houses. Users can:
-  - View house details and images.
-  - Check available rental dates.
-  - Navigate through listings.
-  - Switch to the API-integrated view.
-
-- **API-Integrated View**: In this view, we have integrated an API, a database, and payment methods for a seamless rental experience. Users can:
-  - Register and log in to their accounts.
-  - Search for houses by location, size, and amenities.
-  - Book available houses with integrated payment methods.
-  - Review their booking history.
-  - Easily switch back to the front-end view.
+📱 Responsive Navbar: Navigate effortlessly on any device.
+🎮 Slider: Engage with captivating visuals through an interactive slider.
+🏅 Classification List: Stay updated on your favorite team's ranking.
+🔄 Next Match Carousel: Preview upcoming matches in a dynamic carousel.
+🏀 Different Sports Page Views: Explore dedicated pages for various sports.
+🤝 Sponsors Section: Showcase the valued supporters of your sports club.
+📸 Instagram Photos Section: Stay connected with the latest moments captured on Instagram.
+🎛 Control Panel: Empower administrators to update classification and next match details seamlessly.
 
 ## Technologies Used
 This project is built using the following technologies and tools:
-- Angular: Angular framework for building the front-end.
-- Node.js/Express.js: For building the API server.
-- Database: MongoDB for data storage.
-- Payment Gateway: Integrate a payment gateway (Stripe) for handling payments.
-- HTML/CSS: For creating the user interface.
-- JavaScript/TypeScript: For the application logic.
-- Google Api: To geolocalize the house.
+- React
+- JavaScript
+- Node.js
+- Express
+- Bootstrap
+- Redux
+- DynamoDB
+- AWS
+- GitHub Actions
 
 ## Installation
 
@@ -72,4 +72,4 @@ This project is licensed under the MIT License.
 ## Contact
 If you have any questions or feedback, feel free to contact me at saramordev@gmail.com.
 
-Enjoy exploring our sports club website!
+Enjoy exploring our sports club website! 🥇🏀🏈
