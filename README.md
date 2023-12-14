@@ -20,14 +20,14 @@ Welcome to the Sports Club project! This React application allows users to exper
 
 ## Features
 
-📱 Responsive Navbar: Navigate effortlessly on any device.
-🎮 Slider: Engage with captivating visuals through an interactive slider.
-🏅 Classification List: Stay updated on your favorite team's ranking.
-🔄 Next Match Carousel: Preview upcoming matches in a dynamic carousel.
-🏀 Different Sports Page Views: Explore dedicated pages for various sports.
-🤝 Sponsors Section: Showcase the valued supporters of your sports club.
-📸 Instagram Photos Section: Stay connected with the latest moments captured on Instagram.
-🎛 Control Panel: Empower administrators to update classification and next match details seamlessly.
+- 📱 Responsive Navbar: Navigate effortlessly on any device.
+- 🎮 Slider: Engage with captivating visuals through an interactive slider.
+- 🏅 Classification List: Stay updated on your favorite team's ranking.
+- 🔄 Next Match Carousel: Preview upcoming matches in a dynamic carousel.
+- 🏀 Different Sports Page Views: Explore dedicated pages for various sports.
+- 🤝 Sponsors Section: Showcase the valued supporters of your sports club.
+- 📸 Instagram Photos Section: Stay connected with the latest moments captured on Instagram.
+- 🎛 Control Panel: Empower administrators to update classification and next match details seamlessly.
 
 ## Technologies Used
 This project is built using the following technologies and tools:
