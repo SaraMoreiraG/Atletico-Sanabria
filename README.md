@@ -4,7 +4,7 @@ Welcome to the Sports Club project! This React application allows users to ...
 
 <p align="center">See live <a href="https://atleticosanabria.com/" target="_blank">clicking here</a></p>
 
-![Sports Club Website Screenshot](src/assets/casarural.png)
+![Sports Club Website Screenshot](atletico-sanabria-futbol.png)
 
 <p align="center">
 	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/2048px-HTML5_Badge.svg.png' alt='html' width='40'>
