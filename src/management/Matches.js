@@ -4,7 +4,93 @@ import { useAuth } from "../context/AuthContext";
 import "./management.css";
 
 function Matches() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    // {
+    //   homeShortName: "manganeses-lampreana",
+    //   date: "2024-01-13",
+    //   homeTeam: "Manganeses de la Lampreana",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: "CM Manganeses de la Lampreana - MNG",
+    //   hour: "16:00",
+    //   id: 1701658716744,
+    // },
+    // {
+    //   homeShortName: "arcos",
+    //   date: "2023-12-08",
+    //   homeTeam: "Arcos de la Polvorosa",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: ' Campo de Fútbol "El Sestil" Arcos - ARC',
+    //   hour: "16:00",
+    //   id: 1700944465642,
+    // },
+    // {
+    //   homeShortName: "atletico-sanabria",
+    //   date: "2023-11-11",
+    //   homeTeam: "Atlético Sanabria CF",
+    //   visitorShortName: "sayagues",
+    //   visitorTeam: "CD Sayagues",
+    //   place: "Campo de Deportes de SANTA CROYA",
+    //   hour: "16:00",
+    //   id: 1698774484109,
+    // },
+    // {
+    //   homeShortName: "ciudad-benavente",
+    //   date: "2023-11-19",
+    //   homeTeam: "Ciudad de Benavente",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: "Benavente",
+    //   hour: "16:00",
+    //   id: 1698775457212,
+    // },
+    // {
+    //   homeShortName: "rayo-alba",
+    //   date: "2023-12-02",
+    //   homeTeam: "Rayo de Alba",
+    //   visitorShortName: "atletico-sanabria",
+    //   visitorTeam: "Atlético Sanabria CF",
+    //   place: 'Campo de Fútbol "La Era" Carbajales de Alba - CBJ',
+    //   hour: "16:00",
+    //   id: 1698775662148,
+    // },
+    // {
+    //   homeShortName: "atletico-sanabria",
+    //   date: "2023-12-16",
+    //   homeTeam: "Atlético Sanabria CF",
+    //   visitorShortName: "fuentes",
+    //   visitorTeam: "Fuentes de Ropel CF",
+    //   place: "Campo de Deportes de SANTA CROYA",
+    //   hour: "16:00",
+    //   id: 1698775768172,
+    // },
+    // {
+    //   homeShortName: "atletico-sanabria",
+    //   date: "2023-11-25",
+    //   homeTeam: "Atlético Sanabria CF",
+    //   visitorShortName: "burganes",
+    //   visitorTeam: "Atco. Burganes - Aventura Deportes",
+    //   place: "Campo de Deportes de SANTA CROYA",
+    //   hour: "16:00",
+    //   id: 1698775569448,
+    // },
+  ]);
+  const logosList = [
+    "arcos",
+    "atletico-sanabria",
+    "burganes",
+    "castrogonzalo",
+    "ciudad-benavente",
+    "fuentes",
+    "manganeses-lampreana",
+    "manganeses",
+    "rayo-alba",
+    "santa-cristina",
+    "sayagues",
+    "selvatika",
+    "venialbo",
+  ];
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { isAuthenticated } = useAuth();
@@ -18,7 +104,9 @@ function Matches() {
     hour: "",
     place: "",
     homeTeam: "",
+    homeShortName: "",
     visitorTeam: "",
+    visitorShortName: "",
   });
 
   // Function to fetch data from the server
@@ -67,7 +155,9 @@ function Matches() {
       newMatch.hour !== undefined &&
       newMatch.place !== undefined &&
       newMatch.homeTeam !== undefined &&
-      newMatch.visitorTeam !== undefined
+      newMatch.homeShortName !== undefined &&
+      newMatch.visitorTeam !== undefined &&
+      newMatch.visitorShortName !== undefined
     ) {
       // Prepare the data to send to the server, including the generated ID
       const newMatchData = {
@@ -75,7 +165,9 @@ function Matches() {
         hour: newMatch.hour,
         place: newMatch.place,
         homeTeam: newMatch.homeTeam,
+        homeShortName: newMatch.homeShortName,
         visitorTeam: newMatch.visitorTeam,
+        visitorShortName: newMatch.visitorShortName,
       };
 
       // Send a POST request to your server using fetch or Axios
@@ -94,7 +186,9 @@ function Matches() {
               hour: "",
               place: "",
               homeTeam: "",
+              homeShortName: "",
               visitorTeam: "",
+              visitorShortName: "",
             });
             getDataFromServer();
             setAddingMatch(false);
@@ -161,7 +255,9 @@ function Matches() {
       hour: "",
       place: "",
       homeTeam: "",
+      homeShortName: "",
       visitorTeam: "",
+      visitorShortName: "",
     });
   };
 
@@ -174,10 +270,17 @@ function Matches() {
       hour: newMatch.hour !== "" ? newMatch.hour : item.hour,
       place: newMatch.place !== "" ? newMatch.place : item.place,
       homeTeam: newMatch.homeTeam !== "" ? newMatch.homeTeam : item.homeTeam,
+      homeShortName:
+        newMatch.homeShortName !== ""
+          ? newMatch.homeShortName
+          : item.homeShortName,
       visitorTeam:
         newMatch.visitorTeam !== "" ? newMatch.visitorTeam : item.visitorTeam,
+      visitorShortName:
+        newMatch.visitorShortName !== ""
+          ? newMatch.visitorShortName
+          : item.visitorShortName,
     };
-
     const apiUrl =
       process.env.REACT_APP_API_URL + `/matchesdb/update/${item.id}`;
     fetch(apiUrl, {
@@ -199,7 +302,9 @@ function Matches() {
           hour: "",
           place: "",
           homeTeam: "",
+          homeShortName: "",
           visitorTeam: "",
+          visitorShortName: "",
         });
       })
       .catch((err) => {
@@ -235,216 +340,300 @@ function Matches() {
         )}
       </div>
       <div className="table-responsive">
-      <table className="management-table">
-        <thead>
-          <tr className="text-center">
-            <th className="text-end col-xs-6 p-2">Local</th>
-            <th className="text-start col-xs-6 p-2">Visitante</th>
-            <th className="col-lg-2 col-md-2 col-sm-2 p-2">Fecha</th>
-            <th className="col-lg-1 col-md-2 p-2">Hora</th>
-            <th className="col-lg-3 col-md-2 p-2">Lugar</th>
-            {isAuthenticated && <th className="col-2 p-2"></th>}
-          </tr>
-        </thead>
-        <tbody>
-          {addingMatch && (
+        <table className="management-table">
+          <thead>
             <tr className="text-center">
-              <td>
-                <input
-                  type="text"
-                  name="homeTeam"
-                  placeholder="Selecciona"
-                  value={newMatch.homeTeam}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="visitorTeam"
-                  placeholder="Selecciona"
-                  value={newMatch.visitorTeam}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td>
-                <input
-                  type="date"
-                  name="date"
-                  placeholder="Fecha"
-                  value={newMatch.date}
-                  onChange={handleInputChange}
-                  className="col-11"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="hour"
-                  placeholder="hora"
-                  value={newMatch.hour}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="place"
-                  placeholder="Lugar"
-                  value={newMatch.place}
-                  onChange={handleInputChange}
-                  className="col-12"
-                />
-              </td>
-              <td className="text-end">
-                <button onClick={handleAddMatch} className="btn-blue my-2">
-                  <i className="fa-solid fa-check"></i> Añadir
-                </button>
-              </td>
+              <th className="text-end col-xs-6 p-2">Local</th>
+              <th className="text-start col-xs-6 p-2">Visitante</th>
+              <th className="col-lg-2 col-md-2 col-sm-2 p-2">Fecha</th>
+              <th className="col-lg-1 col-md-2 p-2">Hora</th>
+              <th className="col-lg-3 col-md-2 p-2">Lugar</th>
+              {isAuthenticated && <th className="col-2 p-2"></th>}
             </tr>
-          )}
-          {data.map((item, rowIndex) => (
-            <tr
-              className={`text-center ${
-                isRowInEditState(rowIndex) ? "edit-mode" : ""
-              }`}
-              key={rowIndex}
-            >
-              <td>
-                {isRowInEditState(rowIndex) ? (
-                  <input
-                    type="text"
-                    value={newMatch.homeTeam}
-                    name="homeTeam"
-                    placeholder={item.homeTeam}
-                    className="col-12 col-xs-6 text-end"
-                    onChange={handleInputChange}
-                  />
-                ) : (
-                  <div className="d-flex align-items-center justify-content-end py-2">
-                    <div>{item.homeTeam}</div>
-                    <div>
-                      <img
-                        src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.homeShortName}.png`}
-                        height="25px"
-                        className="ms-2"
-                        alt={`logo ${item.homeShortName}`}
-                      />
-                    </div>
-                  </div>
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
-                  <input
-                    type="text"
-                    value={newMatch.visitorTeam}
-                    name="visitorTeam"
-                    placeholder={item.visitorTeam}
-                    className="col-12"
-                    onChange={handleInputChange}
-                  />
-                ) : (
-                  <div className="d-flex align-items-center text-center py-2">
-                    <div>
-                      <img
-                        src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.visitorShortName}.png`}
-                        height="25px"
-                        className="me-2"
-                        alt={`logo ${item.visitorShortName}`}
-                      />
-                    </div>
-                    <div>{item.visitorTeam}</div>
-                  </div>
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
-                  <input
-                    type="date"
-                    value={newMatch.date}
-                    name="date"
-                    placeholder={item.date}
-                    className="col-12 text-center"
-                    onChange={handleInputChange}
-                  />
-                ) : (
-                  item.date
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
-                  <input
-                    type="text"
-                    value={newMatch.hour}
-                    name="hour"
-                    placeholder={item.hour}
-                    className="col-12 text-center"
-                    onChange={handleInputChange}
-                  />
-                ) : (
-                  item.hour
-                )}
-              </td>
-              <td>
-                {isRowInEditState(rowIndex) ? (
-                  <input
-                    type="text"
-                    value={newMatch.place}
-                    name="place"
-                    placeholder={item.place}
-                    className="col-12 text-center"
-                    onChange={handleInputChange}
-                  />
-                ) : (
-                  item.place
-                )}
-              </td>
-              {/* Edit buttons */}
-              {isAuthenticated && (
-                <td className="">
-                  <div className="d-flex justify-content-evenly">
+          </thead>
+          <tbody>
+            {addingMatch && (
+              <>
+                <tr className="text-center edit-mode">
+                  <td>
+                    <input
+                      type="text"
+                      name="homeTeam"
+                      placeholder="Selecciona"
+                      value={newMatch.homeTeam}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="visitorTeam"
+                      placeholder="Selecciona"
+                      value={newMatch.visitorTeam}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="date"
+                      name="date"
+                      placeholder="Fecha"
+                      value={newMatch.date}
+                      onChange={handleInputChange}
+                      className="col-11"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="hour"
+                      placeholder="hora"
+                      value={newMatch.hour}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="place"
+                      placeholder="Lugar"
+                      value={newMatch.place}
+                      onChange={handleInputChange}
+                      className="col-12"
+                    />
+                  </td>
+                  <td className="text-end">
+                    <button onClick={handleAddMatch} className="btn-blue my-2">
+                      <i className="fa-solid fa-check"></i> Añadir
+                    </button>
+                  </td>
+                </tr>
+                <tr className="text-center edit-mode">
+                  <td>
+                    <select
+                      id="homeShortName"
+                      value={newMatch.homeShortName}
+                      name="homeShortName"
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Logo Local</option>
+                      {logosList.map((logo, index) => (
+                        <option key={index} value={logo}>
+                          {logo}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      id="visitorShortName"
+                      value={newMatch.visitorShortName}
+                      name="visitorShortName"
+                      onChange={handleInputChange}
+                    >
+                      <option value="visitorShortName">Logo Local</option>
+                      {logosList.map((logo, index) => (
+                        <option key={index} value={logo}>
+                          {logo}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                </tr>
+              </>
+            )}
+            {data.map((item, rowIndex) => (
+              <React.Fragment key={rowIndex}>
+                <tr
+                  className={`text-center ${
+                    isRowInEditState(rowIndex) ? "edit-mode" : ""
+                  }`}
+                  key={rowIndex}
+                >
+                  <td>
                     {isRowInEditState(rowIndex) ? (
-                      <>
-                        <button
-                          onClick={() => handleSave(item)}
-                          className="btn-grey"
-                        >
-                          <i className="fa-regular fa-floppy-disk ms-1"></i>
-                        </button>
-                        <button
-                          onClick={() => handleCancel()}
-                          className="btn-grey"
-                        >
-                          <i className="fa-solid fa-x"></i>
-                        </button>
-                      </>
+                      <input
+                        type="text"
+                        value={newMatch.homeTeam}
+                        name="homeTeam"
+                        placeholder={item.homeTeam}
+                        className="col-12 col-xs-6 text-end"
+                        onChange={handleInputChange}
+                      />
                     ) : (
-                      <>
-                        <button
-                          onClick={() => handleEdit(rowIndex, item.id)}
-                          className="btn-grey"
-                        >
-                          <i className="fa-regular fa-pen-to-square ms-1"></i>
-                        </button>
-                        <button
-                          onClick={() => handleDelete(item.id, item.name)}
-                          className="btn-grey"
-                        >
-                          <i className="fa-regular fa-trash-can ms-1"></i>
-                        </button>
-                      </>
+                      <div className="d-flex align-items-center justify-content-end py-2">
+                        <div>{item.homeTeam}</div>
+                        <div>
+                          <img
+                            src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.homeShortName}.png`}
+                            height="25px"
+                            className="ms-2"
+                            alt={`logo ${item.homeShortName}`}
+                          />
+                        </div>
+                      </div>
                     )}
-                  </div>
-                </td>
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="text"
+                        value={newMatch.visitorTeam}
+                        name="visitorTeam"
+                        placeholder={item.visitorTeam}
+                        className="col-12"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className="d-flex align-items-center text-center py-2">
+                        <div>
+                          <img
+                            src={`https://images-atletico-sanabria.s3.amazonaws.com/logos/${item.visitorShortName}.png`}
+                            height="25px"
+                            className="me-2"
+                            alt={`logo ${item.visitorShortName}`}
+                          />
+                        </div>
+                        <div>{item.visitorTeam}</div>
+                      </div>
+                    )}
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="date"
+                        value={newMatch.date}
+                        name="date"
+                        placeholder={item.date}
+                        className="col-12 text-center"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      item.date
+                    )}
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="text"
+                        value={newMatch.hour}
+                        name="hour"
+                        placeholder={item.hour}
+                        className="col-12 text-center"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      item.hour
+                    )}
+                  </td>
+                  <td>
+                    {isRowInEditState(rowIndex) ? (
+                      <input
+                        type="text"
+                        value={newMatch.place}
+                        name="place"
+                        placeholder={item.place}
+                        className="col-12 text-center"
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      item.place
+                    )}
+                  </td>
+                  {/* Edit buttons */}
+                  {isAuthenticated && (
+                    <td className="">
+                      <div className="d-flex justify-content-evenly">
+                        {isRowInEditState(rowIndex) ? (
+                          <>
+                            <button
+                              onClick={() => handleSave(item)}
+                              className="btn-grey"
+                            >
+                              <i className="fa-regular fa-floppy-disk ms-1"></i>
+                            </button>
+                            <button
+                              onClick={() => handleCancel()}
+                              className="btn-grey"
+                            >
+                              <i className="fa-solid fa-x"></i>
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              onClick={() => handleEdit(rowIndex, item.id)}
+                              className="btn-grey"
+                            >
+                              <i className="fa-regular fa-pen-to-square ms-1"></i>
+                            </button>
+                            <button
+                              onClick={() => handleDelete(item.id, item.name)}
+                              className="btn-grey"
+                            >
+                              <i className="fa-regular fa-trash-can ms-1"></i>
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </td>
+                  )}
+                </tr>
+                {isRowInEditState(rowIndex) && (
+                  <tr className="text-center edit-mode">
+                    <td>
+                      <select
+                        id="homeShortName"
+                        value={newMatch.homeShortName}
+                        name="homeShortName"
+                        onChange={handleInputChange}
+                      >
+                        <option value="">
+                          {item.homeShortName
+                            ? item.homeShortName
+                            : "Logo Local"}
+                        </option>
+                        {logosList.map(
+                          (logo, index) =>
+                            item.homeShortName !== logo && (
+                              <option key={index} value={logo}>
+                                {logo}
+                              </option>
+                            )
+                        )}
+                      </select>
+                    </td>
+                    <td>
+                      <select
+                        id="visitorShortName"
+                        value={newMatch.visitorShortName}
+                        name="visitorShortName"
+                        onChange={handleInputChange}
+                      >
+                        <option value="visitorShortName">
+                          {item.visitorShortName
+                            ? item.visitorShortName
+                            : "Logo Local"}
+                        </option>
+                        {logosList.map(
+                          (logo, index) =>
+                            item.visitorShortName !== logo && (
+                              <option key={index} value={logo}>
+                                {logo}
+                              </option>
+                            )
+                        )}
+                      </select>
+                    </td>
+                  </tr>
+                )}
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

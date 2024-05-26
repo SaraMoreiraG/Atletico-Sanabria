@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Sports Club Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Sports Club project! This React application allows users to experience the thrill of sports through a modern, responsive, and feature-rich web interface. Whether you're a fan, player, or administrator, this project caters to everyone's needs.
 
-## Available Scripts
+<p align="center">See live <a href="https://atleticosanabria.com/" target="_blank">clicking here</a></p>
 
-In the project directory, you can run:
+![Sports Club Website Screenshot](atletico-sanabria-futbol.png)
 
-### `npm start`
+<p align="center">
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/2048px-HTML5_Badge.svg.png' alt='html' width='40'>
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png' alt='css' width='40'>
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png' alt='bootstrap' width='50'>
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png' alt='react' width='50'>
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png' alt='javascript' width='40'>
+	<img src='https://miro.medium.com/v2/resize:fit:800/1*bc9pmTiyKR0WNPka2w3e0Q.png'
+	alt='nodejs' width='45'>
+	<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/AWS_Simple_Icons_AWS_Cloud.svg/2560px-AWS_Simple_Icons_AWS_Cloud.svg.png'
+	alt='aws' width='45'>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 📱 Responsive Navbar: Navigate effortlessly on any device.
+- 🎮 Slider: Engage with captivating visuals through an interactive slider.
+- 🏅 Classification List: Stay updated on your favorite team's ranking.
+- 🔄 Next Match Carousel: Preview upcoming matches in a dynamic carousel.
+- 🏀 Different Sports Page Views: Explore dedicated pages for various sports.
+- 🤝 Sponsors Section: Showcase the valued supporters of your sports club.
+- 📸 Instagram Photos Section: Stay connected with the latest moments captured on Instagram.
+- 🎛 Control Panel: Empower administrators to update classification and next match details seamlessly.
 
-### `npm test`
+## Technologies Used
+This project is built using the following technologies and tools:
+- React
+- JavaScript
+- Node.js
+- Express
+- Bootstrap
+- Redux
+- DynamoDB
+- AWS
+- GitHub Actions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SaraMoreiraG/Atletico-Sanabria.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
+	```bash
+	cd Atletico-Sanabria
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
+	```bash
+	npm run start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Open your browser and go to http://localhost:3000/ to view the website.
 
-### `npm run eject`
+## Contributing
+We welcome contributions! If you'd like to contribute to the project, please follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Submit a pull request to the main repository.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### License
+This project is licensed under the MIT License.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contact
+If you have any questions or feedback, feel free to contact me at saramordev@gmail.com.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy exploring our sports club website! 🥇🏀🏈

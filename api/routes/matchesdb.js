@@ -124,10 +124,22 @@ router.put("/update/:itemId", (req, res) => {
     expressionAttributeValues[":homeTeam"] = { S: updatedData.homeTeam };
   }
 
+  if (typeof updatedData.homeShortName === "string") {
+    updateExpression.push("#homeShortName = :homeShortName");
+    expressionAttributeNames["#homeShortName"] = "homeShortName";
+    expressionAttributeValues[":homeShortName"] = { S: updatedData.homeShortName };
+  }
+
   if (typeof updatedData.visitorTeam === "string") {
     updateExpression.push("#visitorTeam = :visitorTeam");
     expressionAttributeNames["#visitorTeam"] = "visitorTeam";
     expressionAttributeValues[":visitorTeam"] = { S: updatedData.visitorTeam };
+  }
+
+  if (typeof updatedData.visitorShortName === "string") {
+    updateExpression.push("#visitorShortName = :visitorShortName");
+    expressionAttributeNames["#visitorShortName"] = "visitorShortName";
+    expressionAttributeValues[":visitorShortName"] = { S: updatedData.visitorShortName };
   }
 
   const updateCommand = {
@@ -208,8 +220,14 @@ router.post("/add", async (req, res) => {
     if (newTeam.homeTeam) {
       newTeamParams.Item.homeTeam = { S: newTeam.homeTeam.toString() };
     }
+    if (newTeam.homeShortName) {
+      newTeamParams.Item.homeShortName = { S: newTeam.homeShortName.toString() };
+    }
     if (newTeam.visitorTeam) {
       newTeamParams.Item.visitorTeam = { S: newTeam.visitorTeam.toString() };
+    }
+    if (newTeam.visitorShortName) {
+      newTeamParams.Item.visitorShortName = { S: newTeam.visitorShortName.toString() };
     }
 
     // Use DynamoDBClient to send the PutItemCommand
